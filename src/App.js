@@ -1,6 +1,6 @@
 import './App.css';
 import {React,Component} from "react";
-import StudentDashboard from "./components/StudentDashboardComponent";
+import StudentDashboard from "./components/student/StudentDashboardComponent";
 
 class App extends Component{
   render(){
