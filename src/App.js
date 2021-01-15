@@ -1,14 +1,29 @@
-import './App.css';
-import {React,Component} from "react";
-import StudentDashboard from "./components/student/StudentDashboardComponent";
+import React, { Component } from 'react';
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import { Route, BrowserRouter } from 'react-router-dom'
+import Login from './components/Login'
+import Register from './components/Register'
+import StudentRegisterForm from './components/StudentRegisterForm'
+import LecturerRegisterForm from "./components/LecturerRegisterForm";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-class App extends Component{
-  render(){
-    return(
-        <div className="App">
-            <StudentDashboard/>
-        </div>
-    );
-  }
+class App extends Component {
+    render() {
+        return (
+            <BrowserRouter>
+                <div className="App">
+                    <Navbar />
+                    <Route exact path='/' component={Login}/>
+                    <Route path='/' component={Home}/>
+                    <Route path='/Register' component={Register} />
+                    <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
+                    <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
+                </div>
+            </BrowserRouter>
+        );
+    }
 }
+
 export default App;
+
