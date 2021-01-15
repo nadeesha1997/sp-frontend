@@ -11,56 +11,56 @@ import {Image} from "react-bootstrap";
 
 const Login = () => {
     return (
-
-
-
         <div className="split left">
-                 <div className="centered">
-                      <div className="centered img">
-                         <div className="image">
-                             <Image img src={icon} alt="icon" width="430" height="430"  border-radius="50%"/>
-                         </div>
+
+                    <div className="p1">
+                        <h3><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h3>
+                    </div>
+
+            <div className="centered img">
+                <Image img src={icon} alt="icon"/>
+
 
                         {/* properties set in the login page */}
                         <div className="Container">
                             <div className="content">
-                                        <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required
-                                        fullWidth
-                                        id="uname"
-                                        label="User Name"
-                                        name="uname"
-                                        autoComplete="uname"
-                                        autoFocus
-                                        />
+                                            <TextField
+                                            variant="outlined"
+                                            margin="normal"
+                                            required
+                                            fullWidth
+                                            id="uname"
+                                            label="User Name"
+                                            name="uname"
+                                            autoComplete="uname"
+                                            autoFocus
+                                            />
 
-                                       <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required
-                                        fullWidth
-                                        name="password"
-                                        label="Password"
-                                        type="password"
-                                        id="password"
-                                        autoComplete="current-password"
-                                         />
+                                           <TextField
+                                            variant="outlined"
+                                            margin="normal"
+                                            required
+                                            fullWidth
+                                            name="password"
+                                            label="Password"
+                                            type="password"
+                                            id="password"
+                                            autoComplete="current-password"
+                                             />
 
-                                        <FormControlLabel
-                                        control={<Checkbox value="remember" color="#91beeb" />}
-                                        label="Remember me"
-                                        />
+                                            <FormControlLabel
+                                            control={<Checkbox value="remember" color="#91beeb" />}
+                                            label="Remember me"
+                                            />
 
-                                        <Button
-                                        type="submit"
-                                        fullWidth
-                                        variant="contained"
-                                        color="#91beeb"
-                                         >
-                                        Sign In
-                                        </Button>
+                                            <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            color="#91beeb"
+                                             >
+                                            Sign In
+                                            </Button>
 
                                            <Grid container>
                                                <Grid item s>
@@ -69,15 +69,15 @@ const Login = () => {
                                                               </Link>
                                                </Grid>
                                                <Grid item>
-                                                              <Link to="./Register">
-                                                              {"Don't have an account? Register Here"}
-                                                             </Link>
+                                                            <p> Don't have an account?
+                                                             <Link to="./Register">
+                                                              {"Register Here"}
+                                                             </Link></p>
                                                </Grid>
                                            </Grid>
                             </div>
                         </div>
                       </div>
-                 </div>
 
 
 
@@ -86,22 +86,30 @@ const Login = () => {
             {/* right part of the page setting*/}
             <div className="split right">
 
+
                   <div className="centered">
 
                       <div class="p1">
                            <div id="movetxt"><p class="groove">LSMS   <br/>
-                             FACULTY OF ENGINNERING<br/>
+                             FACULTY OF ENGINEERING<br/>
                              UNIVERSITY OF RUHUNA</p>
                            </div>
                       </div>
-
                   </div>
 
+                  <div className="topright">
+                                <dl>
+                                    <dt><b>Contact Info : </b></dt>
+                                    <dd><b>Website :<a href="http://www.eng.ruh.ac.lk/"> eng.ruh.ac.lk </a></b></dd>
+                                    <dd><b>Address : Hapugala, Galle, Sri Lanka</b></dd>
+                                    <dd><b>Tel: +(94)0 91 2245765-8</b></dd>
+                                    <dd><b> Fax:+(94)0 91 2245762</b></dd>
+                                </dl>
+                  </div>
             </div>
-
         </div>
 
-    )
+    );
 
 }
 

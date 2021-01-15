@@ -1,7 +1,5 @@
 /*page border*/
-.page{
-    border: 10px inset rgba(51,15,0.5,0.65);
-}
+
 
 /*page divide into two parts*/
 .split {
@@ -21,14 +19,15 @@
 /*right part*/
 .right {
     right: 0;
-    background-color: #c2a9ee;
+    background-color: #d1bdf5;
 }
 
 /*image properties*/
 .centered img {
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
+
 }
 
 
@@ -39,6 +38,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+
 }
 
 
@@ -49,15 +49,9 @@
     text-shadow: 0.5px 1px 1px black;
     font-size: 30px;
     font-weight: bold;
-text-align: center;
+   text-align: center;
+
 }
-
-/*
-.center {
-    margin:10px 10px;
-    text-align: center;
-}*/
-
 
 
 /*text animation*/
@@ -73,8 +67,8 @@ text-align: center;
 }
 
 @keyframes moving {
-    from {top: -500px;}
-    to {top:100px;}
+    from {bottom: -500px;}
+    to {bottom: 20px;}
 }
 
 
@@ -87,14 +81,13 @@ p.groove {
     outline-width: medium;}
 
 
-
-
-.bg {
-    width :50% ;
-    height:50%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/*contact info properties*/
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+    background-color: #dab6fd;
+    padding: 20px;
 }
-
 
