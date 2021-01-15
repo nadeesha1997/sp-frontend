@@ -70,7 +70,7 @@ const Login = () => {
                                                </Grid>
                                                <Grid item>
                                                             <p> Don't have an account?
-                                                             <Link to="./Register">
+                                                             <Link to="./register/student">
                                                               {"Register Here"}
                                                              </Link></p>
                                                </Grid>
