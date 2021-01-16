@@ -47,7 +47,6 @@ class FacultyStaffRegisterForm extends Component {
     if (data.Full_Name === "") errors.Full_Name = "Full_Name can not be blank.";
     if (data.email === "") errors.email = "Email can not be blank.";
     if (data.Dept_ID === "") errors.Dept_ID = "Dept_ID can not be blank.";
-
     if (data.password === "") errors.password = "Password must be valid.";
     if (data.confirmPassword !== data.password)
       errors.confirmPassword = "Passwords must match.";

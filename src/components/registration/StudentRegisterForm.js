@@ -8,6 +8,7 @@ import {
   FormFeedback,
   Button,
 } from "reactstrap";
+import Link from "@material-ui/core/Link";
 
 class StudentRegisterForm extends Component {
   constructor(props) {
@@ -163,8 +164,10 @@ class StudentRegisterForm extends Component {
             </FormGroup>
 
             <div className="col-sm-12">
-              <Button className="btn-block" color="primary">Register</Button>
-            </div>
+              <Button className="btn-block" color="primary">
+                Register
+              </Button>
+        </div>
           </Form>
         </div>
       </div>
