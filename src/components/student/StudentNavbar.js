@@ -16,9 +16,9 @@ const Navbar = () => {
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="student/profile">My Profile</a>
+                        {/* <a class="nav-link" href="#">Link</a> */}
                     </li>
-                    {/* <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Time Slot
                         </a>
@@ -28,7 +28,7 @@ const Navbar = () => {
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                    </li> */}
+                    </li>
                     <li class="nav-item">
                         {/* <a class="nav-link disabled" href="#">Disabled</a> */}
                     </li>

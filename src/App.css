@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.navbar-fixed-top{
+  position: fixed;
+  margin-top: -110px;
+  width: 100%;
+}
+.registration-tab-pane{
+  margin-top: 110px;
+}

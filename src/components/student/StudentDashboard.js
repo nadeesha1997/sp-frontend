@@ -9,7 +9,7 @@ class StudentDashboard extends Component {
     }
     render() {
         return (
-                <div ClassName="StudentDashboard">
+                <div className="StudentDashboard">
                     <StudentNavbar />
                     {/* <LectureSchedule/> */}
                 </div>
