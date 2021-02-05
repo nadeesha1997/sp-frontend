@@ -1,25 +1,9 @@
 /*page border*/
 
 
-/*page divide into two parts*/
-.split {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    top: 0;
-    padding: 10px;
-}
 
-/*left part*/
-.left {
-    left: 0;
+.bg{
     background-color: #dab6fd;
-}
-
-/*right part*/
-.right {
-    right: 0;
-    background-color: #d1bdf5;
 }
 
 /*image properties*/
@@ -31,7 +15,7 @@
 }
 
 
-/*half page properties*/
+
 .centered {
     position: absolute;
     top: 50%;
@@ -53,41 +37,4 @@
 
 }
 
-
-/*text animation*/
-#movetxt {
-    position: relative;
-    -webkit-animation: moving 10s infinite;
-    animation: moving 5s infinite;
-}
-
-@-webkit-keyframes moving {
-    from {top: -500px;}
-    to {top: 50px;}
-}
-
-@keyframes moving {
-    from {bottom: -500px;}
-    to {bottom: 20px;}
-}
-
-
-/*outline border*/
-p.groove {
-    outline-style: groove;
-    border: 1px solid black;
-    outline-style: solid;
-    outline-color:#48069e;
-    outline-width: medium;}
-
-
-/*contact info properties*/
-.topright {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    font-size: 18px;
-    background-color: #dab6fd;
-    padding: 20px;
-}
 
