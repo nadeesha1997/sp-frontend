@@ -47,7 +47,7 @@ const FirstPage = () => {
 </center>
                         <div>
                             <Carousel>
-                                <Carousel.Item interval={400}>
+                                <Carousel.Item interval={800}>
 
                                     <img
                                         className="w-75 p-3"
@@ -59,7 +59,7 @@ const FirstPage = () => {
 
                                     </Carousel.Caption>
                                 </Carousel.Item>
-                                <Carousel.Item >
+                                <Carousel.Item interval={800}>
                                     <img
                                         className="w-75 p-3"
                                         img src={faculty1} alt="faculty" height="400px" width="300px"
@@ -70,7 +70,7 @@ const FirstPage = () => {
 
                                     </Carousel.Caption>
                                 </Carousel.Item>
-                                <Carousel.Item>
+                                <Carousel.Item interval={800}>
                                     <img
                                         className="w-75 p-3"
                                         img src={faculty2} alt="faculty" height="400px" width="300px"
@@ -80,8 +80,8 @@ const FirstPage = () => {
                                         <h3>Hapugala Galle</h3>
 
                                     </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
+                                </Carousel.Item >
+                                <Carousel.Item interval={800}>
                                     <img
                                         className="w-75 p-3"
                                         img src={faculty4} alt="faculty" height="400px" width="300px"
@@ -92,7 +92,7 @@ const FirstPage = () => {
 
                                     </Carousel.Caption>
                                 </Carousel.Item>
-                                <Carousel.Item >
+                                <Carousel.Item interval={800}>
                                     <img
                                         className="w-75 p-3"
                                         img src={faculty5} alt="faculty" height="400px" width="300px"
@@ -103,7 +103,7 @@ const FirstPage = () => {
 
                                     </Carousel.Caption>
                                 </Carousel.Item>
-                                <Carousel.Item>
+                                <Carousel.Item interval={800}>
                                     <img
                                         className="w-75 p-3"
                                         img src={faculty6} alt="faculty" height="400px" width="300px"

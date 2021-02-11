@@ -4,6 +4,7 @@ import Calendar from "./calendar/calendar";
 import Table from "react-bootstrap/Table";
 import {Image} from "react-bootstrap";
 import icon3 from './../images/icon3.png'
+import SubjectList from "./SubjectList";
 
 
 const Home = () => {
@@ -195,21 +196,13 @@ const Home = () => {
                     </Table>
             </div>
 
-                <div className="bottom_right">
-                    <div className="custom-select">
-                        <select>
-                            <option value="0">select the semester:</option>
-                            <option value="1">semester 01</option>
-                            <option value="2">semester 02</option>
-                            <option value="2">semester 03</option>
-                            <option value="2">semester 04</option>
-                            <option value="2">semester 05</option>
-                            <option value="2">semester 06</option>
-                            <option value="2">semester 07</option>
-                            <option value="2">semester 08</option>
-                        </select>
-                    </div>
-                </div>
+
+          <div>
+              <SubjectList/>
+          </div>
+
+
+
 
         </div>
 

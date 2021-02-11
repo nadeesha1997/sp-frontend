@@ -24,11 +24,7 @@
 
 }
 
-.bottom_right{
-    position:absolute;
-    bottom:350px;
-    right:150px;
-}
+
 
 .bg{
     backgroundColor: #d1bdf5;
@@ -113,4 +109,17 @@
     text-align: center;
     margin-left: 0px;
     margin-top: 0px;
+}
+
+.bottom_corner{
+    position:absolute;
+    bottom:300px;
+    right:150px;
+
+}
+
+.bottom_right{
+    position:absolute;
+    bottom:350px;
+    right:150px;
 }
