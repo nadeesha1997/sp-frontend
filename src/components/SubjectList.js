@@ -2,39 +2,62 @@ import axios from 'axios';
 import React from 'react';
 import './css/home.css'
 
-export default class StudentList extends React.Component {
 
-    state = {
+export default class StudentList extends React.Component {
+constructor() {
+    super();
+    this.state = {
         semester: ' ',
         department: ' ',
         modules: []
     }
 
+}
+
     OnSubmit() {
-        axios.get(`localhost:5001/api/subjects/department/{department}/semester/{semester}`)
+        console.log(this.state)
+        axios.get(`https://localhost:5001/api/subjects/department/${this.state.department}/semester/${this.state.semester}`)
             .then(res => {
-                const modules = res.data;
-                this.setState({modules});
+                const mod= res.data;
+                this.setState({modules:mod});
+                console.log(this.state)
             })
     }
-
 
 
     handleSemChange(event) {
         let value = event.target.value;
         this.setState({semester:value});
+        console.log(this.state)
     }
 
     handleDeptChange(event) {
         let value = event.target.value;
         this.setState({department:value});
+        console.log(this.state)
     }
 
 
     render() {
-        return (
 
-            <div>
+        const mod=this.state.modules.map((mod)=>{
+            return(
+                <div>
+             <table> <div key={mod.code}>
+                 <th><h5>{mod.code}</h5>
+             </th>
+             <th> <div key={mod.name}>
+                <h5>{mod.name}</h5>
+            </div> </th></div>
+             </table>
+
+                </div>
+
+        );
+        });
+
+        return (
+            <div><div className="row-cols-md-6">
                 <div className="bottom_right">
                     <div className="custom-select">
                         <select ref="selectOption" onChange={(e) => this.handleSemChange(e)}>
@@ -63,13 +86,23 @@ export default class StudentList extends React.Component {
                     </div>
                 </div>
 
+
+
                 <div>
-                    <button onClick={() => this.state.onSubmit()}
-                            style={{backgroundColor:'#9b82c3',marginTop:300,marginLeft:300}}>
-                        {this.state.value}
+                    <button onClick={() => this.OnSubmit()}
+                            style={{backgroundColor:'#9b82c3',marginTop:300,marginLeft:200}}>
                         <b>SELECT</b>
                     </button>
+
+                    <div>
+                        <div>
+                            <table><td>{mod}</td>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
             </div>
         )
     }

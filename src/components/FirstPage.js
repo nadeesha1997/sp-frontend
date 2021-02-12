@@ -15,18 +15,22 @@ import faculty6 from "../images/faculty6.jpg";
 
 const FirstPage = () => {
     return (
+
+
                     <div className="page">
 <center>
                       <table>
+                          <div className="col-md-10">
                         <Image img src={icon3} alt="icon3" height="170px" width="800px"/>
+                    </div>
                         <td>
 
                        <div className="align">
-                       <Button  style={{width:150,backgroundColor:'#7047ba',marginTop:10,marginLeft:20,marginright:20}} type='submit' >
+                            <Button  style={{width:150,backgroundColor:'#7047ba',marginTop:10,marginLeft:20,marginright:20}} type='submit' >
 
                        <Link to="./Login"><b>Log In</b>  </Link>
                        </Button>
-                    <Button style={{width:180,backgroundColor:'#7047ba',marginTop:10,marginLeft:20,marginright:20,fontcolor:'#f2eef5'}} type='submit'>
+                             <Button style={{width:180,backgroundColor:'#7047ba',marginTop:10,marginLeft:20,marginright:20,fontcolor:'#f2eef5'}} type='submit'>
                         <Link to="./Register"> <b> Register</b>  </Link>
                     </Button>
 
@@ -44,8 +48,11 @@ const FirstPage = () => {
               </tr></div>
                    </td>
                  </table>
+
+
 </center>
-                        <div>
+
+            <div>
                             <Carousel>
                                 <Carousel.Item interval={800}>
 

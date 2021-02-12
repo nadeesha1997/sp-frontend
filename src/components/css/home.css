@@ -113,13 +113,13 @@
 
 .bottom_corner{
     position:absolute;
-    bottom:300px;
+    bottom:0px;
     right:150px;
 
 }
 
 .bottom_right{
     position:absolute;
-    bottom:350px;
+    bottom:40px;
     right:150px;
 }
