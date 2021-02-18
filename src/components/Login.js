@@ -2,25 +2,31 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './css/log.css'
 import icon from './../images/icon.jpg'
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import {Image,Button} from "react-bootstrap";
+import {Image} from "react-bootstrap";
 import Grid from 'react-bootstrap/Container'
+import {
+    Button,
+    Input,
+    Label,
+    FormGroup,
+} from "reactstrap";
+import Checkbox from "@material-ui/core/Checkbox";
 
 const Login = () => {
     return (
 
 
-        <div>
+        <div>  <div className="col-md-12">
             <div className="p1">
                 <h3><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h3>
-            </div>
-            <div className="centered img">
-                <Image img src={icon} alt="icon"/>
+            </div></div>
+
+            <div className="centered img"><div className="col-md-6">
+                <Image img src={icon} alt="icon"/></div>
                         {/* properties set in the login page */}
-                        <table>
-                                <tr>        <TextField
+                        <div className="col-md-12">
+                                <Label for="username">username</Label>
+                                    <Input
                                             variant="outlined"
                                             margin="normal"
                                             required
@@ -30,9 +36,11 @@ const Login = () => {
                                             name="uname"
                                             autoComplete="uname"
                                             autoFocus
-                                            /></tr>
+                                            />
 
-                                <tr>     <TextField
+
+                                    <Label for="Password">password</Label>
+                                    <Input
                                             variant="outlined"
                                             margin="normal"
                                             required
@@ -42,12 +50,14 @@ const Login = () => {
                                             type="password"
                                             id="password"
                                             autoComplete="current-password"
-                                             />  </tr>
+                                             />
 
-                                <FormControlLabel
-                                            control={<Checkbox value="remember" color="#91beeb" />}
-                                            label="Remember me"
-                                            />
+                                <FormGroup>
+                                    <div className="col-sm-12">
+
+
+                                        <Checkbox value="remember" color="#91beeb" />
+                                        <Label for="Remember me"> Remember me: </Label>
 
                                             <Button
                                             type="submit"
@@ -70,8 +80,8 @@ const Login = () => {
                                                               {"Register Here"}
                                                              </Link></p>
                                                </Grid>
-                                           </Grid>
-                            </table>
+                                           </Grid></div></FormGroup></div>
+
                       </div>
 </div>
 

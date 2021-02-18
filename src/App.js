@@ -10,6 +10,7 @@ import StudentDashboard from './components/student/StudentDashboard';
 import StudentProfile from './components/student/StudentProfile';
 import Home from './components/Home'
 import FirstPage from './components/FirstPage'
+import SubjectList from "./components/SubjectList";
 
 
 class App extends Component {
@@ -26,7 +27,7 @@ class App extends Component {
                     <Route path= '/Student/Profile' component={StudentProfile}/>
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Login}/>
-
+                    <Route path= '/SubjectList' component={SubjectList}/>
                 </div>
             </BrowserRouter>
         );
