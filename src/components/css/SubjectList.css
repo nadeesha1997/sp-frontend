@@ -173,7 +173,7 @@ ul {
     border: #1d0e43 1px solid;
 
 }
-/* Define the hover highlight color for the table row */
+/* Define the hover highlight color for the table row  properly*/
 .hoverTable tr:hover {
     background-color: #6c33c8;
     color: white;
