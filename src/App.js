@@ -12,6 +12,7 @@ import Home from './components/Home'
 import FirstPage from './components/FirstPage'
 import SubjectList from "./components/SubjectList";
 import Drag from "./components/drag";
+import DragAndDropTest from "./components/DragAndDropTest";
 
 class App extends Component {
     render() {
@@ -21,7 +22,7 @@ class App extends Component {
                     <Navbar />
                     <Route exact path='/' component={FirstPage}/>
                     <Route path='/student' component={StudentDashboard}/>
-                   <Route path='/Register' component={Register} />
+                    <Route path='/Register' component={Register} />
                     <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
                     <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
                     <Route path= '/Student/Profile' component={StudentProfile}/>
@@ -29,6 +30,7 @@ class App extends Component {
                     <Route path= '/Login' component={Login}/>
                     <Route path= '/SubjectList' component={SubjectList}/>
                     <Route path= '/Drag' component={Drag}/>
+                    <Route path= '/test' component={DragAndDropTest}/>
                 </div>
             </BrowserRouter>
         );

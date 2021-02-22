@@ -129,13 +129,6 @@ export default class StudentList extends React.Component {
                             </tbody>
                         </table>
 
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div>

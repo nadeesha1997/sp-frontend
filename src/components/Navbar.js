@@ -7,11 +7,11 @@ const Navbar = () => {
             <div className="container">
                 {/* eslint-disable-next-line */}
 
-                <ul classNamen>
+                {/*<ul className>*/}
 
-                    {/* <li><a href='/Login'>Login</a></li>
-                    <li><a href='/Register'>Register</a></li> */}
-                </ul>
+                {/*    /!* <li><a href='/Login'>Login</a></li>*/}
+                {/*    <li><a href='/Register'>Register</a></li> *!/*/}
+                {/*</ul>*/}
             </div>
         </nav>
     )
