@@ -1,0 +1,18 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(11, 2fr);
+    background-color: #cc8bf3;
+    /*padding: 10px;*/
+    grid-column-gap:0.1em;
+    grid-row-gap: 0.1em;
+}
+.grid-item {
+    background-color: #cc8bf3;
+   border: 1px solid #3f285a;
+   padding: 4px;
+    font-size:16px;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Times New Roman";
+}
+/*grid*/

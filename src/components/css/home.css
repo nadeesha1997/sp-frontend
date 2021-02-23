@@ -1,0 +1,131 @@
+.column1 {
+    margin-top: 0px;
+    float: left;
+    /*width: -20%;*/
+    padding: 0px;
+    background-color: #d1bdf5;
+    height: max-content;
+
+}
+
+/* Clear floats after the columns
+ .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    background-color: #d1bdf5;
+}*/
+
+.column2{
+    margin-top: 230px;
+    margin-left: 30px;
+    float:right;
+    width: 70%;
+    background-color: #d1bdf5;
+
+}
+
+
+
+.bg{
+    backgroundColor: #d1bdf5;
+}
+
+/* The container must be positioned relative: */
+.custom-select {
+    /*position: relative;*/
+    font-family: Arial;
+    font-weight: bold;
+    background-color: #aa83c8;
+    margin: 5px;
+}
+.select-selected {
+    background-color: #9b50d2;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #521ed0 transparent transparent transparent;
+    font-weight: bold;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #6344d2 transparent;
+    top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+    color: #6f18bc;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+    /*position: absolute;*/
+    background-color: #6f18bc;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    font-weight: bold;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgb(29, 4, 65);
+}
+
+
+.top_left{
+    position:absolute;
+    top:20px;
+    left:10px;
+}
+
+.photon {
+    /*height: 218px;*/
+    width:100%;
+    margin-left: 10px;
+}
+.page{
+    padding: 2%;
+    background-color: #cc8bf3;
+    color: #3f285a;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+.bottom_corner{
+    /*position:absolute;*/
+    bottom:0px;
+    /*top:320px;*/
+    right:150px;
+
+}
+
+.bottom_right{
+    /*position:absolute;*/
+    bottom:40px;
+    /*top:280px;*/
+    right:150px;
+}
+
+/**/
