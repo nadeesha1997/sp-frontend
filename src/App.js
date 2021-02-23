@@ -13,6 +13,7 @@ import FirstPage from './components/FirstPage'
 import SubjectList from "./components/SubjectList";
 import Drag from "./components/drag";
 import DragAndDropTest from "./components/DragAndDropTest";
+import TimeTable from "./components/TimeTable";
 
 class App extends Component {
     render() {
@@ -31,6 +32,7 @@ class App extends Component {
                     <Route path= '/SubjectList' component={SubjectList}/>
                     <Route path= '/Drag' component={Drag}/>
                     <Route path= '/test' component={DragAndDropTest}/>
+                    <Route path= '/timetable' component={TimeTable}/>
                 </div>
             </BrowserRouter>
         );

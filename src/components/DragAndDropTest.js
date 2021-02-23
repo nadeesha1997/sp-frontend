@@ -25,19 +25,20 @@ class DragAndDropTest extends Component {
     onDragStart=(ev,id)=>{
         console.log('dragstart:',id);
         ev.dataTransfer.setData("id",id);
+        // console.log(ev.dataTransfer.data);
     }
     onDrop = (ev, cat) => {
         let id = ev.dataTransfer.getData("id");
         let tasks = this.state.tasks.filter((task) => {
-            if (task.name == id) {
+            if (task.name === id) {
                 task.category = cat;
             }
             return task;
         });
         this.setState({
-            ...this.state,
-            tasks
+           tasks:tasks
         });
+        console.log(this.state);
     }
 
 

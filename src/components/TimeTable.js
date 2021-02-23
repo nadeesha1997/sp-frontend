@@ -1,5 +1,6 @@
 import React from 'react'
 import './css/table.css'
+import ModuleDrop from "./ModuleDrop";
 
 const TimeTable =() =>{
     return(
@@ -16,7 +17,7 @@ const TimeTable =() =>{
                 <div className="grid-item">IS-CC</div>
                 <div className="grid-item">ELEC-CC</div>
                 <div className="grid-item">7.30</div>
-                <div className="grid-item"></div>
+                <div className="grid-item"><ModuleDrop/></div>
                 <div className="grid-item"></div>
                 <div className="grid-item"></div>
                 <div className="grid-item"></div>

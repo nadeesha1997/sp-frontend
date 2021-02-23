@@ -36,6 +36,10 @@ export default class StudentList extends React.Component {
         this.setState({department: value});
         console.log(this.state)
     }
+    onDragStart=(ev,id)=>{
+        console.log('dragstart:',id);
+        ev.dataTransfer.setData("id",id);
+    }
 
 
     render() {
@@ -43,10 +47,18 @@ export default class StudentList extends React.Component {
         const mod = this.state.modules.map((mod) => {
             return (
 
-              <tr key={mod.id}>
-                   <td>{mod.code}</td>
-                    <td> - {mod.name}</td>
-              </tr>
+              // <tr key={mod.id}>
+              //      <td>{mod.code}</td>
+              //       <td> - {mod.name}</td>
+              // </tr>
+                <li>
+                    <div key={mod.id}
+                         onDragStart={(e) => this.onDragStart(e, mod.id)}
+                         draggable
+                         className="draggable">
+                        {mod.code} - {mod.name}
+                    </div>
+                </li>
 
 
 
@@ -69,7 +81,9 @@ export default class StudentList extends React.Component {
 
                         <div className="custom-select">
 
-                            <select ref="selectOption" onChange={(e) => this.handleSemChange(e)}>
+                            <select
+                                // ref="selectOption"
+                                onChange={(e) => this.handleSemChange(e)}>
                                 <option>select the semester:</option>
                                 <option value="1">semester 01</option>
                                 <option value="2">semester 02</option>
@@ -90,7 +104,9 @@ export default class StudentList extends React.Component {
 
                         <div className="custom-select">
 
-                            <select ref="selectTime" onChange={(e) => this.handleDeptChange(e)}>
+                            <select
+                                // ref="selectTime"
+                                onChange={(e) => this.handleDeptChange(e)}>
                                 <option>select the Department:</option>
                                 <option value="EE">DEIE</option>
                                 <option value="CE">CEE</option>
@@ -119,16 +135,20 @@ export default class StudentList extends React.Component {
                 </div>*/}
                 <div className="row">
                     <div style={{margin: '15px'}}>
-                     <table class="hoverTable">
-                            <thead>
-                            <tr>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {mod}
-                            </tbody>
-                        </table>
+                    {/* <table class="hoverTable">*/}
+                    {/*        <thead>*/}
+                    {/*        <tr>*/}
+                    {/*        </tr>*/}
+                    {/*        </thead>*/}
+                    {/*        <tbody>*/}
+                    {/*        {mod}*/}
+                    {/*        </tbody>*/}
+                    {/*    </table>*/}
 
+                    {/*</div>*/}
+                    <ul>
+                        {mod}
+                    </ul>
                     </div>
                 </div>
             </div>
