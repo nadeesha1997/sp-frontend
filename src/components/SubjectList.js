@@ -24,7 +24,6 @@ export default class StudentList extends React.Component {
             })
     }
 
-
     handleSemChange(event) {
         let value = event.target.value;
         this.setState({semester: value});

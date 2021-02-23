@@ -1,6 +1,5 @@
 import React,{Component} from "react";
-
-// import axios from "axios";
+import axios from "axios";
 class ModuleDrop extends Component{
     constructor(props) {
         super(props);
@@ -8,7 +7,7 @@ class ModuleDrop extends Component{
 
     state={
         StartTime:this.props.startTime,
-        EndTime:this.props.endTime,
+        EndTime:this.props.EndTime,
         HallId:this.props.hallId,
         SubjectId:null
     }
@@ -46,7 +45,7 @@ class ModuleDrop extends Component{
             SubjectId:id
         })
         console.log(this.state);
-       /* axios.post({}`)*/
+        //axios.post("https://localhost:5001/api/Sessions", this.state);
 
     }
     render() {
