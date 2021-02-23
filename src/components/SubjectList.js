@@ -63,7 +63,7 @@ export default class StudentList extends React.Component {
 
 
 
-                /*    <grid key={mod.id}>
+               /*    <grid key={mod.id}>
                     <div className="grid-item2">
                         {mod.code} - {mod.name}
                     </div>
