@@ -27,7 +27,9 @@
     "react-simple-image-slider": "^2.0.1",
     "react-text-transition": "^1.1.4",
     "react-transition-group": "^2.9.0",
+    "react-validation": "^3.0.7",
     "reactstrap": "^8.7.1",
+    "validator": "^13.5.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

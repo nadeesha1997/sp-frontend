@@ -13,16 +13,11 @@ class LecturerRegisterForm extends Component  {
 
     getInitialState = () => ({
         data: {
-
-
-
             "Lecturer_ID": '',
             "Full_Name": '',
             "email": '',
             "password": '',
             "Dept_ID": ''
-
-
         },
         errors: {}
     });
