@@ -17,7 +17,7 @@ class LecturerRegisterForm extends Component {
       email: "",
       password: "",
       confirmPassword:"",
-      DeptID: "",
+      DepartmentID: "",
 
     },
     errors: {},
@@ -41,7 +41,7 @@ class LecturerRegisterForm extends Component {
     if (data.RegNo === "") errors.RegNo = "Lecturer_ID can not be blank.";
     if (data.FullName === "") errors.FullName = "Full_Name can not be blank.";
     if (data.email === "") errors.email = " Email can not be blank.";
-    if (data.Dept_ID === "") errors.Dept_ID = "Dept_ID can not be blank.";
+    if (data.DeptID === "") errors.Dept_ID = "Dept_ID can not be blank.";
     if (data.password === "") errors.password = "Password must be valid.";
     if (data.confirmPassword !== data.password)
       errors.confirmPassword = "Passwords must match.";
@@ -59,7 +59,10 @@ class LecturerRegisterForm extends Component {
     if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:5001/api/accounts/register/teacher', data).then(console.log(res.data));
+      axios.post('https://localhost:5001/api/accounts/register/teacher', data)
+          .then(res=>{
+        console.log(res.data);
+      });
       //Resetting the form
       this.setState(this.getInitialState());
     } else {
@@ -118,14 +121,14 @@ class LecturerRegisterForm extends Component {
 
               <FormGroup>
                 <div className="col-sm-12">
-                  <Label for="Dept_ID">Dept ID : </Label>
+                  <Label for="DeptID">Dept ID : </Label>
                   <Input
-                      value={data.Dept_ID}
-                      invalid={!!errors.Dept_ID}
-                      name="Dept_ID"
+                      value={data.DepartmentID}
+                      invalid={!!errors.DepartmentID}
+                      name="DepartmentID"
                       onChange={this.handleChange}
                   />
-                  <FormFeedback>{errors.Dept_ID}</FormFeedback>
+                  <FormFeedback>{errors.DepartmentID}</FormFeedback>
                 </div>
               </FormGroup>
 
