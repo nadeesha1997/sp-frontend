@@ -1,0 +1,65 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fullcalendar/daygrid": "^5.5.0",
+    "@fullcalendar/react": "^5.5.0",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@wojtekmaj/react-timerange-picker": "^3.0.0",
+    "af-virtual-scroll": "^2.5.5",
+    "bootstrap": "^4.5.3",
+    "mdbreact": "^5.0.1",
+    "moment": "^2.29.1",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.3",
+    "react-calendar": "^3.3.0",
+    "react-dom": "^17.0.1",
+    "react-moving-text": "^0.0.7",
+    "react-native-navigation-bar": "^0.2.1",
+    "react-popper": "^2.2.4",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.0",
+    "react-simple-image-slider": "^2.0.1",
+    "react-text-transition": "^1.1.4",
+    "react-transition-group": "^2.9.0",
+    "react-validation": "^3.0.7",
+    "reactstrap": "^8.7.1",
+    "validator": "^13.5.2",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@material-ui/core": "^4.11.2",
+    "axios": "^0.21.1",
+    "images": "^3.2.3",
+    "react-animated-text": "^0.1.4"
+  }
+}
