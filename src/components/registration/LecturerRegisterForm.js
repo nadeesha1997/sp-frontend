@@ -58,7 +58,7 @@ class LecturerRegisterForm extends Component {
     if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:44374/api/Lecturer', data)
+      axios.post('https://localhost:5001/api/Lecturer', data)
       //Resetting the form
       this.setState(this.getInitialState());
     } else {
