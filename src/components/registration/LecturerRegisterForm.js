@@ -12,11 +12,12 @@ class LecturerRegisterForm extends Component {
 
   getInitialState = () => ({
     data: {
-      Lecturer_ID: "",
-      Full_Name: "",
+      RegNo: "",
+      FullName: "",
       email: "",
       password: "",
-      Dept_ID: "",
+      confirmPassword:"",
+      DeptID: "",
 
     },
     errors: {},
@@ -37,8 +38,8 @@ class LecturerRegisterForm extends Component {
     const { data } = this.state;
     let errors = {};
 
-    if (data.Lecturer_ID === "") errors.Lecturer_ID = "Lecturer_ID can not be blank.";
-    if (data.Full_Name === "") errors.Full_Name = "Full_Name can not be blank.";
+    if (data.RegNo === "") errors.RegNo = "Lecturer_ID can not be blank.";
+    if (data.FullName === "") errors.FullName = "Full_Name can not be blank.";
     if (data.email === "") errors.email = " Email can not be blank.";
     if (data.Dept_ID === "") errors.Dept_ID = "Dept_ID can not be blank.";
     if (data.password === "") errors.password = "Password must be valid.";
@@ -58,7 +59,7 @@ class LecturerRegisterForm extends Component {
     if (Object.keys(errors).length === 0) {
       console.log(data);
       //Call an api here
-      axios.post('https://localhost:44374/api/Lecturer', data)
+      axios.post('https://localhost:5001/api/accounts/register/teacher', data).then(console.log(res.data));
       //Resetting the form
       this.setState(this.getInitialState());
     } else {
@@ -78,27 +79,27 @@ class LecturerRegisterForm extends Component {
             <Form onSubmit={this.handleSubmit}>
               <FormGroup className="form-group">
                 <div className="col-sm-12">
-                  <Label for="Lecturer_ID">Lecturer ID</Label>
+                  <Label for="RegNo">Lecturer ID</Label>
                   <Input
-                      value={data.Lecturer_ID}
-                      invalid={!!errors.Lecturer_ID}
-                      name="Lecturer_ID"
+                      value={data.RegNo}
+                      invalid={!!errors.RegNo}
+                      name="RegNo"
                       onChange={this.handleChange}
                   />
-                  <FormFeedback>{errors.Lecturer_ID}</FormFeedback>
+                  <FormFeedback>{errors.RegNo}</FormFeedback>
                 </div>
               </FormGroup>
 
               <FormGroup>
                 <div className="col-sm-12">
-                  <Label for="Full_Name">Full Name : </Label>
+                  <Label for="FullName">Full Name : </Label>
                   <Input
-                      value={data.Full_Name}
-                      invalid={!!errors.Full_Name}
-                      name="Full_Name"
+                      value={data.FullName}
+                      invalid={!!errors.FullName}
+                      name="FullName"
                       onChange={this.handleChange}
                   />
-                  <FormFeedback>{errors.Full_Name}</FormFeedback>
+                  <FormFeedback>{errors.FullName}</FormFeedback>
                 </div>
               </FormGroup>
 

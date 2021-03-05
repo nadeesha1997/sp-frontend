@@ -9,6 +9,7 @@ import {Image,Button} from "react-bootstrap";
 import Grid from 'react-bootstrap/Container'
 
 const Login = () => {
+
     return (
 
 
@@ -66,7 +67,7 @@ const Login = () => {
                                                </Grid>
                                                <Grid item>
                                                             <p> Don't have an account?
-                                                             <Link to="./register/student">
+                                                             <Link to="./Register">
                                                               {"Register Here"}
                                                              </Link></p>
                                                </Grid>
