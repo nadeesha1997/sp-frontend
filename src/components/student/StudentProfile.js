@@ -16,7 +16,9 @@ class StudentProfile extends Component {
         this.getModules();
     }
     getModules=()=>{
-        axios.get("https://localhost:5001/api/subjectuser/user/"+this.state.currentUser.userDetails.Id)
+        // axios.get("https://localhost:5001/api/subjectuser/user/"+this.state.currentUser.userDetails.Id)
+        // axios.get("https://localhost:5001/api/subjectuser")
+        axios.get("https://localhost:5001/api/subjectuser/user/9b3559b5-186f-452f-95bb-0080dfe3bd4f")
             .then(res=>{
                 this.setState({
                     modules:res.data
@@ -25,6 +27,16 @@ class StudentProfile extends Component {
     }
 
     render () {
+        const mod = this.state.modules.map((mod) => {
+            return (
+                <li>
+                    <div key={mod.id}>
+                        hi
+                        {mod.code} - {mod.name}
+                    </div>
+                </li>
+            );
+        });
         return (
             <div className="container emp-profile">
             <form method="post">
@@ -70,12 +82,10 @@ class StudentProfile extends Component {
                             <a href="">Website Link</a><br/>
                             <a href="">Bootsnipp Profile</a><br/>
                             <a href="">Bootply Profile</a>
-                            <p>SKILLS</p>
-                            <a href="">Web Designer</a><br/>
-                            <a href="">Web Developer</a><br/>
-                            <a href="">WordPress</a><br/>
-                            <a href="">WooCommerce</a><br/>
-                            <a href="">PHP, .Net</a><br/>
+                            <p>MODULES</p>
+                            <ul>
+                                {mod}
+                            </ul>
                         </div>
                     </div>
                     <div className="col-md-8">
@@ -89,14 +99,14 @@ class StudentProfile extends Component {
                                                 <p>{this.state.currentUser.userDetails.userName}</p>
                                             </div>
                                         </div>
-                                        {/* <div className="row">
+                                        <div className="row">
                                             <div className="col-md-6">
                                                 <label>Name</label>
                                             </div>
                                             <div className="col-md-6">
                                                 <p>Kshiti Ghelani</p>
                                             </div>
-                                        </div> */}
+                                        </div>
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <label>Faculty Email</label>

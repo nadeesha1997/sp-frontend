@@ -10,7 +10,7 @@ import StudentDashboard from './components/student/StudentDashboard';
 import StudentProfile from './components/student/StudentProfile';
 import Home from './components/Home'
 import FirstPage from './components/FirstPage'
-import Loginnew from "./components/loginnew";
+// import Loginnew from "./components/loginnew";
 import Profilenew from "./components/profilenew";
 
 
@@ -27,9 +27,9 @@ class App extends Component {
                     <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
                     <Route path= '/Student/Profile' component={StudentProfile}/>
                     <Route path= '/Home' component={Home}/>
-                    <Route path= '/Login' component={Loginnew}/>
+                    <Route path= '/Login' component={Login}/>
                     <Route path='/profilenew' component={Profilenew}/>
-                    <Route path='/loginold' component={Login}/>
+                    {/*<Route path='/loginnew' component={Loginnew}/>*/}
 
                 </div>
             </BrowserRouter>
