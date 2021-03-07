@@ -19,9 +19,16 @@ export default class Profilenew extends Component {
                     {/*<h3>*/}
                     {/*    <strong>{currentUser.userDetails.username}</strong> Profile*/}
                     {/*</h3>*/}
-                    <h3>
-                        <strong>{currentUser.userDetails.fullName}</strong>
-                    </h3>
+                    <div className="row">
+                        <div className="column">
+                            <h3>
+                                <strong>{currentUser.userDetails.fullName}</strong>
+                            </h3>
+                        </div>
+                        <div className="column">
+                        </div>
+                    </div>
+
                 </header>
                 <p>
                     <strong>Token:</strong>{" "}
