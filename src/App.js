@@ -29,6 +29,7 @@ class App extends Component {
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Loginnew}/>
                     <Route path='/profilenew' component={Profilenew}/>
+                    <Route path='/loginold' component={Login}/>
 
                 </div>
             </BrowserRouter>

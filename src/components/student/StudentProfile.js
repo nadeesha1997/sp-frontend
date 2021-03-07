@@ -1,10 +1,14 @@
 import React,{Component} from 'react';
 import '../css/StudentProfile.css'
 import Student from './data/profile.json'
+import AuthService from "../../services/auth.service";
 
 class StudentProfile extends Component {
     constructor(){
         super();
+        this.state = {
+            currentUser: AuthService.getCurrentUser()
+        };
     }
     render () {
         return (
@@ -24,7 +28,7 @@ class StudentProfile extends Component {
                         <div className="profile-head">
                                     <h5>
                                         {
-                                            Student.name
+                                            this.state.currentUser.userDetails.fullName
                                         }
                                     </h5>
                                     <h6>
@@ -68,7 +72,7 @@ class StudentProfile extends Component {
                                                 <label>User Name</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>{Student.userName}</p>
+                                                <p>{this.state.currentUser.userDetails.userName}</p>
                                             </div>
                                         </div>
                                         {/* <div className="row">
@@ -84,7 +88,7 @@ class StudentProfile extends Component {
                                                 <label>Faculty Email</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>{Student.facultyEmail}</p>
+                                                <p>{this.state.currentUser.userDetails.facultyEmail}</p>
                                             </div>
                                         </div>
                                         <div className="row">
@@ -105,7 +109,7 @@ class StudentProfile extends Component {
                                         </div>
                             </div>
                              <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        {/* <div className="row">
+                                         <div className="row">
                                             <div className="col-md-6">
                                                 <label>Experience</label>
                                             </div>
@@ -144,18 +148,18 @@ class StudentProfile extends Component {
                                             <div className="col-md-6">
                                                 <p>6 months</p>
                                             </div>
-                                        </div> */}
+                                        </div>
                                 <div className="row">
                                     <div className="col-md-12">
                                         <label>Your Bio</label><br/>
                                         <p>Your detail description</p>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>           
+            </form>
         </div>
         )
     }
