@@ -2,14 +2,28 @@ import React,{Component} from 'react';
 import '../css/StudentProfile.css'
 import Student from './data/profile.json'
 import AuthService from "../../services/auth.service";
+import axios from "axios";
 
 class StudentProfile extends Component {
     constructor(){
         super();
         this.state = {
-            currentUser: AuthService.getCurrentUser()
+            currentUser: AuthService.getCurrentUser(),
+            modules:[]
         };
     }
+    componentDidMount() {
+        this.getModules();
+    }
+    getModules=()=>{
+        axios.get("https://localhost:5001/api/subjectuser/user/"+this.state.currentUser.userDetails.Id)
+            .then(res=>{
+                this.setState({
+                    modules:res.data
+                })
+            })
+    }
+
     render () {
         return (
             <div className="container emp-profile">
@@ -39,18 +53,18 @@ class StudentProfile extends Component {
                                 <li className="nav-item">
                                     <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
-                                {/* <li className="nav-item">
+                                <li className="nav-item">
                                     <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                                </li> */}
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    {/* <div className="col-md-2">
+                    <div className="col-md-2">
                         <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div> */}
+                    </div>
                 </div>
                  <div className="row">
-                    {/*<div className="col-md-4">
+                    <div className="col-md-4">
                         <div className="profile-work">
                             <p>WORK LINK</p>
                             <a href="">Website Link</a><br/>
@@ -63,7 +77,7 @@ class StudentProfile extends Component {
                             <a href="">WooCommerce</a><br/>
                             <a href="">PHP, .Net</a><br/>
                         </div>
-                    </div> */}
+                    </div>
                     <div className="col-md-8">
                         <div className="tab-content profile-tab" id="myTabContent">
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -88,7 +102,7 @@ class StudentProfile extends Component {
                                                 <label>Faculty Email</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>{this.state.currentUser.userDetails.facultyEmail}</p>
+                                                <p>{this.state.currentUser.userDetails.email}</p>
                                             </div>
                                         </div>
                                         <div className="row">
