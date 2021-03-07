@@ -1,79 +1,155 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React,{Component} from 'react'
 import './css/log.css'
 import icon from './../images/icon.jpg'
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import {Image,Button} from "react-bootstrap";
-import Grid from 'react-bootstrap/Container'
+import {Image} from "react-bootstrap";
+import AuthService from "../services/auth.service";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
 
-const Login = () => {
-    return (
-        <div>
-            <div className="p1">
-                <h3><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h3>
+const required = value => {
+    if (!value) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This field is required!
             </div>
-            <div className="centered img">
-                <Image img src={icon} alt="icon"/>
-                {/* properties set in the login page */}
-                <table>
-                    <tr>        <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="uname"
-                        label="User Name"
-                        name="uname"
-                        autoComplete="uname"
-                        autoFocus
-                    /></tr>
+        );
+    }
+};
 
-                    <tr>     <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                    />  </tr>
 
-                    <FormControlLabel
-                        control={<Checkbox value="remember" color="#91beeb" />}
-                        label="Remember me"
-                    />
+class Login extends Component{
+    constructor(props) {
+        super(props);
+        this.handleLogin = this.handleLogin.bind(this);
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
 
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="#91beeb"
+        this.state = {
+            email: "",
+            password: "",
+            loading: false,
+            message: ""
+        };
+    }
+
+    onChangeUsername(e) {
+        this.setState({
+            email: e.target.value
+        });
+    }
+
+    onChangePassword(e) {
+        this.setState({
+            password: e.target.value
+        });
+    }
+
+    handleLogin(e) {
+        e.preventDefault();
+
+        this.setState({
+            message: "",
+            loading: true
+        });
+
+        this.form.validateAll();
+
+        if (this.checkBtn.context._errors.length === 0) {
+            AuthService.login(this.state.email, this.state.password).then(
+                () => {
+                    this.props.history.push("student/profile");
+                    window.location.reload();
+                },
+                error => {
+                    const resMessage =
+                        (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+
+                    this.setState({
+                        loading: false,
+                        message: resMessage
+                    });
+                }
+            );
+        } else {
+            this.setState({
+                loading: false
+            });
+        }
+    }
+    render() {
+        return (
+            <div>
+                <div className="p1">
+                    <h3><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h3>
+                </div>
+                <div className="centered img">
+                    <Image img src={icon} alt="icon"/>
+                    <Form
+                        onSubmit={this.handleLogin}
+                        ref={c => {
+                            this.form = c;
+                        }}
                     >
-                        Sign In
-                    </Button>
+                        <div className="form-group">
+                            <label htmlFor="username">Email</label>
+                            <Input
+                                type="text"
+                                className="form-control"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.onChangeUsername}
+                                validations={[required]}
+                            />
+                        </div>
 
-                    <Grid container>
-                        <Grid item s>
-                            <Link href="#" variant="body2">
-                                Forgot password?
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <p> Don't have an account?
-                                <Link to="./Register">
-                                    {"Register Here"}
-                                </Link></p>
-                        </Grid>
-                    </Grid>
-                </table>
+                        <div className="form-group">
+                            <label htmlFor="password">Password</label>
+                            <Input
+                                type="password"
+                                className="form-control"
+                                name="password"
+                                value={this.state.password}
+                                onChange={this.onChangePassword}
+                                validations={[required]}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <button
+                                className="btn btn-primary btn-block"
+                                disabled={this.state.loading}
+                            >
+                                {this.state.loading && (
+                                    <span className="spinner-border spinner-border-sm"></span>
+                                )}
+                                <span>Login</span>
+                            </button>
+                        </div>
+
+                        {this.state.message && (
+                            <div className="form-group">
+                                <div className="alert alert-danger" role="alert">
+                                    {this.state.message}
+                                </div>
+                            </div>
+                        )}
+                        <CheckButton
+                            style={{ display: "none" }}
+                            ref={c => {
+                                this.checkBtn = c;
+                            }}
+                        />
+                    </Form>
+                </div>
             </div>
-        </div>
 
-    );
+        );
+    }
 
 }
 
