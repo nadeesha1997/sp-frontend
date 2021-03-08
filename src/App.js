@@ -4,7 +4,7 @@ import { Route, BrowserRouter } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
 import StudentRegisterForm from './components/StudentRegisterForm'
-import LecturerRegisterForm from "./components/LecturerRegisterForm";
+import LecturerRegisterForm from "./components/registration/LecturerRegisterForm";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import StudentDashboard from './components/student/StudentDashboard';
 import StudentProfile from './components/student/StudentProfile';
