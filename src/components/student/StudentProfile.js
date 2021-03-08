@@ -2,15 +2,72 @@ import React,{Component} from 'react';
 import '../css/StudentProfile.css'
 import Student from './data/profile.json'
 import AuthService from "../../services/auth.service";
+import axios from "axios";
 
 class StudentProfile extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            currentUser: AuthService.getCurrentUser()
+            currentUser: AuthService.getCurrentUser(),
+            modules:[],
+            // enrolablemodules:{
+            //     departmentModules:[],
+            //     iSModules:[]
+            // }
+            departmentModules:[],
+            iSModules:[]
         };
+        this.getModules();
     }
+    componentDidMount() {
+        //this.getModules();
+    }
+    getModules=()=>{
+        axios.get("https://localhost:5001/api/subjectuser/user/"+this.state.currentUser.userDetails.id)
+            .then(res=>{
+                this.setState({
+                    modules:res.data
+                })
+                console.log(res.data)
+            }).then(console.log(this.state))
+    }
+    getEnrolableModules=()=>{
+        let b='';
+        axios.get("https://localhost:5001/api/departments/"+this.state.currentUser.userDetails.departmentId)
+            .then(res=>{
+                b=res.data.code.slice(0,2)
+            }).then(this.getDepartmentModules(b));
+        this.getISModules();
+    }
+    getDepartmentModules=(b)=>{
+        axios.get("https://localhost:5001/api/subjects/department/"+b+"/semester/"+this.state.currentUser.userDetails.semester)
+            .then(res=>{
+                this.setState({
+                    departmentModules:res.data
+                })
+                console.log(res.data)
+            }).then(console.log(this.state));
+    }
+    getISModules=()=>{
+        axios.get("https://localhost:5001/api/subjects/department/is/semester/"+this.state.currentUser.userDetails.semester)
+            .then(res=>{
+                this.setState({
+                    iSModules:res.data
+                })
+                console.log(res.data)
+            }).then(console.log(this.state))
+    }
+
     render () {
+        const mod = this.state.modules.map((mod) => {
+            return (
+                <li>
+                    <div key={mod.id}>
+                        {mod.subject.code} - {mod.subject.name}
+                    </div>
+                </li>
+            );
+        });
         return (
             <div className="container emp-profile">
             <form method="post">
@@ -39,31 +96,29 @@ class StudentProfile extends Component {
                                 <li className="nav-item">
                                     <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
-                                {/* <li className="nav-item">
+                                <li className="nav-item">
                                     <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                                </li> */}
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    {/* <div className="col-md-2">
+                    <div className="col-md-2">
                         <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div> */}
+                    </div>
                 </div>
                  <div className="row">
-                    {/*<div className="col-md-4">
+                    <div className="col-md-4">
                         <div className="profile-work">
                             <p>WORK LINK</p>
                             <a href="">Website Link</a><br/>
                             <a href="">Bootsnipp Profile</a><br/>
                             <a href="">Bootply Profile</a>
-                            <p>SKILLS</p>
-                            <a href="">Web Designer</a><br/>
-                            <a href="">Web Developer</a><br/>
-                            <a href="">WordPress</a><br/>
-                            <a href="">WooCommerce</a><br/>
-                            <a href="">PHP, .Net</a><br/>
+                            <p>MODULES</p>
+                            <ul>
+                                {mod}
+                            </ul>
                         </div>
-                    </div> */}
+                    </div>
                     <div className="col-md-8">
                         <div className="tab-content profile-tab" id="myTabContent">
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -75,20 +130,20 @@ class StudentProfile extends Component {
                                                 <p>{this.state.currentUser.userDetails.userName}</p>
                                             </div>
                                         </div>
-                                        {/* <div className="row">
+                                        <div className="row">
                                             <div className="col-md-6">
                                                 <label>Name</label>
                                             </div>
                                             <div className="col-md-6">
                                                 <p>Kshiti Ghelani</p>
                                             </div>
-                                        </div> */}
+                                        </div>
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <label>Faculty Email</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>{this.state.currentUser.userDetails.facultyEmail}</p>
+                                                <p>{this.state.currentUser.userDetails.email}</p>
                                             </div>
                                         </div>
                                         <div className="row">
