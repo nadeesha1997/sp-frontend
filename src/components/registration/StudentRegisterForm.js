@@ -177,5 +177,4 @@ class StudentRegisterForm extends Component {
         );
     }
 }
-
 export default StudentRegisterForm;
