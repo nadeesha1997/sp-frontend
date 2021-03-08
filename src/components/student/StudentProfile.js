@@ -5,25 +5,57 @@ import AuthService from "../../services/auth.service";
 import axios from "axios";
 
 class StudentProfile extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             currentUser: AuthService.getCurrentUser(),
-            modules:[]
+            modules:[],
+            // enrolablemodules:{
+            //     departmentModules:[],
+            //     iSModules:[]
+            // }
+            departmentModules:[],
+            iSModules:[]
         };
-    }
-    componentDidMount() {
         this.getModules();
     }
+    componentDidMount() {
+        //this.getModules();
+    }
     getModules=()=>{
-        // axios.get("https://localhost:5001/api/subjectuser/user/"+this.state.currentUser.userDetails.Id)
-        // axios.get("https://localhost:5001/api/subjectuser")
-        axios.get("https://localhost:5001/api/subjectuser/user/9b3559b5-186f-452f-95bb-0080dfe3bd4f")
+        axios.get("https://localhost:5001/api/subjectuser/user/"+this.state.currentUser.userDetails.id)
             .then(res=>{
                 this.setState({
                     modules:res.data
                 })
-            })
+                console.log(res.data)
+            }).then(console.log(this.state))
+    }
+    getEnrolableModules=()=>{
+        let b='';
+        axios.get("https://localhost:5001/api/departments/"+this.state.currentUser.userDetails.departmentId)
+            .then(res=>{
+                b=res.data.code.slice(0,2)
+            }).then(this.getDepartmentModules(b));
+        this.getISModules();
+    }
+    getDepartmentModules=(b)=>{
+        axios.get("https://localhost:5001/api/subjects/department/"+b+"/semester/"+this.state.currentUser.userDetails.semester)
+            .then(res=>{
+                this.setState({
+                    departmentModules:res.data
+                })
+                console.log(res.data)
+            }).then(console.log(this.state));
+    }
+    getISModules=()=>{
+        axios.get("https://localhost:5001/api/subjects/department/is/semester/"+this.state.currentUser.userDetails.semester)
+            .then(res=>{
+                this.setState({
+                    iSModules:res.data
+                })
+                console.log(res.data)
+            }).then(console.log(this.state))
     }
 
     render () {
@@ -31,8 +63,7 @@ class StudentProfile extends Component {
             return (
                 <li>
                     <div key={mod.id}>
-                        hi
-                        {mod.code} - {mod.name}
+                        {mod.subject.code} - {mod.subject.name}
                     </div>
                 </li>
             );

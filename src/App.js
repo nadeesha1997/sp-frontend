@@ -22,7 +22,7 @@ class App extends Component {
                     <Navbar />
                     <Route exact path='/' component={FirstPage}/>
                     <Route path='/student' component={StudentDashboard}/>
-                   <Route path='/Register' component={Register} />
+                    <Route path='/Register' component={Register} />
                     <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
                     <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
                     <Route path= '/Student/Profile' component={StudentProfile}/>
