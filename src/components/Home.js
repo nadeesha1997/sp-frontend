@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 import './css/home.css'
 import SubjectList from "./TimeTable/SubjectList";
 import TimeTable from "./TimeTable/TimeTable";

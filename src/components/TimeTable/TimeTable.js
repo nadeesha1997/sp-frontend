@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 import '../css/table.css'
 import ModuleDrop from "./ModuleDrop";
 

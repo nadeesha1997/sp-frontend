@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'

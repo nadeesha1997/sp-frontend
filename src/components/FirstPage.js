@@ -6,7 +6,7 @@ import Carousel from "react-bootstrap/Carousel";
 import icon3 from "../images/icon3.png";
 import faculty from "../images/faculty.png";
 import faculty1 from "../images/faculty1.jpg";
-import faculty2 from "../images/faculty2.jpg";
+import faculty2 from  "../images/faculty2.jpg";
 import faculty4 from "../images/faculty4.jpg";
 import faculty5 from "../images/faculty5.jpg";
 import faculty6 from "../images/faculty6.jpg";

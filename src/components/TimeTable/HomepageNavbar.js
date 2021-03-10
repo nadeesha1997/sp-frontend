@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import {Image} from "react-bootstrap";
 import '../css/home.css'
 import logo2 from "../../images/logo2.png";

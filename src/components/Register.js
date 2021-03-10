@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import { Route } from "react-router-dom";
 import FacultyStaffRegisterForm from "./registration/FacultyStaffRegisterForm";
 import LecturerRegisterForm from "./registration/LecturerRegisterForm";
