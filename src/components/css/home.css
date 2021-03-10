@@ -1,0 +1,39 @@
+
+.page{
+    background-color: #cc8bf3;
+    color: #3f285a;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+.bottom_corner{
+    /*position:absolute;*/
+    bottom:0px;
+    /*top:320px;*/
+    right:150px;
+
+}
+
+.bottom_right{
+    /*position:absolute;*/
+    bottom:40px;
+    /*top:280px;*/
+    right:150px;
+}
+
+/**/
+
+.text{
+    color: #9980ac;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    font-weight: bolder;
+    font-family: "Times New Roman";
+    font-size: medium;
+}
+.navbar-color {
+    background-color: #352647;
+}
