@@ -43,7 +43,7 @@ const FirstPageNavbar= () => {
                                             <input className="form-control mr-sm-2" type="search" placeholder="Search" style={{marginLeft:30,marginright:15}}
                                                    aria-label="Search"></input>
                                             <Button style={{width:100,backgroundColor:'#7047ba',marginLeft:15,marginright:15}}>
-                                                <b>  search</b>
+                                                 <b>  search</b>
                                             </Button>
                                         </form>
                                     </div>   </div>

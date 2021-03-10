@@ -20,8 +20,7 @@ const RegistrationNavbar = () => {
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
                         <a className="nav-link">
-                            <Button  style={{width:150,backgroundColor:'#7047ba',marginTop:10,marginLeft:20,marginright:20}} type='submit' >
-
+                            <Button  style={{width:150,backgroundColor:'#7047ba',marginTop:10,marginLeft:20,marginright:20}} type='submit'>
                                 <Link to="./Login"><b>Log In</b>  </Link>
                             </Button>
                             {/*<span className="fa fa-sign-in"/> <Link to="./Login">Login</Link>*/}
