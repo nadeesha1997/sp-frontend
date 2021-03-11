@@ -10,7 +10,8 @@ class Home extends Component {
         super(props);
         let today = new Date();
         this.state = {
-            date: today
+            date: today,
+            subjectId:0
         }
         this.updateDate()
     }
@@ -19,10 +20,17 @@ class Home extends Component {
         this.setState({
             date: data
         })
+        // console.log("Time in home:")
         console.log(this.state)
+        // console.log("--------------------------------------------")
     }
     componentDidMount() {
         this.updateDate();
+    }
+    getSelectedModule=(id)=>{
+        this.setState({
+            subjectId:id
+        })
     }
 
     render() {
@@ -36,11 +44,14 @@ class Home extends Component {
 
                 <div className="row">
                     <div className="col col-lg-8 col-md-auto col-sm-10">
-                        <TimeTable date={this.state.date}/>
+                        <TimeTable date={this.state.date} moduleId={this.state.subjectId}/>
                     </div>
+                    {/*<div className="row-cols-lg-12 col-md-4  col-sm-12">*/}
+                    {/*    <CalendarNew updateDate={this.updateDate}/>*/}
+                    {/*</div>*/}
                     <div className="col col-lg-4 col-md-auto col-sm-12 container-fluid">
                         <div className="row">
-                            <SubjectList/>
+                            <SubjectList getModuleId={this.getSelectedModule}/>
                         </div>
 
                     </div>

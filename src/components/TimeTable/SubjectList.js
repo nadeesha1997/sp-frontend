@@ -38,7 +38,9 @@ export default class StudentList extends React.Component {
     onDragStart=(ev,id)=>{
         console.log('dragstart:',id);
         ev.dataTransfer.setData("id",id);
+        this.getModuleId(id)
     }
+    getModuleId=(id)=>{this.props.getModuleId(id)}
 
 
     render() {
