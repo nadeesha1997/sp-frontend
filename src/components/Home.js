@@ -19,7 +19,9 @@ class Home extends Component {
         this.setState({
             date: data
         })
+        console.log("Time in home:")
         console.log(this.state)
+        console.log("--------------------------------------------")
     }
     componentDidMount() {
         this.updateDate();
@@ -38,6 +40,9 @@ class Home extends Component {
                     <div className="col col-lg-8 col-md-auto col-sm-10">
                         <TimeTable date={this.state.date}/>
                     </div>
+                    {/*<div className="row-cols-lg-12 col-md-4  col-sm-12">*/}
+                    {/*    <CalendarNew updateDate={this.updateDate}/>*/}
+                    {/*</div>*/}
                     <div className="col col-lg-4 col-md-auto col-sm-12 container-fluid">
                         <div className="row">
                             <SubjectList/>
