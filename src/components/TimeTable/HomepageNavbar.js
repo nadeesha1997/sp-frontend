@@ -18,7 +18,7 @@ class HomepageNavbar extends Component{
             date: data
         })
         this.props.updateDate(data)
-        console.log(this.state)
+        // console.log(this.state)
     }
     render() {
         return (
