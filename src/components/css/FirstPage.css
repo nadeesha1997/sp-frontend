@@ -1,5 +1,5 @@
 .page{
-    background-color: #ce9fe1;
+    background-color: #cc8bf3;
     margin-left: 0px;
     margin-top: 0px;
 }
@@ -54,4 +54,15 @@
 .left {
     left: 0;
     background-color: #dab6fd;
+}
+
+.text{
+    color: #9980ac;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    font-weight: bolder;
+    font-family: "Times New Roman";
+    font-size: medium;
 }

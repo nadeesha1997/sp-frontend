@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar'
 import { Route, BrowserRouter } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
@@ -10,8 +9,9 @@ import StudentDashboard from './components/student/StudentDashboard';
 import StudentProfile from './components/student/StudentProfile';
 import Home from './components/Home'
 import FirstPage from './components/FirstPage'
-// import Loginnew from "./components/loginnew";
-import Profilenew from "./components/profilenew";
+import TimeTable from "./components/TimeTable/TimeTable";
+import SubjectList from "./components/TimeTable/SubjectList";
+import ModuleDrop from "./components/TimeTable/ModuleDrop";
 
 
 class App extends Component {
@@ -19,7 +19,6 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    <Navbar />
                     <Route exact path='/' component={FirstPage}/>
                     <Route path='/student' component={StudentDashboard}/>
                     <Route path='/Register' component={Register} />
@@ -28,8 +27,9 @@ class App extends Component {
                     <Route path= '/Student/Profile' component={StudentProfile}/>
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Login}/>
-                    <Route path='/profilenew' component={Profilenew}/>
-                    {/*<Route path='/loginnew' component={Loginnew}/>*/}
+                    <Route path= '/SubjectList' component={SubjectList}/>
+                    <Route path= '/timetable' component={TimeTable}/>
+                    <Route path= '/ModuleDrop' component={ModuleDrop}/>
 
                 </div>
             </BrowserRouter>

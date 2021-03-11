@@ -4,9 +4,9 @@ import TimeRangePicker from "@wojtekmaj/react-timerange-picker/src/TimeRangePick
 
 const LectureSchedule = () => {
     return (
-            <div>
-                <TimeRangePicker/>
-            </div>
+        <div>
+            <TimeRangePicker/>
+        </div>
     )
 }
 
