@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css';
+import '../css/calendar.css';
+import moment from 'moment'
 
 class CalendarNew extends Component {
     constructor(props) {
@@ -21,11 +22,14 @@ class CalendarNew extends Component {
     render() {
         return (
             <div className="calendar">
+
                 <Calendar
                     value={this.state.date}
                     onChange={this.changeDate}
+                    className="react-calendar"
                 />
-                {/*<p>Current selected date is <b>{moment(this.state.date).format('MMMM Do YYYY')}</b></p>*/}
+                {/*<p> TODAY: <b>{moment(this.state.date).format('MMMM Do YYYY')}</b></p>
+*/}
             </div>
         )
     }

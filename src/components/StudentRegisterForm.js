@@ -146,7 +146,7 @@ class StudentRegisterForm extends Component  {
                                 <label className="checkbox-inline"><input type="checkbox" value=""/>Module 8</label>
 
 
-                               </FormGroup>
+                            </FormGroup>
 
                             <Button color="primary" >Register</Button>
                         </Form>

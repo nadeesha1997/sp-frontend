@@ -6,6 +6,7 @@ import AuthService from "../services/auth.service";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
+import {Link} from "react-router-dom";
 
 const required = value => {
     if (!value) {
@@ -96,14 +97,15 @@ class Login extends Component{
                         }}
                     >
                         <div className="form-group">
-                            <label htmlFor="username">Email</label>
+                            <label  htmlFor="username">Email</label>
                             <Input
                                 type="text"
                                 className="form-control"
                                 name="email"
                                 value={this.state.email}
                                 onChange={this.onChangeUsername}
-                                validations={[required]}
+                                required
+                                //validations={[required]}
                             />
                         </div>
 
@@ -115,20 +117,33 @@ class Login extends Component{
                                 name="password"
                                 value={this.state.password}
                                 onChange={this.onChangePassword}
-                                validations={[required]}
+                                required
+                                //validations={[required]}
                             />
                         </div>
 
                         <div className="form-group">
-                            <button
-                                className="btn btn-primary btn-block"
-                                disabled={this.state.loading}
+                            <button style={{width:150,backgroundColor:'#7047ba',marginTop:10,marginLeft:80}}
+                                    className="btn btn-primary btn-block"
+                                    disabled={this.state.loading}
                             >
                                 {this.state.loading && (
                                     <span className="spinner-border spinner-border-sm"></span>
                                 )}
                                 <span>Login</span>
                             </button>
+
+
+                            <Link href="#" variant="body2">
+                                Forgot password?
+                            </Link>
+
+                            <p> Don't have an account?
+                                <Link to="./Register">
+                                    {"Register Here"}
+                                </Link></p>
+
+
                         </div>
 
                         {this.state.message && (
