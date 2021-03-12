@@ -3,7 +3,7 @@ import './css/home.css'
 import SubjectList from "./TimeTable/SubjectList";
 import TimeTable from "./TimeTable/TimeTable";
 import HomepageNavbar from "./TimeTable/HomepageNavbar";
-import CalendarNew from "./calendar/calendarNew";
+
 
 class Home extends Component {
     constructor(props) {
@@ -37,18 +37,12 @@ class Home extends Component {
         return (
 
             <div className="page">
-
                 <HomepageNavbar updateDate={this.updateDate}/>
-
-
-
                 <div className="row">
                     <div className="col col-lg-8 col-md-auto col-sm-10">
                         <TimeTable date={this.state.date} moduleId={this.state.subjectId}/>
                     </div>
-                    {/*<div className="row-cols-lg-12 col-md-4  col-sm-12">*/}
-                    {/*    <CalendarNew updateDate={this.updateDate}/>*/}
-                    {/*</div>*/}
+
                     <div className="col col-lg-4 col-md-auto col-sm-12 container-fluid">
                         <div className="row">
                             <SubjectList getModuleId={this.getSelectedModule}/>
