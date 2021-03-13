@@ -60,6 +60,7 @@ class ModuleDrop extends Component{
     sendData=(e)=>{
         axios.post("https://localhost:5001/api/sessions",e)
             .then(res=>console.log(res))
+            .then(err=>console.log(err))
             //.then(console.log(this.state))
     }
     onDragOver=(ev)=>{
@@ -90,7 +91,7 @@ class ModuleDrop extends Component{
         let id = ev.dataTransfer.getData("id");
         this.setState({
             SubjectId:id
-        })
+        },()=>{this.sendData(this.state)})
         console.log('dragdrop:',this.state);
         // this.setStartDateTime()
         // this.setEndDateTime();
