@@ -93,6 +93,10 @@ class ModuleDrop extends Component{
             SubjectId:id
         },()=>{this.sendData(this.state)})
         console.log('dragdrop:',this.state);
+
+
+
+
         // this.setStartDateTime()
         // this.setEndDateTime();
         // const data={
