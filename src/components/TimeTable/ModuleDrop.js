@@ -1,5 +1,5 @@
  import React,{Component} from 'react'
-import axios from "axios";
+ import axios from "axios";
 import '../css/ModuleDrop.css'
  import moment from "moment";
 import AuthService from '../../services/auth.service'
@@ -19,6 +19,7 @@ class ModuleDrop extends Component{
             EndDateTime:'',
             Permitted:false,
             UserId:AuthService.getCurrentUser().userDetails.id,
+            reserved:false
         }
         // this.setStartDateTime()
         // this.setEndDateTime();
@@ -29,21 +30,28 @@ class ModuleDrop extends Component{
         this.setStartDateTime()
         this.setEndDateTime();
     }
+    checkBooked=()=>{
+        const modules=this.props.data
+        modules.forEach(module=>{
+            // if(module.startDateTime)
+            console.log(module)
+        });
+}
 
-    getModule=(id)=>{
-        // let mod=axios.get("https://localhost:5001/api/subjects/"+id);
-        // return mod;
-        // console.log("-------------------------------------------------------------------");
-        axios.get("https://localhost:5001/api/subjects/"+id).then(res=>{
-            const mod=res.data;
-            console.log("mod");
-            console.log(mod);
-            this.setState({
-                module:mod
-            });
-        })
-        console.log(this.state);
-    }
+    // getModule=(id)=>{
+    //     // let mod=axios.get("https://localhost:5001/api/subjects/"+id);
+    //     // return mod;
+    //     // console.log("-------------------------------------------------------------------");
+    //     axios.get("https://localhost:5001/api/subjects/"+id).then(res=>{
+    //         const mod=res.data;
+    //         console.log("mod");
+    //         console.log(mod);
+    //         this.setState({
+    //             module:mod
+    //         });
+    //     })
+    //     console.log(this.state);
+    // }
     setStartDateTime=()=> {
         let str = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime;
         this.setState({
@@ -126,7 +134,8 @@ class ModuleDrop extends Component{
             <div
                 className="grid-item1"
                 onDragOver={(e)=>this.onDragOver(e)}
-                onDrop={(e)=>this.onDrop(e, "complete")}>
+                onDrop={(e)=>this.onDrop(e, "complete")}
+                onClick={()=>{this.checkBooked()}}>
             </div>
 
         )

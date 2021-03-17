@@ -44,16 +44,16 @@ class TimeTable extends Component{
                 <div className="grid-item"><ModuleDrop hallId="9" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
                 <div className="grid-item"><ModuleDrop hallId="10" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
                 <div className="grid-item">8.30</div>
-                    <div className="grid-item"><ModuleDrop hallId="1" startTime="08:30:00" EndTime="09:30:00" date={this.props.date}/></div>
-                    <div className="grid-item"><ModuleDrop hallId="2" startTime="08:30:00" EndTime="09:30:00" date={this.props.date}/></div>
-                    <div className="grid-item"><ModuleDrop hallId="3" startTime="08:30:00" EndTime="09:30:00" date={this.props.date}/></div>
-                    <div className="grid-item"><ModuleDrop hallId="4" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} /></div>
-                    <div className="grid-item"><ModuleDrop hallId="5" startTime="08:30:00" EndTime="09:30:00" date={this.props.date}/></div>
-                    <div className="grid-item"><ModuleDrop hallId="6" startTime="08:30:00" EndTime="09:30:00" date={this.props.date}/></div>
-                    <div className="grid-item"><ModuleDrop hallId="7" startTime="08:30:00" EndTime="09:30:00" date={this.props.date}/></div>
-                    <div className="grid-item"><ModuleDrop hallId="8" startTime="08:30:00" EndTime="09:30:00" date={this.props.date}/></div>
-                    <div className="grid-item"><ModuleDrop hallId="9" startTime="08:30:00" EndTime="09:30:00" date={this.props.date}/></div>
-                    <div className="grid-item"><ModuleDrop hallId="10" startTime="08:30:00" EndTime="09:30:00" date={this.props.date}/></div>
+                    <div className="grid-item"><ModuleDrop hallId="1" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+                    <div className="grid-item"><ModuleDrop hallId="2" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+                    <div className="grid-item"><ModuleDrop hallId="3" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+                    <div className="grid-item"><ModuleDrop hallId="4" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId} /></div>
+                    <div className="grid-item"><ModuleDrop hallId="5" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+                    <div className="grid-item"><ModuleDrop hallId="6" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+                    <div className="grid-item"><ModuleDrop hallId="7" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+                    <div className="grid-item"><ModuleDrop hallId="8" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+                    <div className="grid-item"><ModuleDrop hallId="9" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+                    <div className="grid-item"><ModuleDrop hallId="10" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
                 <div className="grid-item">9.30</div>
                     <div className="grid-item"><ModuleDrop hallId="1" startTime="7.30" EndTime="8.30" date={this.props.date}/></div>
                     <div className="grid-item"><ModuleDrop hallId="2" startTime="7.30" EndTime="8.30" date={this.props.date}/></div>
