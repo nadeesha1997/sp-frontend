@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './css/log.css'
 import icon from './../images/icon.jpg'
-import {Image} from "react-bootstrap";
+import {Button, Image} from "react-bootstrap";
 import AuthService from "../services/auth.service";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -130,7 +130,8 @@ class Login extends Component{
                                 {this.state.loading && (
                                     <span className="spinner-border spinner-border-sm"></span>
                                 )}
-                                <span>Login</span>
+                                <Link to="./Index" className="btn btn-link">Login</Link>
+
                             </button>
 
 

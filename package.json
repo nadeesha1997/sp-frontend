@@ -23,7 +23,7 @@
     "react-popper": "^2.2.4",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
+    "react-scripts": "^4.0.0",
     "react-simple-image-slider": "^2.0.1",
     "react-text-transition": "^1.1.4",
     "react-transition-group": "^2.9.0",
