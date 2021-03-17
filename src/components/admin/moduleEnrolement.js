@@ -7,7 +7,7 @@ class ModuleEnrolement extends Component{
     constructor(props) {
         super(props);
         this.state={
-            user:AuthService.getCurrentUser(),
+            user:AuthService.getCurrentUser().userDetails,
             module:null,
             teachers:[]
         }

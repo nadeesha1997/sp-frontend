@@ -39,6 +39,14 @@ export default class selectstudent extends React.Component {
     handleClick=(e)=>{
         this.props.getUser(e)
     }
+    handleChange = (e) => {
+        this.setState({
+            data: {
+                ...this.state.data,
+                [e.target.name]: e.target.value,
+            }
+        });
+    };
 
     render() {
 
