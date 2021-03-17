@@ -19,7 +19,8 @@ class ModuleDrop extends Component{
             EndDateTime:'',
             Permitted:false,
             UserId:AuthService.getCurrentUser().userDetails.id,
-            reserved:false
+            reserved:false,
+            dailyModules:[]
         }
         // this.setStartDateTime()
         // this.setEndDateTime();
@@ -31,11 +32,17 @@ class ModuleDrop extends Component{
         this.setEndDateTime();
     }
     checkBooked=()=>{
-        const modules=this.props.data
-        modules.forEach(module=>{
-            // if(module.startDateTime)
-            console.log(module)
-        });
+        this.setState({dailyModules:this.props.data},()=>{
+            if(this.state.dailyModules){
+                this.state.dailyModules.forEach(module=>{
+                    // if(module.startDateTime)
+                    console.log(module)
+                });
+            }
+            else {
+                console.log("null")
+            }
+        })
 }
 
     // getModule=(id)=>{
