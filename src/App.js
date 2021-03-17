@@ -12,6 +12,7 @@ import FirstPage from './components/FirstPage'
 import TimeTable from "./components/TimeTable/TimeTable";
 import SubjectList from "./components/TimeTable/SubjectList";
 import ModuleDrop from "./components/TimeTable/ModuleDrop";
+import ModuleEnrolement from "./components/admin/moduleEnrolement";
 
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
                     <Route path= '/SubjectList' component={SubjectList}/>
                     <Route path= '/timetable' component={TimeTable}/>
                     <Route path= '/ModuleDrop' component={ModuleDrop}/>
+                    <Route path='/moduleenrole' component={ModuleEnrolement}/>
 
                 </div>
             </BrowserRouter>
