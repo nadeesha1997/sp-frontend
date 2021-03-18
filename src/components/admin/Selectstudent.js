@@ -11,6 +11,7 @@ export default class selectstudent extends React.Component {
             department: ' ',
             students: []
         }
+        this.OnSubmit=this.OnSubmit.bind(this);
 
     }
 
@@ -55,8 +56,9 @@ export default class selectstudent extends React.Component {
                 <ul>
                     <div key={mod.id}
                          className="draggable"
-                        onClick={e=>
-                        console.log(e)}>
+                        onClick={()=>{
+                            this.props.getStudent(mod.id)
+                        }}>
                         {mod.userName} - {mod.fullName}
                     </div>
                 </ul>
@@ -111,7 +113,7 @@ export default class selectstudent extends React.Component {
 
                     <div className="container">
                         <div className="row" style={{margin: '20px'}}>
-                            <button onClick={() => this.OnSubmit()}
+                            <button onClick={(e) => this.OnSubmit()}
                                     style={{backgroundColor: '#9b82c3'}}>
                                 <b>SELECT</b>
                             </button>

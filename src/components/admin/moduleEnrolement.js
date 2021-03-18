@@ -8,19 +8,22 @@ class ModuleEnrolement extends Component{
         super(props);
         this.state={
             user:AuthService.getCurrentUser().userDetails,
-            module:null,
+            deptModules:[],
+            isModules:[],
             teachers:[]
         }
         console.log(this.state)
     }
     getUserById=(id)=>{
-        axios.get("https://localhost:5001/api/users/"+id)
-            .then(res=>{
-                this.setState({
-                    user:res.data
-                })
-            })
-            .then(err=>console.log(err))
+        // axios.get("https://localhost:5001/api/users/"+id)
+        //     .then(res=>{
+        //         this.setState({
+        //             user:res.data
+        //         })
+        //     })
+        //     .then(err=>console.log(err))
+        console.log("id is")
+        console.log(id)
     }
     getStudentBySemAndDept=(sem,dept)=>{
         axios.get("https://localhost:5001/api/users/"+sem+"/"+dept)
@@ -58,6 +61,14 @@ class ModuleEnrolement extends Component{
         this.getUserById(id);
     }
     render() {
+        const mod=this.state.deptModules.map((module)=>{
+            return(
+                <li key={module.id}>
+                    <label>{module.code}-{module.name}</label>
+                    <button>enrole</button>
+                </li>
+            )
+        })
         // const semester=this.state.user.map(
         //     (user)=>{
         //         // console.log("semester is: "+user.semester)
@@ -154,32 +165,39 @@ class ModuleEnrolement extends Component{
                                    readOnly
                                    value={this.state.user.email}/>
                         </FormGroup>
+                        {this.state.user.semester!=null&&
                         <FormGroup>
                             <label htmlFor="semester">Semester</label>
                             <input type="number"
                                    placeholder="semester"
-                                   value={this.state.user.fullName}/>
-                        </FormGroup>
+                                   value={this.state.user.semester}/>
+                        </FormGroup>}
                         {/*{semester}*/}
                         {/*{department}*/}
+                        {this.state.user.departmentId!=null&&
                         <FormGroup>
-                            <label htmlFor="department">Department</label>
+                            <label htmlFor="departmentId">Department</label>
                             <input type="text"
-                                   placeholder="department"
+                                   placeholder="departmentId"
                                    onChange={(e) => {
                                        this.handleDepartmentChange(e)
                                    }}
-                                   value={this.state.user.fullName}/>
+                                   value={this.state.user.departmentId}/>
                         </FormGroup>
-                        <FormGroup>
-                            <label htmlFor="fullname">Fullname</label>
-                            <input type="text"
-                                   placeholder="fullname"
-                                   value={this.state.user.fullName}/>
-                        </FormGroup>
+                        }
+                        {/*<FormGroup>*/}
+                        {/*    <label htmlFor="fullname">Fullname</label>*/}
+                        {/*    <input type="text"*/}
+                        {/*           placeholder="fullname"*/}
+                        {/*           value={this.state.user.fullName}/>*/}
+                        {/*</FormGroup>*/}
                     </form>
                 </div>
-                <Selectstudent getStudent={this.getUser}/>
+                <Selectstudent getStudent={this.getUserById}/>
+                <div>
+                    <h4>Enrolled Modules</h4>
+
+                </div>
             </>
         )
     }
