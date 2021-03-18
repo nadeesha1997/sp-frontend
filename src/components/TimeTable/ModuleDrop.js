@@ -10,7 +10,7 @@ class ModuleDrop extends Component{
         super(props);
         // let now= new Date();
         this.state={
-            date:null,
+            date:this.props.date,
             StartTime:this.props.startTime,
             EndTime:this.props.EndTime,
             HallId:this.props.hallId,
@@ -24,12 +24,10 @@ class ModuleDrop extends Component{
         }
         // this.setStartDateTime()
         // this.setEndDateTime();
-        this.setDate=this.setDate.bind(this);
         console.log("drop state"+this.state.SubjectId)
         console.log("drop prop"+this.props.SubjectId)
     }
     componentDidMount() {
-        this.setDate();
         this.setStartDateTime()
         this.setEndDateTime();
         this.checkBooked();
@@ -64,17 +62,11 @@ class ModuleDrop extends Component{
     //     })
     //     console.log(this.state);
     // }
-    setDate=()=>{
-        let {date}=this.props;
-        this.setState({date});
-    }
     setStartDateTime=()=> {
         let str = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime;
         this.setState({
             StartDateTime: str
         })
-        console.log("moment");
-        console.log(str)
     }
     setEndDateTime=()=> {
         let str = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime;
@@ -136,7 +128,15 @@ class ModuleDrop extends Component{
         // console.log("before send")
         this.sendData(this.state);
 
-    }
+        {/*
+
+           data:
+           StartTime:this.props.startTime
+           EndTime:this.props.EndTime
+           HallId:this.props.hallId
+           SubjectId:null
+            console.log(this.state)*/
+        }}
 
     render() {
         return(

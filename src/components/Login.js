@@ -123,14 +123,14 @@ class Login extends Component{
                         </div>
 
                         <div className="form-group">
-                            <button style={{width:150,backgroundColor:'#7047ba',marginTop:10,marginLeft:80}}
+                            <button style={{width:150,height:50,backgroundColor:'#7047ba',marginTop:10,marginLeft:80}}
                                     className="btn btn-primary btn-block"
                                     disabled={this.state.loading}
                             >
                                 {this.state.loading && (
                                     <span className="spinner-border spinner-border-sm"></span>
                                 )}
-                                <Link to="./Index" className="btn btn-link">Login</Link>
+                               Login
 
                             </button>
 
