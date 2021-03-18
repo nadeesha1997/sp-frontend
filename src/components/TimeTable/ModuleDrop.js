@@ -30,19 +30,22 @@ class ModuleDrop extends Component{
     componentDidMount() {
         this.setStartDateTime()
         this.setEndDateTime();
+        this.checkBooked();
     }
     checkBooked=()=>{
-        this.setState({dailyModules:this.props.data},()=>{
+        this.setState({dailyModules:this.props.sessions},()=>{
             if(this.state.dailyModules){
                 this.state.dailyModules.forEach(module=>{
-                    // if(module.startDateTime)
-                    console.log(module)
+                    if((module.startDateTime<=this.state.StartDateTime)&&(module.endDateTime<=this.state.EndDateTime)){
+                        this.setState({permitted:true})
+                    }
                 });
             }
             else {
                 console.log("null")
             }
         })
+        console.log(this.state)
 }
 
     // getModule=(id)=>{
