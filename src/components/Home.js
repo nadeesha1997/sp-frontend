@@ -11,9 +11,8 @@ class Home extends Component {
         let today = new Date();
         this.state = {
             date: today,
-            subjectId:0
         }
-        this.updateDate()
+        this.updateDate=this.updateDate.bind(this)
     }
 
     updateDate = data => {
@@ -40,7 +39,7 @@ class Home extends Component {
                 <HomepageNavbar updateDate={this.updateDate}/>
                 <div className="row">
                     <div className="col col-lg-8 col-md-auto col-sm-10">
-                        <TimeTable date={this.state.date} moduleId={this.state.subjectId}/>
+                        <TimeTable date={this.state.date}/>
                     </div>
 
                     <div className="col col-lg-4 col-md-auto col-sm-12 container-fluid">

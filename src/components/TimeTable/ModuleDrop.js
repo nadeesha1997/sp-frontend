@@ -1,5 +1,5 @@
  import React,{Component} from 'react'
-import axios from "axios";
+ import axios from "axios";
 import '../css/ModuleDrop.css'
  import moment from "moment";
 import AuthService from '../../services/auth.service'
@@ -19,6 +19,8 @@ class ModuleDrop extends Component{
             EndDateTime:'',
             Permitted:false,
             UserId:AuthService.getCurrentUser().userDetails.id,
+            reserved:false,
+            dailyModules:[]
         }
         // this.setStartDateTime()
         // this.setEndDateTime();
@@ -28,22 +30,38 @@ class ModuleDrop extends Component{
     componentDidMount() {
         this.setStartDateTime()
         this.setEndDateTime();
+        this.checkBooked();
     }
-
-    getModule=(id)=>{
-        // let mod=axios.get("https://localhost:5001/api/subjects/"+id);
-        // return mod;
-        // console.log("-------------------------------------------------------------------");
-        axios.get("https://localhost:5001/api/subjects/"+id).then(res=>{
-            const mod=res.data;
-            console.log("mod");
-            console.log(mod);
-            this.setState({
-                module:mod
-            });
+    checkBooked=()=>{
+        this.setState({dailyModules:this.props.sessions},()=>{
+            if(this.state.dailyModules){
+                this.state.dailyModules.forEach(module=>{
+                    if((module.startDateTime<=this.state.StartDateTime)&&(module.endDateTime<=this.state.EndDateTime)){
+                        this.setState({permitted:true})
+                    }
+                });
+            }
+            else {
+                console.log("null")
+            }
         })
-        console.log(this.state);
-    }
+        console.log(this.state)
+}
+
+    // getModule=(id)=>{
+    //     // let mod=axios.get("https://localhost:5001/api/subjects/"+id);
+    //     // return mod;
+    //     // console.log("-------------------------------------------------------------------");
+    //     axios.get("https://localhost:5001/api/subjects/"+id).then(res=>{
+    //         const mod=res.data;
+    //         console.log("mod");
+    //         console.log(mod);
+    //         this.setState({
+    //             module:mod
+    //         });
+    //     })
+    //     console.log(this.state);
+    // }
     setStartDateTime=()=> {
         let str = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime;
         this.setState({
@@ -125,7 +143,8 @@ class ModuleDrop extends Component{
             <div
                 className="grid-item1"
                 onDragOver={(e)=>this.onDragOver(e)}
-                onDrop={(e)=>this.onDrop(e, "complete")}>
+                onDrop={(e)=>this.onDrop(e, "complete")}
+                onClick={()=>{this.checkBooked()}}>
             </div>
 
         )

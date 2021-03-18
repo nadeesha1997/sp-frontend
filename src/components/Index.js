@@ -1,9 +1,31 @@
 import React from 'react';
 import map from './../images/map.jpg';
 import {Nav} from "./Nav";
+// import $ from 'jquery';
 import Register from "./Register";
 
 function Index() {
+    // const highLight=()=>{
+    //     $('.map').maphilight({
+    //         fillColor: '008800'
+    //     });
+    //     $('#hilightlink').mouseover(function(e) {
+    //         $('#square2').mouseover();
+    //     }).mouseout(function(e) {
+    //         $('#square2').mouseout();
+    //     }).click(function(e) { e.preventDefault(); });
+    //     $('#starlink').click(function(e) {
+    //         e.preventDefault();
+    //         let data = $('#star').data('maphilight') || {};
+    //         data.neverOn = !data.neverOn;
+    //         $('#star').data('maphilight', data);
+    //     });
+    //     $('#star,#starlink2').click(function(e) {
+    //         e.preventDefault();
+    //         let data = $('#star').mouseout().data('maphilight') || {};
+    //         data.alwaysOn = !data.alwaysOn;
+    //         $('#star').data('maphilight', data).trigger('alwaysOn.maphilight');
+    // });
 
     return (
         <div >
@@ -12,7 +34,7 @@ function Index() {
             <img src={map}  align="right"  id='map' useMap="#image-map" alt="map" />
 
             <map id="Map-area" name="image-map" >
-                <area  id="id1" target=""  alt="NLH1-Ground floor"  title="NLH1-Ground floor" href="" coords="75,261,83,248,107,265,98,275" shape="poly"/>
+                <area  id="1" target=""  alt="NLH1-Ground floor"  title="NLH1-Ground floor" href="" coords="75,261,83,248,107,265,98,275" shape="poly"/>
                 <area id="2"  target="" alt="NLH2-Ground floor" title="NLH2-Ground floor" href="" coords="88,253,99,236,118,251,107,263" shape="poly"/>
                 <area id="3" target="" alt="DO1-Second floor" title="DO1-Second floor" href="" coords="126,272,140,252,163,266,148,288" shape="poly"/>
                 <area id="4" target="" alt="DO2-Second floor" title="DO2-Second floor" href="" coords="200,194,216,172,243,190,225,214" shape="poly"/>
