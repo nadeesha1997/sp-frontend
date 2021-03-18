@@ -20,7 +20,7 @@ class Home extends Component {
             date: data
         })
         // console.log("Time in home:")
-        console.log(this.state)
+        // console.log(this.state)
         // console.log("--------------------------------------------")
     }
     componentDidMount() {
