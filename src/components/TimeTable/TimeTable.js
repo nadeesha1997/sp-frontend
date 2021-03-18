@@ -26,7 +26,7 @@ class TimeTable extends Component{
     }
     setDate=()=>{
             this.setState({
-                date:this.props.date,
+                date:this.props.date
             })
     }
     componentDidMount() {
