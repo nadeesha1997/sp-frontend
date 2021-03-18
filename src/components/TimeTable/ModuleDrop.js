@@ -118,8 +118,7 @@ class ModuleDrop extends Component{
            HallId:this.props.hallId
            SubjectId:null
             console.log(this.state)*/
-        }
-    }
+        }}
 
     render() {
         return(
