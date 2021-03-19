@@ -177,7 +177,7 @@ class ModuleEnrolement extends Component{
                     </div>
                     <Selectstudent getStudent={this.getUserById}/>
                     <div>
-                        <h4>Enrolled Modules</h4>
+                        <h4 onClick={()=>{this.getModules(this.state.user.id)}}>Enrolled Modules</h4>
                         {mod}
 
                     </div>
