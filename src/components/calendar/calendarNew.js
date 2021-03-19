@@ -17,7 +17,9 @@ class CalendarNew extends Component {
             date:e
         })
         // console.log(e);
-        this.props.updateDate(e)
+        this.props.updateDate(e);
+        // window.location.reload();
+        this.forceUpdate(()=>this.props.updateDate(e));
     }
     render() {
         return (

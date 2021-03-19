@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './css/log.css'
 import icon from './../images/icon.jpg'
-import {Image} from "react-bootstrap";
+import {Button, Image} from "react-bootstrap";
 import AuthService from "../services/auth.service";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -123,14 +123,15 @@ class Login extends Component{
                         </div>
 
                         <div className="form-group">
-                            <button style={{width:150,backgroundColor:'#7047ba',marginTop:10,marginLeft:80}}
+                            <button style={{width:150,height:50,backgroundColor:'#7047ba',marginTop:10,marginLeft:80}}
                                     className="btn btn-primary btn-block"
                                     disabled={this.state.loading}
                             >
                                 {this.state.loading && (
                                     <span className="spinner-border spinner-border-sm"></span>
                                 )}
-                                <span>Login</span>
+                               Login
+
                             </button>
 
 

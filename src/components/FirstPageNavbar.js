@@ -28,26 +28,15 @@ const FirstPageNavbar= () => {
                     <td>
 
                         <div className="align">
-                            <Button  style={{width:180,backgroundColor:'#7047ba',marginTop:10,marginLeft:20,marginright:20}} type='submit' >
+                            <Button  style={{width:180,backgroundColor:'#7047ba',marginTop:10,marginLeft:45,marginRight:20}} type='submit' >
 
                                 <Link to="./Login"><b>Log In</b>  </Link>
                             </Button>
-                            <Button style={{width:180,backgroundColor:'#7047ba',marginTop:10,marginLeft:20,marginright:20,fontcolor:'#f2eef5'}} type='submit'>
+                            <Button style={{width:180,backgroundColor:'#7047ba',marginTop:10,marginLeft:40,marginRight:20,fontcolor:'#f2eef5'}} type='submit'>
                                 <Link to="./Register"> <b> Register</b>  </Link>
                             </Button>
 
-                            <tr>
-                                <div>
-                                    <div className="align2">
-                                        <form className="form-inline my-2 my-lg-0">
-                                            <input className="form-control mr-sm-2" type="search" placeholder="Search" style={{marginLeft:30,marginright:15}}
-                                                   aria-label="Search"></input>
-                                            <Button style={{width:100,backgroundColor:'#7047ba',marginLeft:15,marginright:15}}>
-                                                 <b>  search</b>
-                                            </Button>
-                                        </form>
-                                    </div>   </div>
-                            </tr></div>
+                           </div>
                     </td>
 
 

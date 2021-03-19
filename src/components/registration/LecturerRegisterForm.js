@@ -18,6 +18,7 @@ class LecturerRegisterForm extends Component {
             password: "",
             confirmPassword:"",
             DepartmentID: "",
+            Role:"Teacher"
 
         },
         errors: {},

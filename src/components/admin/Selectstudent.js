@@ -1,25 +1,26 @@
- import axios from 'axios';
+import axios from 'axios';
 import React from 'react';
 import '../css/SubjectList.css'
 
 
-export default class StudentList extends React.Component {
+export default class selectstudent extends React.Component {
     constructor() {
         super();
         this.state = {
             semester: ' ',
             department: ' ',
-            modules: []
+            students: []
         }
+        this.OnSubmit=this.OnSubmit.bind(this);
 
     }
 
     OnSubmit() {
         console.log(this.state)
-        axios.get(`https://localhost:5001/api/subjects/department/${this.state.department}/semester/${this.state.semester}`)
+        axios.get(`https://localhost:5001/api/user/department/${this.state.department}/semester/${this.state.semester}`)
             .then(res => {
-                const mod = res.data;
-                this.setState({modules: mod});
+                const users = res.data;
+                this.setState({students: users});
                 console.log(this.state)
             })
     }
@@ -35,37 +36,32 @@ export default class StudentList extends React.Component {
         this.setState({department: value});
         console.log(this.state)
     }
-    onDragStart=(ev,id)=>{
-        console.log('dragstart:',id);
-        ev.dataTransfer.setData("id",id);
-        this.getModuleId(id)
+    // getModuleId=(id)=>{this.props.getModuleId(id)}
+    handleClick=(e)=>{
+        this.props.getUser(e)
     }
-    getModuleId=(id)=>{this.props.getModuleId(id)}
-
+    handleChange = (e) => {
+        this.setState({
+            data: {
+                ...this.state.data,
+                [e.target.name]: e.target.value,
+            }
+        });
+    };
 
     render() {
 
-        const mod = this.state.modules.map((mod) => {
+        const mod = this.state.students.map((mod) => {
             return (
-
-                // <tr key={mod.id}>
-                //      <td>{mod.code}</td>
-                //       <td> - {mod.name}</td>
-                // </tr>
                 <ul>
                     <div key={mod.id}
-                         onDragStart={(e) => this.onDragStart(e, mod.id)}
-                         draggable
-                         className="draggable">
-                        {mod.code} - {mod.name}
+                         className="draggable"
+                        onClick={()=>{
+                            this.props.getStudent(mod.id)
+                        }}>
+                        {mod.userName} - {mod.fullName}
                     </div>
                 </ul>
-
-
-
-
-
-
             );
         });
 
@@ -104,10 +100,10 @@ export default class StudentList extends React.Component {
                                 // ref="selectTime"
                                 onChange={(e) => this.handleDeptChange(e)}>
                                 <option>select the Department:</option>
-                                <option value="EE">DEIE</option>
-                                <option value="CE">CEE</option>
-                                <option value="MM">MME</option>
-                                <option value="IS">IS</option>
+                                <option value="1">DEIE</option>
+                                <option value="2">CEE</option>
+                                <option value="3">MME</option>
+                                <option value="4">IS</option>
                             </select>
 
                         </div>
@@ -117,7 +113,7 @@ export default class StudentList extends React.Component {
 
                     <div className="container">
                         <div className="row" style={{margin: '20px'}}>
-                            <button onClick={() => this.OnSubmit()}
+                            <button onClick={(e) => this.OnSubmit()}
                                     style={{backgroundColor: '#9b82c3'}}>
                                 <b>SELECT</b>
                             </button>

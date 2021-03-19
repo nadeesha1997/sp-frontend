@@ -24,11 +24,11 @@
 
 /**/
 
-.text{
+.text1{
     color: #9980ac;
     text-align: left;
-    margin-left:10px;
-    margin-top: 0px;
+    margin-left:30px;
+    margin-top: 20px;
     margin-bottom: 0px;
     font-weight: bolder;
     font-family: "Times New Roman";
@@ -40,7 +40,7 @@
 
 }
 
-P {
+/*P {
     color: #9980ac;
     text-align: left;
     margin-left: 80px;
@@ -49,4 +49,9 @@ P {
     font-weight: bolder;
     font-family: "Times New Roman";
     font-size: medium;
+}*/
+.btn-link {
+    font-weight: normal;
+    color: black;
+    background-color: transparent;
 }
