@@ -9,6 +9,7 @@ class ModuleDrop extends Component{
     constructor(props) {
         super(props);
         // let now= new Date();
+        this.checkBooked();
         this.state={
             date:this.props.date,
             StartTime:this.props.startTime,
@@ -29,16 +30,20 @@ class ModuleDrop extends Component{
         console.log("drop prop"+this.props.SubjectId)
         this.updateDate=this.updateDate.bind(this)
         this.checkBooked=this.checkBooked.bind(this)
+        this.parentCallback=this.parentCallback.bind(this)
     }
     updateDate=()=>{
         let {date}=this.props;
         this.setState({date})
     }
+    parentCallback=()=>{
+        this.props.rerender();
+    }
     componentDidMount() {
+        this.checkBooked();
         this.updateDate()
         this.setStartDateTime()
         this.setEndDateTime();
-        this.checkBooked();
     }
     checkBooked=()=>{
         this.setState({dailyModules:this.props.sessions},()=>{
@@ -134,8 +139,8 @@ class ModuleDrop extends Component{
     onDrop = (ev, cat) => {
         let id = ev.dataTransfer.getData("id");
         this.setState({
-            SubjectId:id
-        },()=>{this.sendData()})
+            SubjectId:ev.dataTransfer.getData("id")
+        },()=>{this.forceUpdate(()=>{this.sendData()})})
         console.log('dragdrop:',this.state);
         this.checkBooked();
 
@@ -154,8 +159,8 @@ class ModuleDrop extends Component{
         // }
         // console.log("before send")
         this.sendData();
-        this.forceUpdate()
-
+        // this.forceUpdate()
+        this.props.rerender();
         {/*
 
            data:
@@ -172,7 +177,7 @@ class ModuleDrop extends Component{
                 className="grid-item1"
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
-                // onClick={()=>{this.checkBooked()}}
+                onClick={()=>{this.checkBooked()}}
             >{this.state.reserved&&
             // <div style={{backgroundColor: "red"}}><p>{this.state.smodule.code}</p></div>}
             <div style={{backgroundColor: "red"}}><p>Reserved</p></div>}
