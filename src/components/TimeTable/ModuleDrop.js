@@ -20,14 +20,22 @@ class ModuleDrop extends Component{
             Permitted:false,
             UserId:AuthService.getCurrentUser().userDetails.id,
             reserved:false,
-            dailyModules:[]
+            dailyModules:[],
+            smodule:null
         }
         // this.setStartDateTime()
         // this.setEndDateTime();
         console.log("drop state"+this.state.SubjectId)
         console.log("drop prop"+this.props.SubjectId)
+        this.updateDate=this.updateDate.bind(this)
+        this.checkBooked=this.checkBooked.bind(this)
+    }
+    updateDate=()=>{
+        let {date}=this.props;
+        this.setState({date})
     }
     componentDidMount() {
+        this.updateDate()
         this.setStartDateTime()
         this.setEndDateTime();
         this.checkBooked();
@@ -36,10 +44,16 @@ class ModuleDrop extends Component{
         this.setState({dailyModules:this.props.sessions},()=>{
             if(this.state.dailyModules){
                 this.state.dailyModules.forEach(module=>{
-                    if((module.startDateTime<=this.state.StartDateTime)&&(module.endDateTime<=this.state.EndDateTime)){
-                        this.setState({permitted:true})
+                    if((moment(module.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=this.state.StartDateTime)&&((moment(module.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=this.state.EndDateTime))&&module.hallId.toString()===this.state.HallId){
+                        this.setState({
+                            reserved:true,
+                            smodule:module
+                        })
+                        console.log("smodule"+this.state.smodule)
                     }
                 });
+                console.log("state is")
+                console.log(this.state)
             }
             else {
                 console.log("null")
@@ -75,8 +89,20 @@ class ModuleDrop extends Component{
         })
     }
 
-    sendData=(e)=>{
-        axios.post("https://localhost:5001/api/sessions",e)
+    sendData=()=>{
+        let data={
+            date:this.props.date,
+            StartTime:this.props.startTime,
+            EndTime:this.props.EndTime,
+            HallId:this.props.hallId,
+            SubjectId:this.props.subjectId,
+            StartDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime,
+            EndDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime,
+            Permitted:false,
+            UserId:this.state.UserId,
+            reserved:false,
+        }
+        axios.post("https://localhost:5001/api/sessions",data)
             .then(res=>console.log(res))
             .then(err=>console.log(err))
             //.then(console.log(this.state))
@@ -109,8 +135,9 @@ class ModuleDrop extends Component{
         let id = ev.dataTransfer.getData("id");
         this.setState({
             SubjectId:id
-        },()=>{this.sendData(this.state)})
+        },()=>{this.sendData()})
         console.log('dragdrop:',this.state);
+        this.checkBooked();
 
 
 
@@ -126,7 +153,8 @@ class ModuleDrop extends Component{
         //     "UserId":this.state.UserId
         // }
         // console.log("before send")
-        this.sendData(this.state);
+        this.sendData();
+        this.forceUpdate()
 
         {/*
 
@@ -144,7 +172,11 @@ class ModuleDrop extends Component{
                 className="grid-item1"
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
-                onClick={()=>{this.checkBooked()}}>
+                // onClick={()=>{this.checkBooked()}}
+            >{this.state.reserved&&
+            // <div style={{backgroundColor: "red"}}><p>{this.state.smodule.code}</p></div>}
+            <div style={{backgroundColor: "red"}}><p>Reserved</p></div>}
+
             </div>
 
         )

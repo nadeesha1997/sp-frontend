@@ -6,10 +6,10 @@ import ModuleDrop from "./ModuleDrop";
 
 class TimeTable extends Component{
     constructor(props) {
-            let now= new Date();
+            // let now= new Date();
         super(props);
         this.state={
-            date:now,
+            date:null,
             sessions:[]
         }
         // this.setDate();
@@ -23,11 +23,13 @@ class TimeTable extends Component{
             // console.log(this.state)
             })})
             // .then((res)=>{console.log(res.data)})
+        console.log("moment")
+        console.log(moment(this.props.date).format('YYYY-MM-DD'))
     }
     setDate=()=>{
-            this.setState({
-                date:this.props.date,
-            })
+        let {date}=this.props
+            this.setState({date})
+        this.forceUpdate()
     }
     componentDidMount() {
         this.setDate()
@@ -51,8 +53,8 @@ class TimeTable extends Component{
                 <div className="grid-item">7.30</div>
 
                 <div className="grid-item"><ModuleDrop hallId="1" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} sessions={this.state.sessions}/></div>
-                <div className="grid-item"><ModuleDrop hallId="2" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
-                <div className="grid-item"><ModuleDrop hallId="3" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+                <div className="grid-item"><ModuleDrop hallId="2" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} sessions={this.state.sessions}/></div>
+                <div className="grid-item"><ModuleDrop hallId="3" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} sessions={this.state.sessions}/></div>
                 <div className="grid-item"><ModuleDrop hallId="4" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
                 <div className="grid-item"><ModuleDrop hallId="5" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
                 <div className="grid-item"><ModuleDrop hallId="6" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
