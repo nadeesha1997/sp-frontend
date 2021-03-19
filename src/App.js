@@ -12,6 +12,8 @@ import FirstPage from './components/FirstPage'
 import TimeTable from "./components/TimeTable/TimeTable";
 import SubjectList from "./components/TimeTable/SubjectList";
 import ModuleDrop from "./components/TimeTable/ModuleDrop";
+import EditProfile from './components/student/EditProfile';
+import ProfileNew from "./components/student/ProfileNew";
 
 
 class App extends Component {
@@ -24,7 +26,8 @@ class App extends Component {
                     <Route path='/Register' component={Register} />
                     <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
                     <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
-                    <Route path= '/Student/Profile' component={StudentProfile}/>
+                    <Route path= '/Student/Profile' component={ProfileNew}/>
+                    <Route path= '/Student/ProfileEdit' component={EditProfile}/>
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Login}/>
                     <Route path= '/SubjectList' component={SubjectList}/>

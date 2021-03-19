@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
 import '../css/StudentProfile.css'
-import Student from './data/profile.json'
+//import Student from './data/profile.json'
 import AuthService from "../../services/auth.service";
 import axios from "axios";
+import { Table } from 'react-bootstrap';
 
 class StudentProfile extends Component {
     constructor(props){
@@ -61,11 +62,13 @@ class StudentProfile extends Component {
     render () {
         const mod = this.state.modules.map((mod) => {
             return (
-                <li>
+                <tr>
+                <td >
                     <div key={mod.id}>
                         {mod.subject.code} - {mod.subject.name}
                     </div>
-                </li>
+                </td>
+                </tr>
             );
         });
         return (
@@ -73,55 +76,56 @@ class StudentProfile extends Component {
                 <form method="post">
                     <div className="row">
                         <div className="col-md-4">
-                            <div className="profile-img">
+                            <div className="row">
+                                <div className="col"></div>
+                                <div className="col">
+                                <div className="profile-img">
                                 <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" alt=""/>
                                 <div className="file btn btn-lg btn-primary">
                                     Change Photo
                                     <input type="file" name="file"/>
                                 </div>
+                                <div className="col"></div>
                             </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="profile-head">
-                                <h5>
-                                    {
-                                        this.state.currentUser.userDetails.fullName
-                                    }
-                                </h5>
-                                <h6>
-                                    Student
-                                </h6>
-                                <p className="proile-rating"> : <span></span></p>
-                                <ul className="nav nav-tabs" id="myTab" role="tablist">
-                                    <li className="nav-item">
-                                        <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                                    </li>
-                                </ul>
+                                </div>
+                            
                             </div>
-                        </div>
-                        <div className="col-md-2">
-                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                        </div>
+                        </div> 
                     </div>
                     <div className="row">
-                        <div className="col-md-4">
+                        {/* <div className="col-md-4">
                             <div className="profile-work">
-                                <p>WORK LINK</p>
-                                <a href="">Website Link</a><br/>
-                                <a href="">Bootsnipp Profile</a><br/>
-                                <a href="">Bootply Profile</a>
-                                <p>MODULES</p>
-                                <ul>
-                                    {mod}
-                                </ul>
+                                <a>DEPARTMENT</a><br/>
+                                <button type="button" class="btn btn-default btn-xs">DEIE</button><br/>
+                                <button type="button" class="btn btn-default btn-xs">DCEE</button><br/>
+                                <button type="button" class="btn btn-default btn-xs">DMME</button><br/>
+                                <button type="button" class="btn btn-default btn-xs">DIS</button><br/>
+                                
+                                <a>SEMESTER</a><br/>
+                                
+                                   <button type="button" class="btn btn-default btn-xs">Semester1</button><br/>
+                                   <button type="button" class="btn btn-default btn-xs">Semester2</button><br/>
+                                   <button type="button" class="btn btn-default btn-xs">Semester3</button><br/>
+                                   <button type="button" class="btn btn-default btn-xs">Semester4</button><br/>
+                                   <button type="button" class="btn btn-default btn-xs">Semester5</button><br/>
+                                   <button type="button" class="btn btn-default btn-xs">Semester6</button><br/>
+                                   <button type="button" class="btn btn-default btn-xs">Semester7</button><br/>
+                                   <button type="button" class="btn btn-default btn-xs">Semester8</button><br/>
+    
                             </div>
-                        </div>
+                        </div> */}
                         <div className="col-md-8">
                             <div className="tab-content profile-tab" id="myTabContent">
                                 <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div className="row">
+                                        <div className="col-md-6">
+                                            <label>Full Name</label>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <p>{this.state.currentUser.userDetails.fullName}</p>
+                                        </div>
+                                    </div>
+                                    
                                     <div className="row">
                                         <div className="col-md-6">
                                             <label>User Name</label>
@@ -130,13 +134,14 @@ class StudentProfile extends Component {
                                             <p>{this.state.currentUser.userDetails.userName}</p>
                                         </div>
                                     </div>
+                                    
                                     <div className="row">
-                                        <div className="col-md-6">
+                                        {/* <div className="col-md-6">
                                             <label>Name</label>
                                         </div>
                                         <div className="col-md-6">
                                             <p>Kshiti Ghelani</p>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div className="row">
                                         <div className="col-md-6">
@@ -148,23 +153,44 @@ class StudentProfile extends Component {
                                     </div>
                                     <div className="row">
                                         <div className="col-md-6">
-                                            <label>Mobile No</label>
+                                            <label>Reg No</label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>{Student.mobileNo}</p>
+                                            <p>{this.state.currentUser.userDetails.regNo}</p>
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-md-6">
+                                        {/* <div className="col-md-6">
                                             <label>Joined Date</label>
                                         </div>
                                         <div className="col-md-6">
                                             <p>{Student.joinedDate}</p>
-                                        </div>
+                                        </div> */}
                                     </div>
+                                
+                                {/* <div >
+                                    <h5>
+                                        Enrolled Modules
+                                    </h5>
+                                    <ul>
+                                        {mod}
+                                    </ul>
+                                </div> */}
+
                                 </div>
+                                
+                                <Table className="EnModule">
+                                    <tr>
+                                        <th>
+                                            Enrolled Modules
+                                        </th>
+                                        
+                                    </tr>
+                                    {mod}
+                                </Table>
+                                
                                 <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <div className="row">
+                                    {/* <div className="row">
                                         <div className="col-md-6">
                                             <label>Experience</label>
                                         </div>
@@ -209,7 +235,7 @@ class StudentProfile extends Component {
                                             <label>Your Bio</label><br/>
                                             <p>Your detail description</p>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
