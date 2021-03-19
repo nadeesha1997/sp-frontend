@@ -5,7 +5,7 @@ import AuthService from "../../services/auth.service";
 import axios from "axios";
 //<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
 
-class StudentProfile extends Component {
+class EditProfile extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -21,7 +21,10 @@ class StudentProfile extends Component {
         this.getModules();
     }
     componentDidMount() {
-        //this.getModules();
+        this.getModules();
+        this.getISModules();
+        this.getEnrolableModules();
+        console.log(this.state)
     }
     getModules=()=>{
         axios.get("https://localhost:5001/api/subjectuser/user/"+this.state.currentUser.userDetails.id)
@@ -58,18 +61,79 @@ class StudentProfile extends Component {
                 console.log(res.data)
             }).then(console.log(this.state))
     }
-
+    Unenroll=(id,e)=>{
+        axios.delete('https://localhost:5001/api/SubjectUser/${this.state.currentUser.userDetails.id}/${id}')
+        .then((res)=>{console.log(res.data)})
+        .then(err=>console.log(err))
+    }
+   
     render () {
-        const mod = this.state.modules.map((mod) => {
-            return (
-                <li key={mod.id}>
-                    <span>
-                        {mod.subject.code} - {mod.subject.name}
-                    </span>
-                    <span><input type="submit"/></span>
+        const dept = this.state.departmentModules.map((mod) => {
+            
+               if(
+                this.state.departmentModules.length != 0
+               )
+               {
+                   return(
+                    <tr>
+                    <td >
+                        <div key={mod.id}>
+                            {/* {mod.subject.code} - {mod.subject.name} */}
+                        </div>
+                    </td>
+                    </tr>
+                   )
+               }
+               else{
+
+                   return(<div>
                     
-                </li>
-            );
+                    </div>)
+               }
+            
+        });
+        const Isdept = this.state.iSModules.map((mod) => {
+            if(
+                this.state.iSModules.length != 0
+               )
+               {
+                   return(
+                    <tr>
+                    <td >
+                        <div key={mod.id}>
+                            {mod.subject.code} - {mod.subject.name}
+                        </div>
+                    </td>
+                    </tr>
+                   )
+               }
+               else{
+
+                   return(<div>
+                    
+                    </div>)
+               }
+        });
+        const mod = this.state.modules.map((mod) => {
+            if(
+                this.state.modules.length != 0
+            )
+            {
+                return (
+                    <li key={mod.id}>
+                        <span>
+                            {mod.subject.code} - {mod.subject.name}
+                        </span>
+                        <span><button onClick = {(e)=>this.Unenroll(mod.id,e)}></button></span>
+                        
+                    </li>
+                );
+            }
+            else{
+                    return(<div>
+                     
+                     </div>)
+            }
         });
         return (
             <div className="container emp-profile col-md-6">
@@ -155,6 +219,14 @@ class StudentProfile extends Component {
                             {mod}
                         </Table> */}
                     </div>
+                    <hr/>
+                    <div className="row">
+                        <div> Enrollable Modules
+                            {dept}
+                            {Isdept}
+                        </div>
+                    </div>
+                    
                 </form>
             </div>
         
@@ -162,4 +234,4 @@ class StudentProfile extends Component {
     }
 }
 
-export default StudentProfile
+export default EditProfile

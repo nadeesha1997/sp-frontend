@@ -71,6 +71,28 @@ class StudentProfile extends Component {
                 </tr>
             );
         });
+        // const dept = this.state.departmentModules.map((mod) => {
+        //     return (
+        //         <tr>
+        //         <td >
+        //             <div key={mod.id}>
+        //                 {mod.subject.code} - {mod.subject.name}
+        //             </div>
+        //         </td>
+        //         </tr>
+        //     );
+        // });
+        // const Isdept = this.state.iSModules.map((mod) => {
+        //     return (
+        //         <tr>
+        //         <td >
+        //             <div key={mod.id}>
+        //                 {mod.subject.code} - {mod.subject.name}
+        //             </div>
+        //         </td>
+        //         </tr>
+        //     );
+        // });
         return (
             <div className="container emp-profile col-md-6">
                 <div className="container">
@@ -173,6 +195,17 @@ class StudentProfile extends Component {
                     {mod}
                 </Table>
             </div>
+            {/* <div className="row">
+                <Table className="table table-borderless StudentDetails">
+                    <tr>
+                        <th>
+                            Enrollable Modules
+                        </th>
+                    </tr>
+                    {dept}
+                    {Isdept}
+                </Table>
+            </div> */}
             </div>
             
         )

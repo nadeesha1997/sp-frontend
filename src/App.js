@@ -7,7 +7,7 @@ import StudentRegisterForm from './components/StudentRegisterForm'
 import LecturerRegisterForm from "./components/registration/LecturerRegisterForm";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import StudentDashboard from './components/student/StudentDashboard';
-import StudentProfile from './components/student/StudentProfile';
+//import StudentProfile from './components/student/StudentProfile';
 
 import Home from './components/Home'
 import FirstPage from './components/FirstPage'
@@ -15,6 +15,8 @@ import TimeTable from "./components/TimeTable/TimeTable";
 import SubjectList from "./components/TimeTable/SubjectList";
 import ModuleDrop from "./components/TimeTable/ModuleDrop";
 import ModuleEnrolement from "./components/admin/moduleEnrolement";
+import EditProfile from "./components/student/EditProfile";
+import ProfileNew from "./components/student/ProfileNew";
 
 
 
@@ -31,7 +33,8 @@ class App extends Component {
                     <Route path='/Index' component={Index} />
                     <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
                     <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
-                    <Route path= '/Student/Profile' component={StudentProfile}/>
+                    <Route path= '/Student/Profile' component={ProfileNew}/>
+                    <Route path= '/Student/ProfileEdit' component={EditProfile}/>
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Login}/>
                     <Route path= '/SubjectList' component={SubjectList}/>
