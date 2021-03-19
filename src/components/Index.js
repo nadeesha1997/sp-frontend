@@ -1,40 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import map from './../images/map.jpg';
 import {Nav} from "./Nav";
-// import $ from 'jquery';
-import Register from "./Register";
+import { Row, Col } from "reactstrap";
+import {dark} from "@material-ui/core/styles/createPalette";
+
 
 function Index() {
-    // const highLight=()=>{
-    //     $('.map').maphilight({
-    //         fillColor: '008800'
-    //     });
-    //     $('#hilightlink').mouseover(function(e) {
-    //         $('#square2').mouseover();
-    //     }).mouseout(function(e) {
-    //         $('#square2').mouseout();
-    //     }).click(function(e) { e.preventDefault(); });
-    //     $('#starlink').click(function(e) {
-    //         e.preventDefault();
-    //         let data = $('#star').data('maphilight') || {};
-    //         data.neverOn = !data.neverOn;
-    //         $('#star').data('maphilight', data);
-    //     });
-    //     $('#star,#starlink2').click(function(e) {
-    //         e.preventDefault();
-    //         let data = $('#star').mouseout().data('maphilight') || {};
-    //         data.alwaysOn = !data.alwaysOn;
-    //         $('#star').data('maphilight', data).trigger('alwaysOn.maphilight');
-    // });
+
 
     return (
         <div >
             <Nav />
             <h1  align="center" >Lecture halls </h1>
-            <img src={map}  align="right"  id='map' useMap="#image-map" alt="map" />
+            <img src={map}  align="right"  id='map' class="map" useMap="#image-map" alt="map" />
 
             <map id="Map-area" name="image-map" >
-                <area  id="1" target=""  alt="NLH1-Ground floor"  title="NLH1-Ground floor" href="" coords="75,261,83,248,107,265,98,275" shape="poly"/>
+
+                <area  id="1" target="" alt="NLH1-Ground floor" title="NLH1-Ground floor" href="" coords="75,261,83,248,107,265,98,275" shape="poly"/>
                 <area id="2"  target="" alt="NLH2-Ground floor" title="NLH2-Ground floor" href="" coords="88,253,99,236,118,251,107,263" shape="poly"/>
                 <area id="3" target="" alt="DO1-Second floor" title="DO1-Second floor" href="" coords="126,272,140,252,163,266,148,288" shape="poly"/>
                 <area id="4" target="" alt="DO2-Second floor" title="DO2-Second floor" href="" coords="200,194,216,172,243,190,225,214" shape="poly"/>
@@ -49,26 +31,34 @@ function Index() {
                 <area id="13" target="" alt="CLR-Third floor" title="CLR-Third floor" href="" coords="184,464,210,478,227,442,199,431" shape="poly"/>
 
             </map>
-            <h4  >View the lecture halls on the map</h4>
-            <ol >
-
-                <p>NLH1-Ground floor <button >view</button></p>
-                <p>NLH2-Ground floor <button >view</button> </p>
-                <p>DO1-Second floor  <button>view</button> </p>
-                <p>DO2-Second floor  <button>view</button> </p>
-                <p>LR1-first floor   <button>view</button> </p>
-                <p>LR2-first floor   <button>view</button> </p>
-                <p>LT1-first floor   <button>view</button> </p>
-                <p>LT2-first floor   <button>view</button> </p>
-                <p>IS-Seminar room   <button>view</button> </p>
-                <p>ELR-Third floor   <button>view</button> </p>
-                <p>ELT-second floor  <button>view</button> </p>
-                <p>MLR-Third         <button>view</button> </p>
-                <p>CLR-Third floor   <button>view</button> </p>
 
 
-            </ol>
-        </div>
+<row >
+    <Col sm={4}  >
+    <div className=" text-left border rounded" color="text-danger">
+        <h6></h6>
+        <p align="center"><ins>FACULTY AUDITORIUM</ins></p>
+        <h6 className="text-danger">*NLH1-Ground floor</h6>
+        <h6 className="text-danger">*NLH2-Ground floor</h6>
+        <p align="center"><ins>HALL A</ins></p>
+        <h6 className="text-lime">*LR1-first floor</h6>
+        <h6 className="text-lime">*LR2-first floor</h6>
+        <h6 className="text-lime">*LT1-first floor</h6>
+        <h6 className="text-lime">*LT2-first floor</h6>
+        <p align="center"><ins>INTERDISCIPLINARY STUDIES</ins></p>
+        <h6 className="text-white">*IS-Seminar room</h6>
+        <p align="center"><ins>MECHANICAL AND MANUFACTURING DEPARTMENT</ins></p>
+        <h6 className="text-success">*MLR-Third</h6>
+        <p align="center"><ins>CIVIL AND ENVIRONMENT DEPARTMENT</ins></p>
+        <h6 className="text-warning">*CLR-Third floor</h6>
+        <p align="center"><ins>ELECTRICAL AND INFORMATION DEPARTMENT</ins></p>
+        <h6 className="text-primary">*ELR-Third floor</h6>
+        <h6 className="text-primary">*ELR-Third floor</h6>
+
+    </div>
+    </Col>
+</row>
+</div>
     );
 }
 
