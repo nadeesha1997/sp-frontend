@@ -18,7 +18,7 @@ function Nav() {
         <div>
             <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <div className="navbar-nav">
-                    <NavLink exact to="/Home" className="nav-item nav-link">Timetable</NavLink>
+                    <NavLink exact to="/Home" className="nav-item nav-link">Time Table</NavLink>
                     <NavLink to="/profile" className="nav-item nav-link">
                        Dashboard
                     </NavLink>
