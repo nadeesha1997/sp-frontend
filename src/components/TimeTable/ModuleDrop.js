@@ -1,7 +1,7 @@
- import React,{Component} from 'react'
- import axios from "axios";
+import React,{Component} from 'react'
+import axios from "axios";
 import '../css/ModuleDrop.css'
- import moment from "moment";
+import moment from "moment";
 import AuthService from '../../services/auth.service'
 
 class ModuleDrop extends Component{
@@ -15,19 +15,15 @@ class ModuleDrop extends Component{
             StartTime:this.props.startTime,
             EndTime:this.props.EndTime,
             HallId:this.props.hallId,
-            SubjectId:this.props.subjectId,
-            StartDateTime:'',
-            EndDateTime:'',
+            SubjectId:0,
+            StartDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime,
+            EndDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime,
             Permitted:false,
             UserId:AuthService.getCurrentUser().userDetails.id,
             reserved:false,
-            dailyModules:[],
+            dailyModules:this.props.sessions,
             smodule:null
         }
-        // this.setStartDateTime()
-        // this.setEndDateTime();
-        console.log("drop state"+this.state.SubjectId)
-        console.log("drop prop"+this.props.SubjectId)
         this.updateDate=this.updateDate.bind(this)
         this.checkBooked=this.checkBooked.bind(this)
         this.parentCallback=this.parentCallback.bind(this)
@@ -36,8 +32,10 @@ class ModuleDrop extends Component{
         let {date}=this.props;
         this.setState({date})
     }
-    parentCallback=()=>{
+ timetable_update
+    parentCallback=(func)=>{
         this.props.rerender();
+        func();
     }
     componentDidMount() {
         this.checkBooked();
@@ -57,15 +55,15 @@ class ModuleDrop extends Component{
                         console.log("smodule"+this.state.smodule)
                     }
                 });
-                console.log("state is")
-                console.log(this.state)
+                // console.log("state is")
+                // console.log(this.state)
             }
             else {
-                console.log("null")
+                console.log("smodule is null")
             }
         })
-        console.log(this.state)
-}
+        // console.log(this.state)
+    }
 
     // getModule=(id)=>{
     //     // let mod=axios.get("https://localhost:5001/api/subjects/"+id);
@@ -82,15 +80,15 @@ class ModuleDrop extends Component{
     //     console.log(this.state);
     // }
     setStartDateTime=()=> {
-        let str = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime;
+        // let str = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime;
         this.setState({
-            StartDateTime: str
+            StartDateTime: moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime
         })
     }
     setEndDateTime=()=> {
-        let str = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime;
+        // let str = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime;
         this.setState({
-            EndDateTime: str
+            EndDateTime: moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime
         })
     }
 
@@ -100,7 +98,7 @@ class ModuleDrop extends Component{
             StartTime:this.props.startTime,
             EndTime:this.props.EndTime,
             HallId:this.props.hallId,
-            SubjectId:this.props.subjectId,
+            SubjectId:this.state.SubjectId,
             StartDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime,
             EndDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime,
             Permitted:false,
@@ -110,7 +108,7 @@ class ModuleDrop extends Component{
         axios.post("https://localhost:5001/api/sessions",data)
             .then(res=>console.log(res))
             .then(err=>console.log(err))
-            //.then(console.log(this.state))
+        //.then(console.log(this.state))
     }
     onDragOver=(ev)=>{
         ev.preventDefault()
@@ -121,55 +119,30 @@ class ModuleDrop extends Component{
         this.setState({
             SubjectId:id
         })
-        // this.setStartDateTime()
-        // this.setEndDateTime();
-        // console.log(ev.dataTransfer.data);
     }
-    // onDragLeave= (ev, cat) => {
-    //     let id = ev.dataTransfer.getData("id");
-    //     this.setState({
-    //         SubjectId: id
-    //     })
-    //     console.log('dragdrop:', this.state);
-    //     this.setStartDateTime()
-    //     this.setEndDateTime();
-    // }
+    onDragLeave= (ev) => {
+        let id = ev.dataTransfer.getData("id");
+        this.setState({
+            SubjectId: id
+        })
+        this.parentCallback()
+    }
 
 
     onDrop = (ev, cat) => {
         let id = ev.dataTransfer.getData("id");
+        console.log("id is"+id)
         this.setState({
             SubjectId:ev.dataTransfer.getData("id")
         },()=>{this.forceUpdate(()=>{this.sendData()})})
         console.log('dragdrop:',this.state);
         this.checkBooked();
-
-
-
-
-        // this.setStartDateTime()
-        // this.setEndDateTime();
-        // const data={
-        //     "StartDateTime":"2021-03-15T07:30:00",
-        //     "EndDateTime":"2021-03-15T08:30:00",
-        //     "Permitted":false,
-        //     "SubjectId":"2",
-        //     "HallId":"1",
-        //     "UserId":this.state.UserId
-        // }
-        // console.log("before send")
         this.sendData();
         // this.forceUpdate()
         this.props.rerender();
-        {/*
+        this.parentCallback(this.checkBooked);
+    }
 
-           data:
-           StartTime:this.props.startTime
-           EndTime:this.props.EndTime
-           HallId:this.props.hallId
-           SubjectId:null
-            console.log(this.state)*/
-        }}
 
     render() {
         return(
@@ -177,13 +150,12 @@ class ModuleDrop extends Component{
                 className="grid-item1"
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
-                onClick={()=>{this.checkBooked()}}
+                onClick={()=>{this.parentCallback(this.checkBooked)}}
+
             >{this.state.reserved&&
             // <div style={{backgroundColor: "red"}}><p>{this.state.smodule.code}</p></div>}
             <div style={{backgroundColor: "red"}}><p>Reserved</p></div>}
-
             </div>
-
         )
     }
 }
