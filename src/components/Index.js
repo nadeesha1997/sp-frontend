@@ -4,10 +4,15 @@ import LT1 from './../images/LT1.jpg';
 import ELR from './../images/ELR.jpg';
 import CLR from './../images/CLR.jpg';
 import {Nav} from "./Nav";
-import {Col,Table,Badge, Progress,} from "reactstrap";
+import {Col,Table,Badge,} from "reactstrap";
 
 
-
+const Header = {
+    padding: "10px 20px",
+    textAlign: "center",
+    fontSize: "22px",
+    height:"80px"
+}
 
 class Index extends React.Component {
     constructor(props) {
@@ -27,8 +32,8 @@ class Index extends React.Component {
                         Other:"Multimedia,Rolling black board"
                     },
                     Occupancy: "Max 300 students",
-                    progress: {
-                        percent: 100,
+                    label2: {
+                        text:"Available",
                         colorClass: "success",
                     }, label: {
                         colorClass: "primary",
@@ -47,10 +52,9 @@ class Index extends React.Component {
                         Other:"Multimedia,Two white boards"
                     },
                     Occupancy: "Max 80 students",
-                    progress: {
-                        percent: 100,
+                    label2: {
+                        text:"Available",
                         colorClass: "success",
-
                     }, label: {
                         colorClass: "primary",
                         text: "Available for EIE students",
@@ -68,8 +72,8 @@ class Index extends React.Component {
                         Other:"Multimedia,Two white boards"
                     },
                     Occupancy: "Max 80 students",
-                    progress: {
-                        percent: 100,
+                    label2: {
+                        text:"Not Available",
                         colorClass: "danger",
                     }, label: {
                         colorClass: "primary",
@@ -88,7 +92,7 @@ class Index extends React.Component {
         return (
             <div>
                 <Nav/>
-                <h1 align="center">Lecture halls </h1>
+                <h1 align="center">Graphycal visualization of lecture venues </h1>
                 <img src={map} align="right" id='map' class="map" useMap="#image-map" alt="map"/>
 
                 <map id="Map-area" name="image-map">
@@ -160,80 +164,89 @@ class Index extends React.Component {
                         </div>
                     </Col>
                 </row>
+                <div style={Header}>
 
-                <Table striped>
-                    <thead>
+                </div>
+                <div className="table" >
+                    <h2>Availability of Lecture Venues </h2>
+        <Table  striped >
+            <thead>
 
-                    <tr className="fs-sm">
+            <tr className="fs-sm">
 
-                        <th className="hidden-sm-down">#</th>
-                        <th>Picture</th>
-                        <th>Description</th>
-                        <th className="hidden-sm-down">Info</th>
-                        <th className="hidden-sm-down">Occupancy</th>
-                        <th className="hidden-sm-down">Status</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.state.tableStyles.map((row) => (
-                        <tr key={row.id}>
-                            <td>{row.id}</td>
-                            <td>
-                                <img className="img-rounded" src={row.picture} alt="" height="100"/>
-                            </td>
-                            <td>
-                                {row.description}
-                                {row.label && (
-                                    <div>
-                                        <Badge color={row.label.colorClass}>
-                                            {row.label.text}
-                                        </Badge>
-                                    </div>
-                                )}
-                            </td>
-                            <td>
-                                <p className="mb-0">
-                                    <small>
-                                        Usage:
-                                        <span className="text-muted fw-semi-bold">
+                <th className="hidden-sm-down">#</th>
+                <th>Picture</th>
+                <th>Description</th>
+                <th className="hidden-sm-down">Info</th>
+                <th className="hidden-sm-down">Occupancy</th>
+                <th className="hidden-sm-down">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {this.state.tableStyles.map((row) => (
+                <tr key={row.id}>
+                    <td>{row.id}</td>
+                    <td>
+                        <img className="img-rounded" src={row.picture} alt="" height="100"/>
+                    </td>
+                    <td>
+                        {row.description}
+                        {row.label && (
+                            <div>
+                                <Badge color={row.label.colorClass}>
+                                    {row.label.text}
+                                </Badge>
+                            </div>
+                        )}
+                    </td>
+                    <td>
+                        <p className="mb-0">
+                            <small>
+                                Usage:
+                                <span className="text-muted fw-semi-bold">
                               &nbsp; {row.info.Usage}
                             </span>
-                                    </small>
-                                </p>
-                                <p className="mb-0">
-                                    <small>
-                                        Area:
-                                        <span className="text-muted fw-semi-bold">
+                            </small>
+                        </p>
+                        <p className="mb-0">
+                            <small>
+                                Area:
+                                <span className="text-muted fw-semi-bold">
                               &nbsp; {row.info.Area}
                             </span>
-                                    </small>
-                                </p>
-                                <p className="mb-0">
-                                    <small>
-                                        Other:
-                                        <span className="text-muted fw-semi-bold">
+                            </small>
+                        </p>
+                        <p className="mb-0">
+                            <small>
+                                Other:
+                                <span className="text-muted fw-semi-bold">
                               &nbsp; {row.info.Other}
                             </span>
-                                    </small>
-                                </p>
-                            </td>
-                           
-                            <td className="text-dark-bold">{row.Occupancy}</td>
-                            <td className="width-150">
-                                <Progress
-                                    color={row.progress.colorClass}
-                                    value={row.progress.percent}
-                                    className="progress-sm mb-xs"
-                                />
-                            </td>
+                            </small>
+                        </p>
+                    </td>
 
-                        </tr>
+                    <td className="text-dark-bold">{row.Occupancy}</td>
+                    <td className="width-150">
 
-                    ))}
-                    </tbody>
+                            {row.label2 && (
+                                <div>
+                                    <Badge color={row.label2.colorClass}>
+                                        {row.label2.text}
+                                    </Badge>
+                                </div>
+                            )}
 
-                </Table>
+                    </td>
 
+                </tr>
+
+            ))}
+            </tbody>
+
+        </Table>
+
+               </div>
             </div>
         );
     }
