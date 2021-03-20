@@ -16,27 +16,24 @@ class TimeTable extends Component{
         this.sessionsGet=this.sessionsGet.bind(this);
         this.setDate=this.setDate.bind(this);
         this.rerender=this.rerender.bind(this);
+        //this.sessionsGet();
     }
     sessionsGet=()=>{
         axios.get('https://localhost:5001/api/sessions/dateonly/'+moment(this.props.date).format('YYYY-MM-DD'))
-            .then((res)=>{this.setState({sessions:res.data},()=>{console.log(res.data);
-            // console.log("state sessions");
-            // console.log(this.state)
-            })})
-            // .then((res)=>{console.log(res.data)})
-        console.log("moment")
-        console.log(moment(this.props.date).format('YYYY-MM-DD'))
+            .then((res)=>{this.setState({sessions:res.data},()=>{this.forceUpdate();})})
+
     }
     setDate=()=>{
         let {date}=this.props
             this.setState({date})
-        this.forceUpdate()
+        this.forceUpdate(()=>this.sessionsGet())
     }
     componentDidMount() {
-        this.setDate()
         this.sessionsGet()
+        this.setDate()
     }
     rerender=()=>{
+        this.sessionsGet()
         this.forceUpdate()
     }
 
