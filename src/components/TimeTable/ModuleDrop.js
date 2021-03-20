@@ -1,7 +1,7 @@
- import React,{Component} from 'react'
- import axios from "axios";
+import React,{Component} from 'react'
+import axios from "axios";
 import '../css/ModuleDrop.css'
- import moment from "moment";
+import moment from "moment";
 import AuthService from '../../services/auth.service'
 
 class ModuleDrop extends Component{
@@ -27,11 +27,12 @@ class ModuleDrop extends Component{
         this.updateDate=this.updateDate.bind(this)
         this.checkBooked=this.checkBooked.bind(this)
         this.parentCallback=this.parentCallback.bind(this)
-     }
+    }
     updateDate=()=>{
         let {date}=this.props;
         this.setState({date})
     }
+ timetable_update
     parentCallback=(func)=>{
         this.props.rerender();
         func();
@@ -62,7 +63,7 @@ class ModuleDrop extends Component{
             }
         })
         // console.log(this.state)
-}
+    }
 
     // getModule=(id)=>{
     //     // let mod=axios.get("https://localhost:5001/api/subjects/"+id);
@@ -107,7 +108,7 @@ class ModuleDrop extends Component{
         axios.post("https://localhost:5001/api/sessions",data)
             .then(res=>console.log(res))
             .then(err=>console.log(err))
-            //.then(console.log(this.state))
+        //.then(console.log(this.state))
     }
     onDragOver=(ev)=>{
         ev.preventDefault()
@@ -142,6 +143,7 @@ class ModuleDrop extends Component{
         this.parentCallback(this.checkBooked);
     }
 
+
     render() {
         return(
             <div
@@ -149,9 +151,10 @@ class ModuleDrop extends Component{
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
                 onClick={()=>{this.parentCallback(this.checkBooked)}}
+
             >{this.state.reserved&&
             // <div style={{backgroundColor: "red"}}><p>{this.state.smodule.code}</p></div>}
-             <div style={{backgroundColor: "red"}}><p>Reserved</p></div>}
+            <div style={{backgroundColor: "red"}}><p>Reserved</p></div>}
             </div>
         )
     }
