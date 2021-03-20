@@ -3,6 +3,7 @@ import { Route, BrowserRouter } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
 import Index from './components/Index'
+
 import StudentRegisterForm from './components/StudentRegisterForm'
 import LecturerRegisterForm from "./components/registration/LecturerRegisterForm";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,7 +38,7 @@ class App extends Component {
                     <Route path= '/SubjectList' component={SubjectList}/>
                     <Route path= '/timetable' component={TimeTable}/>
                     <Route path= '/ModuleDrop' component={ModuleDrop}/>
-                    <Route path='/moduleenrole' component={ModuleEnrolement}/>
+                    <Route path='/moduleenrolement' component={ModuleEnrolement}/>
 
                 </div>
             </BrowserRouter>

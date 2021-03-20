@@ -32,6 +32,7 @@ class ModuleDrop extends Component{
         let {date}=this.props;
         this.setState({date})
     }
+ timetable_update
     parentCallback=(func)=>{
         this.props.rerender();
         func();
@@ -142,6 +143,7 @@ class ModuleDrop extends Component{
         this.parentCallback(this.checkBooked);
     }
 
+
     render() {
         return(
             <div
@@ -149,6 +151,7 @@ class ModuleDrop extends Component{
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
                 onClick={()=>{this.parentCallback(this.checkBooked)}}
+
             >{this.state.reserved&&
             // <div style={{backgroundColor: "red"}}><p>{this.state.smodule.code}</p></div>}
             <div style={{backgroundColor: "red"}}><p>Reserved</p></div>}

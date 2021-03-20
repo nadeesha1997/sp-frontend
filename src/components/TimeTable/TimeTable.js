@@ -16,7 +16,6 @@ class TimeTable extends Component{
         this.sessionsGet=this.sessionsGet.bind(this);
         this.setDate=this.setDate.bind(this);
         this.rerender=this.rerender.bind(this);
-        //this.sessionsGet();
     }
     sessionsGet=()=>{
         axios.get('https://localhost:5001/api/sessions/dateonly/'+moment(this.props.date).format('YYYY-MM-DD'))
@@ -34,6 +33,9 @@ class TimeTable extends Component{
     }
     rerender=()=>{
         this.sessionsGet()
+        this.forceUpdate()
+    }
+    rerender=()=>{
         this.forceUpdate()
     }
 
@@ -74,6 +76,7 @@ class TimeTable extends Component{
                 <div className="grid-item"><ModuleDrop hallId="8" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
                 <div className="grid-item"><ModuleDrop hallId="9" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
                 <div className="grid-item"><ModuleDrop hallId="10" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} subjectId={this.props.moduleId}/></div>
+
                 <div className="grid-item">9.30</div>
                 <div className="grid-item"><ModuleDrop hallId="1" startTime="7.30" EndTime="8.30" date={this.props.date}/></div>
                 <div className="grid-item"><ModuleDrop hallId="2" startTime="7.30" EndTime="8.30" date={this.props.date}/></div>
