@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
+import {Button} from "react-bootstrap";
 
 const RegistrationTabbar = () => {
     const navTabsTitleStyle = {
@@ -54,6 +55,7 @@ const RegistrationTabbar = () => {
                 </NavLink>
             </li>
         </ul>
+
     );
 };
 
