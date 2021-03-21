@@ -10,7 +10,6 @@ import {Col,Table,Badge,} from "reactstrap";
 
 import ReactEcharts from "echarts-for-react";
 import config from "./config";
-import {green} from "@material-ui/core/colors";
 const colors = config.chartColors;
 
 const Header = {
@@ -25,7 +24,7 @@ const col = {
     fontSize: "22px",
     height:"20px"
 }
-class Index extends React.Component {
+class Dashboard extends React.Component {
 
     constructor(props) {
         super(props);
@@ -301,7 +300,7 @@ class Index extends React.Component {
     }
 }
 
-export default Index;
+export default Dashboard;
 
 
 
