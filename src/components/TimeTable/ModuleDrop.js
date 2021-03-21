@@ -9,12 +9,12 @@ class ModuleDrop extends Component{
     constructor(props) {
         super(props);
         // let now= new Date();
-        this.checkBooked();
+        // this.checkBooked();
         this.state={
             date:this.props.date,
             StartTime:this.props.startTime,
             EndTime:this.props.EndTime,
-            HallId:this.props.hallId,
+            HallId:this.props.hallid,
             SubjectId:0,
             StartDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime,
             EndDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime,
@@ -27,10 +27,13 @@ class ModuleDrop extends Component{
         this.updateDate=this.updateDate.bind(this)
         this.checkBooked=this.checkBooked.bind(this)
         this.parentCallback=this.parentCallback.bind(this)
+        this.setStartDateTime=this.setStartDateTime.bind(this)
+        this.setEndDateTime=this.setEndDateTime.bind(this)
     }
     updateDate=()=>{
-        let {date}=this.props;
-        this.setState({date})
+        // let {date}=this.props;
+        // this.setState({date})
+        this.setState({date:this.props.date})
     }
     parentCallback=(func)=>{
         this.props.rerender();
@@ -42,27 +45,59 @@ class ModuleDrop extends Component{
         this.setStartDateTime()
         this.setEndDateTime();
     }
-    checkBooked=()=>{
-        this.setState({dailyModules:this.props.sessions},()=>{
-            if(this.state.dailyModules){
-                this.state.dailyModules.forEach(module=>{
-                    if((moment(module.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=this.state.StartDateTime)&&((moment(module.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=this.state.EndDateTime))&&module.hallId.toString()===this.state.HallId){
-                        this.setState({
-                            reserved:true,
-                            smodule:module
-                        })
-                        console.log("smodule"+this.state.smodule)
-                    }
-                });
-                // console.log("state is")
-                // console.log(this.state)
+    static getDerivedStateFromProps(props, state){
+        return(
+            {
+                dailyModules:props.sessions,
+                date:props.date,
+                StartDateTime:moment(props.date).format('YYYY-MM-DD') + "T" + props.startTime,
+                EndDateTime:moment(props.date).format('YYYY-MM-DD') + "T" + props.EndTime
             }
-            else {
-                console.log("smodule is null")
-            }
-        })
-        // console.log(this.state)
+        )
+
     }
+    // checkBooked=()=>{
+    //     this.setState({dailyModules:this.props.sessions},()=>{
+    //         if(this.state.dailyModules){
+    //             this.state.dailyModules.forEach(module=>{
+    //                 if((moment(module.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=this.state.StartDateTime)&&((moment(module.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=this.state.EndDateTime))&&module.hallId.toString()===this.state.HallId){
+    //                     this.setState({
+    //                         reserved:true,
+    //                         smodule:module
+    //                     })
+    //                     console.log("smodule"+this.state.smodule)
+    //                 }
+    //             });
+    //             // console.log("state is")
+    //             // console.log(this.state)
+    //         }
+    //         else {
+    //             console.log("smodule is null")
+    //         }
+    //     })
+    //     // console.log(this.state)
+    // }
+    checkBooked=()=>{
+        if(this.state.dailyModules.length!=0){
+            this.state.dailyModules.forEach(module=>{
+                if((moment(module.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=this.state.StartDateTime)&&((moment(module.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=this.state.EndDateTime))&&module.hallId.toString()===this.state.HallId){
+                    this.setState({
+                        reserved:true,
+                        smodule:module
+                    })
+                    console.log("smodule"+this.state.smodule)
+                }
+            });
+        }
+
+                        // console.log("state is")
+                        // console.log(this.state)
+                    }
+                //     else {
+                //         console.log("smodule is null")
+                //     }
+                // }))
+    // }
 
     // getModule=(id)=>{
     //     // let mod=axios.get("https://localhost:5001/api/subjects/"+id);
@@ -96,7 +131,7 @@ class ModuleDrop extends Component{
             date:this.props.date,
             StartTime:this.props.startTime,
             EndTime:this.props.EndTime,
-            HallId:this.props.hallId,
+            HallId:this.props.hallid,
             SubjectId:this.state.SubjectId,
             StartDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime,
             EndDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime,
@@ -106,7 +141,7 @@ class ModuleDrop extends Component{
         }
         axios.post("https://localhost:5001/api/sessions",data)
             .then(res=>console.log(res))
-            .then(err=>console.log(err))
+            .catch(err=>console.log(err))
         //.then(console.log(this.state))
     }
     onDragOver=(ev)=>{
@@ -141,15 +176,28 @@ class ModuleDrop extends Component{
         this.props.rerender();
         this.parentCallback(this.checkBooked);
     }
+    componentWillMount() {
+        this.checkBooked();
+    }
 
     render() {
+        // this.checkBooked();
+        // let timeIsBooked=()=>{
+        //     if(this.props.sessions.length!=0){
+        //         this.props.sessions.forEach(module=>{
+        //             if((moment(module.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=this.state.StartDateTime)&&((moment(module.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=this.state.EndDateTime))&&module.hallId.toString()===this.state.HallId){
+        //                 return(true);
+        //             }
+        //         })
+        //     }
+        // }
         return(
             <div
                 className="grid-item1"
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
                 onClick={()=>{this.parentCallback(this.checkBooked)}}
-            >{this.state.reserved&&
+            >{this.state.smodule!=null&&
             // <div style={{backgroundColor: "red"}}><p>{this.state.smodule.code}</p></div>}
             <div style={{backgroundColor: "red"}}><p>Reserved</p></div>}
             </div>
