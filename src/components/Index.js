@@ -1,11 +1,17 @@
 import React from 'react';
+
 import map from './../images/map.jpg';
 import LT1 from './../images/LT1.jpg';
 import ELR from './../images/ELR.jpg';
 import CLR from './../images/CLR.jpg';
+
 import {Nav} from "./Nav";
 import {Col,Table,Badge,} from "reactstrap";
 
+import ReactEcharts from "echarts-for-react";
+import config from "./config";
+import {green} from "@material-ui/core/colors";
+const colors = config.chartColors;
 
 const Header = {
     padding: "10px 20px",
@@ -13,12 +19,56 @@ const Header = {
     fontSize: "22px",
     height:"80px"
 }
-
+const col = {
+    padding: "10px 20px",
+    textAlign: "center",
+    fontSize: "22px",
+    height:"20px"
+}
 class Index extends React.Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
+            donut: {
+                tooltip: {trigger: "item", formatter: "{a} <br/>{b}: {c} ({d}%)",},
+                legend: {show: false,},
+                color: [
+                    colors.blue,
+                    colors.green,
+                    colors.orange,
+                    colors.red,
+                    colors.purple],
+                series: [
+                    {
+                        name: "Likelihood",
+                        type: "pie",
+                        radius: ["50%", "70%"],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: "center",
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: "20",
+                                    fontWeight: "bold",
+                                },
+                            },
+                        },
+                        data: [
+                            { value: 16, name: "LT1/LT2" },
+                            { value: 6, name: "NLH1/NLH2" },
+                            { value: 7, name: "LR1/LR2" },
+                            { value: 3, name: "DO1/DO2" },
+                            { value: 3, name: "Other" },
+                        ],
+                    },
+                ],
+            },
 
             tableStyles: [
                 {
@@ -90,9 +140,11 @@ class Index extends React.Component {
     render() {
 
         return (
-            <div>
+            <div >
                 <Nav/>
-                <h1 align="center">Graphycal visualization of lecture venues </h1>
+                <div style={col} ></div>
+                <h1 align="center">Graphical visualization of lecture venues </h1>
+                <div style={col}></div>
                 <img src={map} align="right" id='map' class="map" useMap="#image-map" alt="map"/>
 
                 <map id="Map-area" name="image-map">
@@ -164,41 +216,29 @@ class Index extends React.Component {
                         </div>
                     </Col>
                 </row>
-                <div style={Header}>
-
-                </div>
-                <div className="table" >
+                <div style={Header}></div>
+                  <div className="table" >
                     <h2>Availability of Lecture Venues </h2>
-        <Table  striped >
-            <thead>
+                      <Table  striped >
+                        <thead>
 
-            <tr className="fs-sm">
-
-                <th className="hidden-sm-down">#</th>
-                <th>Picture</th>
-                <th>Description</th>
-                <th className="hidden-sm-down">Info</th>
-                <th className="hidden-sm-down">Occupancy</th>
-                <th className="hidden-sm-down">Status</th>
-            </tr>
-            </thead>
-            <tbody>
-            {this.state.tableStyles.map((row) => (
-                <tr key={row.id}>
-                    <td>{row.id}</td>
-                    <td>
-                        <img className="img-rounded" src={row.picture} alt="" height="100"/>
-                    </td>
-                    <td>
-                        {row.description}
-                        {row.label && (
-                            <div>
-                                <Badge color={row.label.colorClass}>
-                                    {row.label.text}
-                                </Badge>
-                            </div>
-                        )}
-                    </td>
+                           <tr className="fs-sm">
+                             <th className="hidden-sm-down">#</th>
+                               <th>Picture</th>
+                               <th>Description</th>
+                               <th className="hidden-sm-down">Info</th>
+                               <th className="hidden-sm-down">Occupancy</th>
+                               <th className="hidden-sm-down">Status</th>
+                           </tr>
+                        </thead>
+                          <tbody>
+                               {this.state.tableStyles.map((row) => (
+                                 <tr key={row.id}>
+                                    <td>{row.id}</td>
+                                      <td><img className="img-rounded" src={row.picture} alt="" height="100"/></td>
+                                          <td>{row.description}{row.label && (
+                                          <div><Badge color={row.label.colorClass}>{row.label.text}</Badge></div>)}
+                                     </td>
                     <td>
                         <p className="mb-0">
                             <small>
@@ -243,10 +283,19 @@ class Index extends React.Component {
 
             ))}
             </tbody>
-
         </Table>
 
-               </div>
+
+                      <h2>Student likelihood of lecture venues</h2>
+                         <Col  >
+                             <p title={<h5>Chart <span className="fw-semi-bold">Donut Chart</span></h5>} close collapse>
+                               <ReactEcharts
+                                   option={this.state.donut}
+                                   style={{ height:"250px"}}>
+                               </ReactEcharts>
+                             </p>
+                         </Col>
+                  </div>
             </div>
         );
     }
