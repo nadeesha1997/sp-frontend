@@ -1,14 +1,12 @@
 import React,{Component} from 'react';
-import '../css/StudentProfile.css'
-import Student from './data/profile.json'
+import {Nav} from '../Nav';
+import '../css/Profile.css'
 import AuthService from "../../services/auth.service";
 import axios from "axios";
-
 class StudentProfile extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {
-            currentUser: AuthService.getCurrentUser(),
+        this.state={ currentUser: AuthService.getCurrentUser(),
             modules:[],
             // enrolablemodules:{
             //     departmentModules:[],
@@ -57,7 +55,6 @@ class StudentProfile extends Component {
                 console.log(res.data)
             }).then(console.log(this.state))
     }
-
     render () {
         const mod = this.state.modules.map((mod) => {
             return (
@@ -71,6 +68,7 @@ class StudentProfile extends Component {
         return (
             <div className="container emp-profile">
                 <form method="post">
+                    <Nav/>
                     <div className="row">
                         <div className="col-md-4">
                             <div className="profile-img">
@@ -88,9 +86,6 @@ class StudentProfile extends Component {
                                         this.state.currentUser.userDetails.fullName
                                     }
                                 </h5>
-                                <h6>
-                                    Student
-                                </h6>
                                 <p className="proile-rating"> : <span></span></p>
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                                     <li className="nav-item">
@@ -135,7 +130,7 @@ class StudentProfile extends Component {
                                             <label>Name</label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>Kshiti Ghelani</p>
+                                            <p>{this.state.currentUser.userDetails.fullName}</p>
                                         </div>
                                     </div>
                                     <div className="row">
@@ -151,7 +146,7 @@ class StudentProfile extends Component {
                                             <label>Mobile No</label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>{Student.mobileNo}</p>
+                                            {/*<p>{Lecturer.mobileNo}</p>*/}
                                         </div>
                                     </div>
                                     <div className="row">
@@ -159,7 +154,7 @@ class StudentProfile extends Component {
                                             <label>Joined Date</label>
                                         </div>
                                         <div className="col-md-6">
-                                            <p>{Student.joinedDate}</p>
+                                            {/*<p>{Student.joinedDate}</p>*/}
                                         </div>
                                     </div>
                                 </div>
@@ -221,3 +216,5 @@ class StudentProfile extends Component {
 }
 
 export default StudentProfile
+
+

@@ -24,7 +24,7 @@ class StudentRegisterForm extends Component {
             email: "",
             password: "",
             Dept_ID: "",
-
+            Role:"Student"
         },
         errors: {},
     });
@@ -47,7 +47,6 @@ class StudentRegisterForm extends Component {
         if (data.Student_ID === "")
             errors.Student_ID = "Student_ID can not be blank.";
         if (data.Full_Name === "") errors.Full_Name = "Full_Name can not be blank.";
-        if (data.email === "") errors.email = "Email can not be blank.";
         if (data.email === "") errors.email = "Email can not be blank.";
         if (data.Dept_ID === "") errors.Dept_ID = "Dept_ID can not be blank.";
         if (data.password === "") errors.password = "Password must be valid.";

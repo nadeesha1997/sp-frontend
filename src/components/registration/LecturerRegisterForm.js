@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Form, Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
+import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
 
 
 class LecturerRegisterForm extends Component {
@@ -42,7 +42,7 @@ class LecturerRegisterForm extends Component {
         if (data.RegNo === "") errors.RegNo = "Lecturer_ID can not be blank.";
         if (data.FullName === "") errors.FullName = "Full_Name can not be blank.";
         if (data.email === "") errors.email = " Email can not be blank.";
-        if (data.DeptID === "") errors.Dept_ID = "Dept_ID can not be blank.";
+        if (data.DepartmentID === "") errors.DepartmentID = "DepartmentID can not be blank.";
         if (data.password === "") errors.password = "Password must be valid.";
         if (data.confirmPassword !== data.password)
             errors.confirmPassword = "Passwords must match.";
@@ -122,7 +122,7 @@ class LecturerRegisterForm extends Component {
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="DeptID">Dept ID : </Label>
+                                <Label for="DepartmentID">DepartmentID : </Label>
                                 <Input
                                     value={data.DepartmentID}
                                     invalid={!!errors.DepartmentID}

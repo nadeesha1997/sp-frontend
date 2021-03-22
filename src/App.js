@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
+
 import Dashboard from './components/Dashboard'
 
 import StudentRegisterForm from './components/StudentRegisterForm'
 import LecturerRegisterForm from "./components/registration/LecturerRegisterForm";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import StudentDashboard from './components/student/StudentDashboard';
+
 import StudentProfile from './components/student/StudentProfile';
 import LecturerProfile from './components/lecturer/LecturerProfile';
 
@@ -30,7 +31,7 @@ class App extends Component {
                 <div className="App">
                     <Route exact path='/' component={FirstPage}/>
 
-                    <Route path='/student' component={StudentDashboard}/>
+
 
 
                     <Route path='/Register' component={Register} />
@@ -39,7 +40,7 @@ class App extends Component {
                     <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
                     <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
 
-                    <Route path= '/Student/Profile' component={StudentProfile}/>
+                    <Route path= '/Student/StudentProfile' component={StudentProfile}/>
                     <Route path= '/Lecturer/LecturerProfile' component={LecturerProfile}/>
 
                     <Route path= '/Home' component={Home}/>

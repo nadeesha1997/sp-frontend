@@ -15,17 +15,27 @@ function Nav() {
         <div>
             <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <div className="navbar-nav">
+                    <a className="navbar-brand" href="#">Welcome LSMS</a>
+                    <a className="navbar-brand" href="#">|</a>
                     <NavLink exact to="/TimeTable" className="nav-item nav-link">Time Table</NavLink>
                     <NavLink to="/Dashboard" className="nav-item nav-link">
                        Dashboard
                     </NavLink>
-
+                    <NavLink to="/student/StudentProfile" className="nav-item nav-link">
+                        Profile
+                    </NavLink>}
+                    {/*{user.role===Role.Student &&
+                    <NavLink to="/student/StudentProfile" className="nav-item nav-link">
+                        Profile
+                    </NavLink>}
+                    {user.role===Role.Lecturer &&
                     <NavLink to="/lecturer/LecturerProfile" className="nav-item nav-link">
                         Profile
-                    </NavLink>
+                    </NavLink>}
+
                     {user.role === Role.Admin &&
                     <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
-                    }
+                    }*/}
                     <NavLink to="" className="nav-item nav-link">
                         Logout
                     </NavLink>
