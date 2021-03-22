@@ -3,9 +3,6 @@ import { NavLink, Route } from 'react-router-dom';
 
 import { Role } from '../helpers/role';
 
-
-
-
 function Nav() {
     const [user, setUser] = useState({});
 
@@ -18,18 +15,20 @@ function Nav() {
         <div>
             <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <div className="navbar-nav">
-                    <NavLink exact to="/Home" className="nav-item nav-link">Time Table</NavLink>
-                    <NavLink to="/profile" className="nav-item nav-link">
+                    <NavLink exact to="/TimeTable" className="nav-item nav-link">Time Table</NavLink>
+                    <NavLink to="/Dashboard" className="nav-item nav-link">
                        Dashboard
                     </NavLink>
 
-                    <NavLink to="./student" className="nav-item nav-link">
+                    <NavLink to="/lecturer/LecturerProfile" className="nav-item nav-link">
                         Profile
                     </NavLink>
                     {user.role === Role.Admin &&
                     <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                     }
-
+                    <NavLink to="" className="nav-item nav-link">
+                        Logout
+                    </NavLink>
                 </div>
             </nav>
             <Route path="/admin" component={AdminNav}/>
