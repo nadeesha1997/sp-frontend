@@ -22,7 +22,7 @@ class ModuleDrop extends Component{
             UserId:AuthService.getCurrentUser().userDetails.id,
             reserved:false,
             dailyModules:this.props.sessions,
-            smodule:null
+            smodule:this.getSmodule
         }
         this.updateDate=this.updateDate.bind(this)
         this.checkBooked=this.checkBooked.bind(this)
@@ -46,12 +46,23 @@ class ModuleDrop extends Component{
         this.setEndDateTime();
     }
     static getDerivedStateFromProps(props, state){
+        // const  getSmodule=()=>{
+        //     if(props.sessions.length!=0){
+        //         state.dailyModules.forEach(module=>{
+        //             if((moment(module.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=state.StartDateTime)&&((moment(module.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=state.EndDateTime))&&module.hallId.toString()===this.state.HallId){
+        //                 return(module);
+        //             }
+        //         });
+        //     }
+        // }
+        // let date1=()=>{if(props.date!=undefined){return(props.date)}}
         return(
             {
                 dailyModules:props.sessions,
                 date:props.date,
                 StartDateTime:moment(props.date).format('YYYY-MM-DD') + "T" + props.startTime,
-                EndDateTime:moment(props.date).format('YYYY-MM-DD') + "T" + props.EndTime
+                EndDateTime:moment(props.date).format('YYYY-MM-DD') + "T" + props.EndTime,
+                // smodule: getSmodule()
             }
         )
 
@@ -89,14 +100,15 @@ class ModuleDrop extends Component{
                 }
             });
         }
-
-                        // console.log("state is")
-                        // console.log(this.state)
-                    }
-                //     else {
-                //         console.log("smodule is null")
-                //     }
-                // }))
+    }
+    // getSmodule=()=>{
+    //     if(this.state.dailyModules.length!=0){
+    //         this.state.dailyModules.forEach(module=>{
+    //             if((moment(module.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=this.state.StartDateTime)&&((moment(module.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=this.state.EndDateTime))&&module.hallId.toString()===this.state.HallId){
+    //                 return(module);
+    //             }
+    //         });
+    //     }
     // }
 
     // getModule=(id)=>{
@@ -176,21 +188,11 @@ class ModuleDrop extends Component{
         this.props.rerender();
         this.parentCallback(this.checkBooked);
     }
-    componentWillMount() {
-        this.checkBooked();
-    }
+    // componentWillMount() {
+    //     this.checkBooked();
+    // }
 
     render() {
-        // this.checkBooked();
-        // let timeIsBooked=()=>{
-        //     if(this.props.sessions.length!=0){
-        //         this.props.sessions.forEach(module=>{
-        //             if((moment(module.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=this.state.StartDateTime)&&((moment(module.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=this.state.EndDateTime))&&module.hallId.toString()===this.state.HallId){
-        //                 return(true);
-        //             }
-        //         })
-        //     }
-        // }
         return(
             <div
                 className="grid-item1"
@@ -198,8 +200,8 @@ class ModuleDrop extends Component{
                 onDrop={(e)=>this.onDrop(e, "complete")}
                 onClick={()=>{this.parentCallback(this.checkBooked)}}
             >{this.state.smodule!=null&&
-            // <div style={{backgroundColor: "red"}}><p>{this.state.smodule.code}</p></div>}
-            <div style={{backgroundColor: "red"}}><p>Reserved</p></div>}
+            <div style={{backgroundColor: "red"}}><p>{this.state.smodule.code}</p></div>}
+            {/* <div style={{backgroundColor: "red"}}><p>Reserved</p></div>}*/}
             </div>
         )
     }
