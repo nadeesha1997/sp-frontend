@@ -10,6 +10,7 @@ class CalendarNew extends Component {
         this.state={
             date:today
         }
+        this.props.updateDate(today);
         this.changeDate=this.changeDate.bind(this)
     }
     changeDate = (e) => {
