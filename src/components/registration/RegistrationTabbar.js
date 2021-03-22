@@ -52,7 +52,7 @@ const RegistrationTabbar = () => {
                     className="nav-link"
                     to="/register/faculty-staff"
                 >
-                    Faculty Staff Member
+                    Admin
                 </NavLink>
             </li>
         </ul>

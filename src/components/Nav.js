@@ -18,6 +18,17 @@ function Nav() {
                     <a className="navbar-brand" href="#">Welcome LSMS</a>
                     <a className="navbar-brand" href="#">|</a>
                     <NavLink exact to="/TimeTable" className="nav-item nav-link">Time Table</NavLink>
+                    {/*{user.role===Role.Student &&
+                    <NavLink to="/student/StudentTimetable" className="nav-item nav-link">
+                        TimeTable
+                    </NavLink>}
+                    {user.role===Role.Lecturer &&
+                    <NavLink to="/lecturer/LecturerTimetable" className="nav-item nav-link">
+                        TimeTable
+                    </NavLink>}
+                    {user.role === Role.Admin &&
+                    <NavLink to="/admin/adminTimetable" className="nav-item nav-link">Admin</NavLink>
+                    }*/}
                     <NavLink to="/Dashboard" className="nav-item nav-link">
                        Dashboard
                     </NavLink>
@@ -32,7 +43,6 @@ function Nav() {
                     <NavLink to="/lecturer/LecturerProfile" className="nav-item nav-link">
                         Profile
                     </NavLink>}
-
                     {user.role === Role.Admin &&
                     <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                     }*/}

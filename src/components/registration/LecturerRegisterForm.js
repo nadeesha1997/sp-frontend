@@ -77,8 +77,6 @@ class LecturerRegisterForm extends Component {
 
             <div className="container tab-pane active mb-5" align="left">
                 <br />
-
-                <h3>Lecturer Registration</h3>
                 <div className="col-sm-8">
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup className="form-group">
