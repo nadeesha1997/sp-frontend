@@ -4,6 +4,7 @@ import './css/home.css'
 import logo2 from './../images/logo2.png';
 import {Link} from "react-router-dom";
 import React from "react";
+import StudentRegisterForm from "./registration/StudentRegisterForm";
 
 
 
@@ -33,7 +34,7 @@ const FirstPageNavbar= () => {
                                 <Link to="./Login"><b>Log In</b>  </Link>
                             </Button>
                             <Button style={{width:180,backgroundColor:'#7047ba',marginTop:10,marginLeft:40,marginRight:20,fontcolor:'#f2eef5'}} type='submit'>
-                                <Link to="./Register"> <b> Register</b>  </Link>
+                                <Link to="./Register/student"> <b> Register</b>  </Link>
                             </Button>
 
                            </div>

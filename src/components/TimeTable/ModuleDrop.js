@@ -35,6 +35,7 @@ class ModuleDrop extends Component{
         // this.setState({date})
         this.setState({date:this.props.date})
     }
+ timetable_update
     parentCallback=(func)=>{
         this.props.rerender();
         func();
@@ -191,6 +192,7 @@ class ModuleDrop extends Component{
     // componentWillMount() {
     //     this.checkBooked();
     // }
+
 
     render() {
         return(

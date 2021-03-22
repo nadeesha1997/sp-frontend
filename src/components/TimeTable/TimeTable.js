@@ -44,6 +44,7 @@ class TimeTable extends Component{
             date: data
         },()=>{this.forceUpdate(()=>this.sessionsGet())})
 
+
     }
 
     render() {

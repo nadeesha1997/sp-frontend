@@ -2,7 +2,6 @@
 import React from 'react';
 import '../css/SubjectList.css'
 
-
 export default class StudentList extends React.Component {
     constructor() {
         super();
