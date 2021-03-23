@@ -34,7 +34,7 @@ function Nav() {
                     </NavLink>
                     <NavLink to="/student/StudentProfile" className="nav-item nav-link">
                         Profile
-                    </NavLink>}
+                    </NavLink>
                     {/*{user.role===Role.Student &&
                     <NavLink to="/student/StudentProfile" className="nav-item nav-link">
                         Profile

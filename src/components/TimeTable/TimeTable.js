@@ -4,6 +4,14 @@ import ModuleDrop from "./ModuleDrop";
 import axios from "axios";
 import moment from "moment";
 import CalendarNew from "../calendar/calendarNew";
+import {Nav} from "../Nav"
+
+const col = {
+    padding: "10px 20px",
+    textAlign: "center",
+    fontSize: "22px",
+    height:"20px"
+}
 
 class TimeTable extends Component{
     constructor(props) {
@@ -48,9 +56,11 @@ class TimeTable extends Component{
 
     render() {
         return(
-            <>
+            <div>
+                <Nav/>
+                <div style={col} />
                 <div className="row">
-                    <CalendarNew updateDate={this.updateDate}></CalendarNew>
+                    <CalendarNew updateDate={this.updateDate}/>
                 </div>
                 <div className="grid-container">
                     <div className="grid-item" hallId="1">Time</div>
@@ -198,7 +208,7 @@ class TimeTable extends Component{
                     {/*<div className="grid-item"><ModuleDrop hallId="9" startTime="7.30" EndTime="8.30" date={this.props.date}/></div>*/}
                     {/*<div className="grid-item"><ModuleDrop hallId="10" startTime="7.30" EndTime="8.30" date={this.props.date}/></div>*/}
                 </div>
-            </>
+            </div>
         )
     }
 }
