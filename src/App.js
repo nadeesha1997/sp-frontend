@@ -5,14 +5,15 @@ import Register from './components/Register'
 
 import Dashboard from './components/Dashboard'
 
-import StudentRegisterForm from './components/StudentRegisterForm'
+import StudentRegisterForm from './components/registration/StudentRegisterForm'
+import AdminRegisterForm from './components/registration/AdminRegisterForm'
 import LecturerRegisterForm from "./components/registration/LecturerRegisterForm";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import StudentProfile from './components/student/StudentProfile';
 import LecturerProfile from './components/lecturer/LecturerProfile';
-
+import AdminProfile from './components/admin/AdminProfile';
 
 import Home from './components/Home'
 import FirstPage from './components/FirstPage'
@@ -39,9 +40,11 @@ class App extends Component {
 
                     <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
                     <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
+                    <Route path='/AdminRegisterForm' component={AdminRegisterForm} />
 
                     <Route path= '/Student/StudentProfile' component={StudentProfile}/>
                     <Route path= '/Lecturer/LecturerProfile' component={LecturerProfile}/>
+                    <Route path= '/Admin/AdminProfile' component={AdminProfile}/>
 
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Login}/>

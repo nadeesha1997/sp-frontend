@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import FacultyStaffRegisterForm from "./registration/FacultyStaffRegisterForm";
+import AdminRegisterForm from "./registration/AdminRegisterForm";
 import LecturerRegisterForm from "./registration/LecturerRegisterForm";
 import RegistrationNavbar from "./registration/RegistrationNavbar";
 import RegistrationTabbar from "./registration/RegistrationTabbar";
@@ -26,7 +26,7 @@ const Register = ({ match }) => {
                     />
                     <Route
                         path={`${match.path}/faculty-staff`}
-                        component={FacultyStaffRegisterForm}
+                        component={AdminRegisterForm}
                     />
 
                 </div>

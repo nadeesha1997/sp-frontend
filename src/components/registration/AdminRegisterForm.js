@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {
-    Form,
-    Input,
-    Label,
-    FormGroup,
-    FormFeedback,
-    Button,
-} from "reactstrap";
+import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
 
-class FacultyStaffRegisterForm extends Component {
+
+class AdminRegisterForm extends Component {
     constructor(props) {
         super(props);
 
@@ -18,11 +12,14 @@ class FacultyStaffRegisterForm extends Component {
 
     getInitialState = () => ({
         data: {
-            FacultyStaff_ID: "",
-            Full_Name: "",
+            RegNo: "",
+            FullName: "",
             email: "",
             password: "",
-            Dept_ID: "",
+            confirmPassword:"",
+            DepartmentID: "",
+            Role:"Admin"
+
         },
         errors: {},
     });
@@ -42,11 +39,10 @@ class FacultyStaffRegisterForm extends Component {
         const { data } = this.state;
         let errors = {};
 
-        if (data.FacultyStaff_ID === "")
-            errors.FacultyStaff_ID = "FacultyStaff_ID can not be blank.";
-        if (data.Full_Name === "") errors.Full_Name = "Full_Name can not be blank.";
-        if (data.email === "") errors.email = "Email can not be blank.";
-        if (data.Dept_ID === "") errors.Dept_ID = "Dept_ID can not be blank.";
+        if (data.RegNo === "") errors.RegNo = "Admin_ID can not be blank.";
+        if (data.FullName === "") errors.FullName = "Full_Name can not be blank.";
+        if (data.email === "") errors.email = " Email can not be blank.";
+        if (data.DepartmentID === "") errors.DepartmentID = "DepartmentID can not be blank.";
         if (data.password === "") errors.password = "Password must be valid.";
         if (data.confirmPassword !== data.password)
             errors.confirmPassword = "Passwords must match.";
@@ -64,7 +60,10 @@ class FacultyStaffRegisterForm extends Component {
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
-            axios.post("https://localhost:44374/api/FacultyStaff", data);
+            axios.post('https://localhost:5001/api/accounts/register/admin', data)
+                .then(res=>{
+                    console.log(res.data);
+                });
             //Resetting the form
             this.setState(this.getInitialState());
         } else {
@@ -75,43 +74,43 @@ class FacultyStaffRegisterForm extends Component {
     render() {
         const { data, errors } = this.state;
         return (
+
             <div className="container tab-pane active mb-5" align="left">
                 <br />
-                <h3>Faculty Staff Registration</h3>
                 <div className="col-sm-8">
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup className="form-group">
                             <div className="col-sm-12">
-                                <Label for="FacultyStaff_ID">Faculty Staff ID</Label>
+                                <Label for="RegNo">Admin ID</Label>
                                 <Input
-                                    value={data.FacultyStaff_ID}
-                                    invalid={errors.FacultyStaff_ID ? true : false}
-                                    name="FacultyStaff_ID"
+                                    value={data.RegNo}
+                                    invalid={!!errors.RegNo}
+                                    name="RegNo"
                                     onChange={this.handleChange}
                                 />
-                                <FormFeedback>{errors.FacultyStaff_ID}</FormFeedback>
+                                <FormFeedback>{errors.RegNo}</FormFeedback>
                             </div>
                         </FormGroup>
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="Full_Name">Full Name : </Label>
+                                <Label for="FullName">Full Name : </Label>
                                 <Input
-                                    value={data.Full_Name}
-                                    invalid={errors.Full_Name ? true : false}
-                                    name="Full_Name"
+                                    value={data.FullName}
+                                    invalid={!!errors.FullName}
+                                    name="FullName"
                                     onChange={this.handleChange}
                                 />
-                                <FormFeedback>{errors.Full_Name}</FormFeedback>
+                                <FormFeedback>{errors.FullName}</FormFeedback>
                             </div>
                         </FormGroup>
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="email">Email : </Label>
+                                <Label for="email"> Email : </Label>
                                 <Input
                                     value={data.email}
-                                    invalid={errors.email ? true : false}
+                                    invalid={!!errors.email}
                                     name="email"
                                     onChange={this.handleChange}
                                 />
@@ -121,25 +120,26 @@ class FacultyStaffRegisterForm extends Component {
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="Dept_ID">Dept ID : </Label>
+                                <Label for="DepartmentID">DepartmentID : </Label>
                                 <Input
-                                    value={data.Dept_ID}
-                                    invalid={errors.Dept_ID ? true : false}
-                                    name="Dept_ID"
+                                    value={data.DepartmentID}
+                                    invalid={!!errors.DepartmentID}
+                                    name="DepartmentID"
                                     onChange={this.handleChange}
                                 />
-                                <FormFeedback>{errors.Dept_ID}</FormFeedback>
+                                <FormFeedback>{errors.DepartmentID}</FormFeedback>
                             </div>
                         </FormGroup>
 
                         <FormGroup>
+
                             <div className="col-sm-12">
                                 <Label for="password">Password : </Label>
                                 <Input
                                     value={data.password}
                                     type="password"
                                     name="password"
-                                    invalid={errors.password ? true : false}
+                                    invalid={!!errors.password}
                                     onChange={this.handleChange}
                                 />
                                 <FormFeedback>{errors.password}</FormFeedback>
@@ -153,7 +153,7 @@ class FacultyStaffRegisterForm extends Component {
                                     value={data.confirmPassword}
                                     type="password"
                                     name="confirmPassword"
-                                    invalid={errors.confirmPassword ? true : false}
+                                    invalid={!!errors.confirmPassword}
                                     onChange={this.handleChange}
                                 />
                                 <FormFeedback>{errors.confirmPassword}</FormFeedback>
@@ -162,6 +162,7 @@ class FacultyStaffRegisterForm extends Component {
 
                         <div className="col-sm-12">
                             <Button className="btn-block" color="primary">
+
                                 Register
                             </Button>
                         </div>
@@ -172,6 +173,5 @@ class FacultyStaffRegisterForm extends Component {
     }
 }
 
-export default FacultyStaffRegisterForm;
+export default AdminRegisterForm;
 
-/* FacultyStaff Register form */
