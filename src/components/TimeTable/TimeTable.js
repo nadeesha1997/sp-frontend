@@ -48,6 +48,24 @@ class TimeTable extends Component{
         },()=>{this.forceUpdate(()=>this.sessionsGet())})
 
     }
+    getModule=(startTimeDate,endTimeDate)=>{
+        if(this.state.sessions.length!=0){
+            this.state.sessions.forEach(module=>{
+                if((moment(module.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=startTimeDate)&&((moment(module.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=endTimeDate))){
+                    return({
+                        module:module,
+                        reserved:true
+                    })
+                }
+                else {
+                    return ({
+                        module:null,
+                        reserved:false
+                    })
+                }
+            });
+        }
+    }
 
     render() {
         return(
@@ -77,6 +95,7 @@ class TimeTable extends Component{
                     <div className="grid-item" hallId="16">IS-SEMINOR</div>
 
                     <div className="grid-item">7.30</div>
+
 
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="07:30:00" EndTime="08:30:00" date={this.state.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="07:30:00" EndTime="08:30:00" date={this.state.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -281,6 +300,8 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallId="14" startTime="6.30" EndTime="7.30" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallId="15" startTime="6.30" EndTime="7.30" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallId="66" startTime="6.30" EndTime="7cd.30" date={this.props.date}sessions={this.state.sessions} rerender={this.rerender}/></div>
+
+           
                 </div>
             </div>
         )
