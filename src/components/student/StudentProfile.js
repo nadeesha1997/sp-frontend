@@ -3,10 +3,13 @@ import {Nav} from '../Nav';
 import '../css/Profile.css'
 import AuthService from "../../services/auth.service";
 import axios from "axios";
+import HomepageNavbar from "../TimeTable/HomepageNavbar";
 class StudentProfile extends Component {
     constructor(props) {
         super(props);
+        let now = new Date();
         this.state={ currentUser: AuthService.getCurrentUser(),
+            date:now,
             modules:[],
             // enrolablemodules:{
             //     departmentModules:[],
@@ -17,6 +20,15 @@ class StudentProfile extends Component {
         };
         this.getModules();
     }
+    updateDate = data => {
+        this.setState({
+            date: data
+        })
+        //this.props.updateDate(data)
+        // console.log(this.state)
+    }
+
+
     componentDidMount() {
         //this.getModules();
     }
@@ -66,9 +78,14 @@ class StudentProfile extends Component {
             );
         });
         return (
+            <div className="page">
+                <HomepageNavbar updateDate={this.updateDate}/>
+                <Nav/>
+
             <div className="container emp-profile">
+
                 <form method="post">
-                    <Nav/>
+
                     <div className="row">
                         <div className="col-md-4">
                             <div className="profile-img">
@@ -210,6 +227,7 @@ class StudentProfile extends Component {
                         </div>
                     </div>
                 </form>
+            </div>
             </div>
         )
     }

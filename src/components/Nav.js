@@ -13,11 +13,12 @@ function Nav() {
 
     return (
         <div>
-            <nav className="navbar navbar-expand navbar-dark bg-dark">
+            <div className="navbar-color1">
+            <nav className="navbar navbar-expand-lg navbar-dark">
                 <div className="navbar-nav">
                     <a className="navbar-brand" href="#">Welcome LSMS</a>
                     <a className="navbar-brand" href="#">|</a>
-                    <NavLink exact to="/TimeTable" className="nav-item nav-link">Time Table</NavLink>
+                    <NavLink exact to="/Home" className="nav-item nav-link">Time Table</NavLink>
                     {/*{user.role===Role.Student &&
                     <NavLink to="/student/StudentTimetable" className="nav-item nav-link">
                         TimeTable
@@ -52,7 +53,7 @@ function Nav() {
                 </div>
             </nav>
             <Route path="/admin" component={AdminNav}/>
-
+            </div>
         </div>
     );
 }

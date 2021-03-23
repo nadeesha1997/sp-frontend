@@ -24,12 +24,14 @@ import ModuleEnrolement from "./components/admin/moduleEnrolement";
 
 
 
+
 class App extends Component {
     render() {
         return (
 
             <BrowserRouter>
                 <div className="App">
+
                     <Route exact path='/' component={FirstPage}/>
 
 

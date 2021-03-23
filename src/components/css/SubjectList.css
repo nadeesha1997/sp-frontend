@@ -37,7 +37,6 @@
     font-family: Arial;
     font-weight: bold;
     background-color: #aa83c8;
-    margin: 5px;
 
 }
 .select-selected {
@@ -115,20 +114,24 @@
 }
 
 .bottom_corner{
-    /*position:absolute;*/
+    position : center;
     bottom:0px;
     /*top:320px;*/
-    right:150px;
+    right:0px;
     width: 260px;
+    margin-top: 0px;
+    padding: 10px;
 
 }
 
 .bottom_right{
+    margin-top: 0px;
+    position : center;
     /*position:absolute;*/
-    bottom:40px;
+    bottom:0px;
     /*top:280px;*/
-    width: 200px;
-    right:150px;
+    width: 210px;
+    padding: 10px;
 
 }
 

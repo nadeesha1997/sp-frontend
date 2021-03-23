@@ -10,6 +10,7 @@ import {Col,Table,Badge,} from "reactstrap";
 
 import ReactEcharts from "echarts-for-react";
 import config from "./config";
+import HomepageNavbar from "./TimeTable/HomepageNavbar";
 const colors = config.chartColors;
 
 const Header = {
@@ -28,8 +29,9 @@ class Dashboard extends React.Component {
 
     constructor(props) {
         super(props);
-
+        let now = new Date();
         this.state = {
+            date:now,
             donut: {
                 tooltip: {trigger: "item", formatter: "{a} <br/>{b}: {c} ({d}%)",},
                 legend: {show: false,},
@@ -132,14 +134,25 @@ class Dashboard extends React.Component {
                 },
 
             ],
-        };
-    }
-    
 
-    render() {
+
+        };
+
+
+    }
+    updateDate = data => {
+        this.setState({
+            date: data
+        })
+        //this.props.updateDate(data)
+        // console.log(this.state)
+    }
+        render() {
 
         return (
-            <div >
+            <div className="page">
+
+                <HomepageNavbar updateDate={this.updateDate}/>
                 <Nav/>
                 <div style={col} ></div>
                 <h1 align="center">Graphical visualization of lecture venues </h1>

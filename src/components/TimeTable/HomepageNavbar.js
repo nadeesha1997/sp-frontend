@@ -25,7 +25,9 @@ class HomepageNavbar extends Component{
     render() {
         return (
 
-            <div className="navbar-color">
+<div className="App">
+
+           <div className="navbar-color">
                 <nav  className="navbar navbar-expand-lg navbar-fixed-top" >
                     <Image img src={logo2} alt="logo"  width={300} height={150}/>
                     <div className="text1">
@@ -36,7 +38,7 @@ class HomepageNavbar extends Component{
                                 <h5><b>LECTURE SCHEDULE MANAGEMENT SYSTEM</b></h5>
                             </li>
                         </ul>
-                            <ul>
+                           {/* <ul>
                             <li>
                                 <Button  style={{width:90,backgroundColor:'#7047ba',marginTop:0,marginLeft:0,marginRight:10,fontFamily:"Arial",color:"black"}} type='submit' >
 
@@ -52,12 +54,16 @@ class HomepageNavbar extends Component{
                                 </Button>
 
                             </li>
-                        </ul>
+                        </ul>*/}
                     </div>
-                    <div className="cols-lg-12 col-md-4  col-sm-12">
+                    <div className="cols-lg-12 col-md-4 col-sm-12">
+                        <div className="locate">
                         <CalendarNew updateDate={this.updateDate}/>
+                        </div>
                     </div>
                 </nav>
+            </div>
+
             </div>
         );
     }

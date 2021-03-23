@@ -3,14 +3,21 @@ import './css/home.css'
 import SubjectList from "./TimeTable/SubjectList";
 import TimeTable from "./TimeTable/TimeTable";
 import HomepageNavbar from "./TimeTable/HomepageNavbar";
+import {Nav} from "./Nav"
 
+const col = {
+    padding: "10px 20px",
+    textAlign: "center",
+    fontSize: "22px",
+    height:"20px"
+}
 
 class Home extends Component {
     constructor(props) {
         super(props);
         let today = new Date();
         this.state = {
-            date: today,
+            date: today
         }
         this.updateDate=this.updateDate.bind(this)
     }
@@ -37,18 +44,22 @@ class Home extends Component {
 
             <div className="page">
                 <HomepageNavbar updateDate={this.updateDate}/>
+                <Nav/>
+
+                <div className="col col-lg-2 col-md-2 col-sm-2 container-fluid">
+                    <div className="row">
+                        <SubjectList getModuleId={this.getSelectedModule}/>
+                    </div>
+
+                </div>
                 <div className="row">
-                    <div className="col col-lg-8 col-md-auto col-sm-10">
+                    <div className="col col-lg-8 col-md-2 col-sm-12">
                         <TimeTable date={this.state.date}/>
                     </div>
 
-                    <div className="col col-lg-4 col-md-auto col-sm-12 container-fluid">
-                        <div className="row">
-                            <SubjectList getModuleId={this.getSelectedModule}/>
-                        </div>
 
-                    </div>
                 </div>
+
             </div>
 
 
