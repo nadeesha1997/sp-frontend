@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Route } from 'react-router-dom';
+import AuthService from '../services/auth.service';
 
 import { Role } from '../helpers/role';
 
@@ -46,8 +47,9 @@ function Nav() {
                     {user.role === Role.Admin &&
                     <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                     }*/}
+                    {/*<NavLink to="" className="nav-item nav-link" onClick={AuthService.logout()}>*/}
                     <NavLink to="" className="nav-item nav-link">
-                        Logout
+                    Logout
                     </NavLink>
                 </div>
             </nav>

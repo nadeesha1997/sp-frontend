@@ -105,7 +105,7 @@ export default class StudentList extends React.Component {
                                 <option>select the Department:</option>
                                 <option value="EE">DEIE</option>
                                 <option value="CE">CEE</option>
-                                <option value="MM">MME</option>
+                                <option value="ME">MME</option>
                                 <option value="IS">IS</option>
                             </select>
 
