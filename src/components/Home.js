@@ -53,7 +53,7 @@ class Home extends Component {
 
                 </div>
                 <div className="row">
-                    <div className="col col-lg-8 col-md-2 col-sm-12">
+                    <div className="col col-lg-12 col-md-12 col-sm-12">
                         <TimeTable date={this.state.date}/>
                     </div>
 

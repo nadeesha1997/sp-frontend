@@ -84,10 +84,9 @@ class Login extends Component{
     }
     render() {
         return (
-            <div className="page">
+            <div>
 
                 <div className="p1">
-
                     <h3><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h3>
                 </div>
 

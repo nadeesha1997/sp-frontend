@@ -29,12 +29,12 @@ const FirstPageNavbar= () => {
                     <td>
 
                         <div className="align">
-                            <Button  style={{width:180,backgroundColor:'#7047ba',marginTop:10,marginLeft:45,marginRight:20}} type='submit' >
+                            <Button  style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:45,marginRight:20}} type='submit' >
 
-                                <Link to="./Login"><b>Log In</b>  </Link>
+                                <Link to="./Login"><b>LOG IN</b>  </Link>
                             </Button>
-                            <Button style={{width:180,backgroundColor:'#7047ba',marginTop:10,marginLeft:40,marginRight:20,fontcolor:'#f2eef5'}} type='submit'>
-                                <Link to="./Register/student"> <b> Register</b>  </Link>
+                            <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:40,marginRight:20}} type='submit'>
+                                <Link to="./Register/student"> <b> REGISTER</b>  </Link>
                             </Button>
 
                            </div>

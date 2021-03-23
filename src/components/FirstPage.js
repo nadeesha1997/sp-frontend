@@ -92,23 +92,23 @@ const FirstPage = () => {
             </div>
 
 
-            <h4 style={{backgroundColor:'#7047ba',height:40,MarginTop:30}}><b> Realated Links</b></h4>
+            <h4 style={{backgroundColor:'#44045d',color:'#cc8bf3',height:40,MarginTop:30,textAlign:'center'}}><b> Realated Links</b></h4>
             <div className="w3-show-inline-block">
 
                 <div className="w3-bar">
 
                     <button style={{width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="http://lms.eng.ruh.ac.lk/"><b>LMS</b></a></button>
-                    <button style={{width:150,backgroundColor:'#2d0473',marginTop:10,marginLeft:20,marginright:20}}><a href="https://paravi.ruh.ac.lk/foenmis/"><b>MIS</b></a></button>
+                    <button style={{width:150,backgroundColor:'#440151',marginTop:10,marginLeft:20,marginright:20}}><a href="https://paravi.ruh.ac.lk/foenmis/"><b>MIS</b></a></button>
                     <button style={{width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://www.ruh.ac.lk/"><b>UOR </b></a></button>
-                    <button style={{width:150,backgroundColor:'#2d0473',marginTop:10,marginLeft:20,marginright:20}}><a href="https://www.ugc.ac.lk/"><b>UGC</b></a></button>
+                    <button style={{width:150,backgroundColor:'#440151',marginTop:10,marginLeft:20,marginright:20}}><a href="https://www.ugc.ac.lk/"><b>UGC</b></a></button>
                     <button style={{width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="http://www.eng.ruh.ac.lk/eec/"><b>EEC</b></a></button>
-                    <button style={{width:150,backgroundColor:'#2d0473',marginTop:10,marginLeft:20,marginright:20}}><a href="https://www.lib.ruh.ac.lk/web/Eng/index.php"><b>LIBRARY</b></a></button>
+                    <button style={{width:150,backgroundColor:'#440151',marginTop:10,marginLeft:20,marginright:20}}><a href="https://www.lib.ruh.ac.lk/web/Eng/index.php"><b>LIBRARY</b></a></button>
                     <button style={{width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://ieee.lk/"><b>IEEE</b></a></button>
 
                 </div>
 
             </div>
-            <div className="contact">
+            <div className="contact1">
                 <dl>
                     <dt><b>Contact Info : </b></dt>
                     <dd><b>Website :<a href="http://www.eng.ruh.ac.lk/"> eng.ruh.ac.lk </a></b></dd>

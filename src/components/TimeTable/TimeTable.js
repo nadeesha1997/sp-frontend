@@ -5,9 +5,6 @@ import axios from "axios";
 import moment from "moment";
 import CalendarNew from "../calendar/calendarNew";
 
-
-
-
 class TimeTable extends Component{
     constructor(props) {
         let now= new Date();

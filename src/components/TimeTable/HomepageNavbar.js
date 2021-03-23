@@ -30,7 +30,7 @@ class HomepageNavbar extends Component{
            <div className="navbar-color">
                 <nav  className="navbar navbar-expand-lg navbar-fixed-top" >
                     <Image img src={logo2} alt="logo"  width={300} height={150}/>
-                    <div className="text1">
+                    <div className="text">
                         <ul>
                             <li>
                                 <h5><b>FACULTY OF ENGINNERING</b></h5>

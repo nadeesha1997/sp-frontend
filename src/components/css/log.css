@@ -1,8 +1,9 @@
 /*page border*/
 
 
-.bg{
-    background-color: #dab6fd;
+.bg1{
+    /*background: linear-gradient(to bottom, #9d06cd 0%, #e79bc4 100%);*/
+    margin: 2%;
 }
 
 /*image properties*/
