@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter,Switch } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
 
@@ -52,6 +52,8 @@ class App extends Component {
                     <Route path= '/timetable' component={TimeTable}/>
                     <Route path= '/ModuleDrop' component={ModuleDrop}/>
                     <Route path='/moduleenrolement' component={ModuleEnrolement}/>
+
+
 
                 </div>
             </BrowserRouter>

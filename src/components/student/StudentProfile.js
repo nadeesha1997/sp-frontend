@@ -3,6 +3,14 @@ import {Nav} from '../Nav';
 import '../css/Profile.css'
 import AuthService from "../../services/auth.service";
 import axios from "axios";
+
+const col = {
+    padding: "10px 20px",
+    textAlign: "center",
+    fontSize: "22px",
+    height:"20px"
+}
+
 class StudentProfile extends Component {
     constructor(props) {
         super(props);
@@ -69,6 +77,7 @@ class StudentProfile extends Component {
             <div className="container emp-profile">
                 <form method="post">
                     <Nav/>
+                    <div style={col} />
                     <div className="row">
                         <div className="col-md-4">
                             <div className="profile-img">
@@ -84,6 +93,10 @@ class StudentProfile extends Component {
                                 <h5>
                                     {
                                         this.state.currentUser.userDetails.fullName
+                                    }
+                                    <br></br>
+                                    {
+                                        this.state.currentUser.userDetails.role
                                     }
                                 </h5>
                                 <p className="proile-rating"> : <span></span></p>

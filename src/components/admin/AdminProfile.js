@@ -85,6 +85,10 @@ class AdminProfile extends Component {
                                     {
                                         this.state.currentUser.userDetails.fullName
                                     }
+                                    <br></br>
+                                    {
+                                        this.state.currentUser.userDetails.role
+                                    }
                                 </h5>
                                 <p className="proile-rating"> : <span></span></p>
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
