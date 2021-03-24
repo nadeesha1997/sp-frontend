@@ -300,8 +300,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallId="14" startTime="06:30:00" EndTime="07:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallId="15" startTime="06:30:00" EndTime="07:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallId="16" startTime="06:30:00" EndTime="07:30:00" date={this.props.date}sessions={this.state.sessions} rerender={this.rerender}/></div>
-
-           
                 </div>
             </div>
         )
