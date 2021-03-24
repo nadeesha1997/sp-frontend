@@ -85,6 +85,7 @@ class ModuleDrop extends Component{
                     //console.log("smodule"+this.state.smodule.subject.code)
                 }
                 this.forceUpdate(()=>this.parentCallback(()=>this.forceUpdate()));
+
             })
         }
     }
