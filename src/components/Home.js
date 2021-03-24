@@ -5,12 +5,13 @@ import TimeTable from "./TimeTable/TimeTable";
 import HomepageNavbar from "./TimeTable/HomepageNavbar";
 import {Nav} from "./Nav"
 
-const col = {
-    padding: "10px 20px",
-    textAlign: "center",
-    fontSize: "22px",
-    height:"20px"
-}
+// const col = {
+//     padding: "10px 20px",
+//     textAlign: "center",
+//     fontSize: "22px",
+//     height:"20px",
+//     fontFamily:"Arial"
+// }
 
 class Home extends Component {
     constructor(props) {
@@ -53,7 +54,7 @@ class Home extends Component {
 
                 </div>
                 <div className="row">
-                    <div className="col col-lg-8 col-md-2 col-sm-12">
+                    <div className="col col-lg-12 col-md-12 col-sm-12">
                         <TimeTable date={this.state.date}/>
                     </div>
 

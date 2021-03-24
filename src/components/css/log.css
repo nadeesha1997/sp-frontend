@@ -1,8 +1,9 @@
 /*page border*/
 
 
-.bg{
-    background-color: #dab6fd;
+.bg1{
+    /*background: linear-gradient(to bottom, #9d06cd 0%, #e79bc4 100%);*/
+    margin: 2%;
 }
 
 /*image properties*/
@@ -27,14 +28,44 @@
 
 /*text style*/
 .p1 {
-    font-family: "Times New Roman", Times, serif;
-    color: #5a2e94;
+    font-family: "Arial";
+    color: #9505a0;
     text-shadow: 0.5px 1px 1px black;
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-
+    background: white;
+    margin-top:30px;
 
 }
+
+.page1{
+    /*background-color: #cc8bf3;*/
+    color: #3f285a;
+    background: linear-gradient(to bottom, #e79bc4 0%, #9d06cd 100%);
+    text-align: center;
+    margin-left: 33%;
+    margin-right: 33%;
+    border-radius: 5%;
+    margin-bottom: 5px;
+
+}
+.form-group{
+   padding-left: 10%;
+    padding-right: 10%;
+    text-align: left;
+}
+.lin{
+    color:black;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bolder;
+}
+/*.row{*/
+
+/*    height: max-content;*/
+/*    background-color: #b89adb;*/
+/*    padding: 10px;*/
+/*}*/
 
 

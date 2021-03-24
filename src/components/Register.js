@@ -10,7 +10,7 @@ const Register = ({ match }) => {
 
 
     return (
-        <div >
+        <div className="page">
             <RegistrationNavbar />
             <div className="container">
                 <RegistrationTabbar />

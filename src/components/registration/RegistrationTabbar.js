@@ -8,6 +8,7 @@ const RegistrationTabbar = () => {
         fontSize: "22px",
         padding: "10px",
         fontWeight: "700",
+
     };
 
     const navItemStyle = {

@@ -36,21 +36,14 @@ class App extends Component {
                 <div className="App">
 
                     <Route exact path='/' component={FirstPage}/>
-
-
-
-
                     <Route path='/Register' component={Register} />
                     <Route path='/Dashboard' component={Dashboard} />
-
                     <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
                     <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
                     <Route path='/AdminRegisterForm' component={AdminRegisterForm} />
-
                     <Route path= '/Student/StudentProfile' component={StudentProfile}/>
                     <Route path= '/Lecturer/LecturerProfile' component={LecturerProfile}/>
                     <Route path= '/Admin/AdminProfile' component={AdminProfile}/>
-
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Login}/>
                     <Route path= '/SubjectList' component={SubjectList}/>

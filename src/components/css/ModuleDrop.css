@@ -9,7 +9,7 @@
     height: 100vh;
     left: 0;
     top: 10px;
-    background-color: #EEEEEE;
+    background-color: #a77be7;
     border-right: 1px dotted;
 }
 
@@ -17,7 +17,7 @@
     display: inline-block;
     margin: 0;
     padding: 0;
-    background-color: #E0E0E0;
+    background-color: #a760e3;
     width:100%;
 }
 
@@ -33,7 +33,7 @@
     height: 10px;
     right: 0;
     top: 10px;
-    background-color: #9E9E9E;
+    background-color: #a079c3;
     border-left: 1px dotted;
 }
 

@@ -74,7 +74,10 @@ class LecturerRegisterForm extends Component {
     render() {
         const { data, errors } = this.state;
         return (
-            <div className="container tab-pane active mb-5" align="left">
+
+
+            <div className="container tab-pane active mb-5" align="left" style={{fontWeight:"bolder"}}>
+
                 <br />
                 <div className="col-sm-8">
                     <Form onSubmit={this.handleSubmit}>
@@ -160,7 +163,10 @@ class LecturerRegisterForm extends Component {
                         </FormGroup>
 
                         <div className="col-sm-12">
-                            <Button className="btn-block" color="primary">
+
+                            <Button className="btn-block" style={{backgroundColor: '#440151',fontFamily:'Arial'}} >
+
+
                                 Register
                             </Button>
                         </div>
