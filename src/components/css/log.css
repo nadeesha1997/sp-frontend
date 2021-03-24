@@ -35,9 +35,31 @@
     font-weight: bold;
     text-align: center;
     background: white;
-border-radius: 5%;
+    margin-top:30px;
 
+}
 
+.page1{
+    /*background-color: #cc8bf3;*/
+    color: #3f285a;
+    background: linear-gradient(to bottom, #e79bc4 0%, #9d06cd 100%);
+    text-align: center;
+    margin-left: 33%;
+    margin-right: 33%;
+    border-radius: 5%;
+    margin-bottom: 5px;
+
+}
+.form-group{
+   padding-left: 10%;
+    padding-right: 10%;
+    text-align: left;
+}
+.lin{
+    color:black;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bolder;
 }
 /*.row{*/
 
@@ -46,7 +68,4 @@ border-radius: 5%;
 /*    padding: 10px;*/
 /*}*/
 
-.form-group
-{
-    text-align: left;
-}
+
