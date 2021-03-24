@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter,Switch } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
 
@@ -22,7 +22,10 @@ import SubjectList from "./components/TimeTable/SubjectList";
 import ModuleDrop from "./components/TimeTable/ModuleDrop";
 import ModuleEnrolement from "./components/admin/moduleEnrolement";
 
-
+import UpdateProfile from "./components/student/UpdateProfile";
+/*
+import ProfileNew from "./components/student/ProfileNew";
+*/
 
 
 class App extends Component {
@@ -48,6 +51,8 @@ class App extends Component {
                     <Route path= '/ModuleDrop' component={ModuleDrop}/>
                     <Route path='/moduleenrolement' component={ModuleEnrolement}/>
 
+                    <Route path= '/Student/UpdateProfile' component={UpdateProfile}/>
+                    {/*<Route path= '/Student/ProfileNew' component={ProfileNew}/>*/}
                 </div>
             </BrowserRouter>
         );

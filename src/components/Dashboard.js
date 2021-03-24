@@ -1,5 +1,5 @@
 import React from 'react';
-
+import AuthService from "../services/auth.service";
 import map from './../images/map.jpg';
 import LT1 from './../images/LT1.jpg';
 import ELR from './../images/ELR.jpg';
@@ -13,6 +13,7 @@ import config from "./config";
 import HomepageNavbar from "./TimeTable/HomepageNavbar";
 const colors = config.chartColors;
 
+
 const Header = {
     padding: "10px 20px",
     textAlign: "center",
@@ -25,13 +26,17 @@ const col = {
     fontSize: "22px",
     height:"20px"
 }
+
 class Dashboard extends React.Component {
+    userDetails;
 
     constructor(props) {
         super(props);
         let now = new Date();
         this.state = {
+            currentUser: AuthService.getCurrentUser(),
             date:now,
+
             donut: {
                 tooltip: {trigger: "item", formatter: "{a} <br/>{b}: {c} ({d}%)",},
                 legend: {show: false,},
@@ -155,6 +160,11 @@ class Dashboard extends React.Component {
                 <HomepageNavbar updateDate={this.updateDate}/>
                 <Nav/>
                 <div style={col} ></div>
+                <h3>
+                {
+                    this.state.currentUser.userDetails.role
+                } Dashboard
+                </h3>
                 <h1 align="center">Graphical visualization of lecture venues </h1>
                 <div style={col}></div>
                 <img src={map} align="right" id='map' class="map" useMap="#image-map" alt="map"/>

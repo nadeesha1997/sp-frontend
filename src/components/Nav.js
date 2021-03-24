@@ -27,20 +27,23 @@ function Nav() {
 
 
 
+
                 <NavLink to="/Home" className="nav-item nav-link">
                     <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Time Table
                 </NavLink>
               {/*{user.role===Role.Student &&
+
                     <NavLink to="/student/StudentTimetable" className="nav-item nav-link">
                         TimeTable
                     </NavLink>}
-                    {user.role===Role.Lecturer &&
+                    {AuthService.getCurrentUser.userDetails.role===Role.Lecturer &&
                     <NavLink to="/lecturer/LecturerTimetable" className="nav-item nav-link">
                         TimeTable
                     </NavLink>}
-                    {user.role === Role.Admin &&
+                    {AuthService.getCurrentUser.userDetails.role === Role.Admin &&
                     <NavLink to="/admin/adminTimetable" className="nav-item nav-link">Admin</NavLink>
                     }*/}
+
 
                 <NavLink to="/Dashboard" className="nav-item nav-link">
                     <Icon icon={home} style={{ color: '#e379e7', alignSelf: 'center'}}/>                      Dashboard
@@ -51,6 +54,7 @@ function Nav() {
                   <Icon icon={user_circle} style={{ color: '#e379e7', alignSelf: 'center'}}/>       Profile
               </NavLink>
               {/*{user.role===Role.Student &&
+
                     <NavLink to="/student/StudentProfile" className="nav-item nav-link">
                         Profile
                     </NavLink>}
@@ -61,10 +65,19 @@ function Nav() {
                     {user.role === Role.Admin &&
                     <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                     }*/}
+
               {/*<NavLink to="" className="nav-item nav-link" onClick={AuthService.logout()}>*/}
               <NavLink to="" className="nav-item nav-link">
                   <Icon icon={circle_left} style={{ color: '#e379e7', alignSelf: 'center'}}/>        Logout
               </NavLink>
+
+                        {/*<NavLink to="" className="nav-item nav-link" onClick={AuthService.logout()}>*/}
+                        <NavLink to="" className="nav-item nav-link">
+                            Logout
+                        </NavLink>
+                    </div>
+                </nav>
+
             </div>
           </nav>
           <Route path="/admin" component={AdminNav}/>
@@ -72,6 +85,7 @@ function Nav() {
       </div>
   );
 }
+
 
 function AdminNav({ match }) {
   const { path } = match;
@@ -86,3 +100,4 @@ function AdminNav({ match }) {
 }
 
 export { Nav };
+
