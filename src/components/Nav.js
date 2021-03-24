@@ -10,28 +10,28 @@ import {notepad} from 'react-icons-kit/ikons/notepad'
 
 
 function Nav() {
-  const [user, setUser] = useState({});
+    const [user, setUser] = useState({});
 
 
 
-  // only show nav when logged in
-  if (!user) return null;
+    // only show nav when logged in
+    if (!user) return null;
 
-  return (
-      <div>
-        <div className="navbar-color1">
-          <nav className="navbar navbar-expand-lg navbar-dark">
-            <div className="navbar-nav">
-              <a className="navbar-brand" href="#">WELCOME LSMS</a>
-              <a className="navbar-brand" href="#">|</a>
-
-
+    return (
+        <div>
+            <div className="navbar-color1">
+                <nav className="navbar navbar-expand-lg navbar-dark">
+                    <div className="navbar-nav">
+                        <a className="navbar-brand" href="#">WELCOME LSMS</a>
+                        <a className="navbar-brand" href="#">|</a>
 
 
-                <NavLink to="/Home" className="nav-item nav-link">
-                    <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Time Table
-                </NavLink>
-              {/*{user.role===Role.Student &&
+
+
+                        <NavLink to="/Home" className="nav-item nav-link">
+                            <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Time Table
+                        </NavLink>
+                        {/*{user.role===Role.Student &&
 
                     <NavLink to="/student/StudentTimetable" className="nav-item nav-link">
                         TimeTable
@@ -45,15 +45,15 @@ function Nav() {
                     }*/}
 
 
-                <NavLink to="/Dashboard" className="nav-item nav-link">
-                    <Icon icon={home} style={{ color: '#e379e7', alignSelf: 'center'}}/>                      Dashboard
-                </NavLink>
+                        <NavLink to="/Dashboard" className="nav-item nav-link">
+                            <Icon icon={home} style={{ color: '#e379e7', alignSelf: 'center'}}/>                      Dashboard
+                        </NavLink>
 
 
-              <NavLink to="/student/StudentProfile" className="nav-item nav-link">
-                  <Icon icon={user_circle} style={{ color: '#e379e7', alignSelf: 'center'}}/>       Profile
-              </NavLink>
-              {/*{user.role===Role.Student &&
+                        <NavLink to="/student/StudentProfile" className="nav-item nav-link">
+                            <Icon icon={user_circle} style={{ color: '#e379e7', alignSelf: 'center'}}/>       Profile
+                        </NavLink>
+                        {/*{user.role===Role.Student &&
 
                     <NavLink to="/student/StudentProfile" className="nav-item nav-link">
                         Profile
@@ -66,10 +66,10 @@ function Nav() {
                     <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                     }*/}
 
-              {/*<NavLink to="" className="nav-item nav-link" onClick={AuthService.logout()}>*/}
-              <NavLink to="" className="nav-item nav-link">
-                  <Icon icon={circle_left} style={{ color: '#e379e7', alignSelf: 'center'}}/>        Logout
-              </NavLink>
+                        {/*<NavLink to="" className="nav-item nav-link" onClick={AuthService.logout()}>*/}
+                        <NavLink to="" className="nav-item nav-link">
+                            <Icon icon={circle_left} style={{ color: '#e379e7', alignSelf: 'center'}}/>        Logout
+                        </NavLink>
 
                         {/*<NavLink to="" className="nav-item nav-link" onClick={AuthService.logout()}>*/}
                         {/*<NavLink to="" className="nav-item nav-link">
@@ -80,8 +80,8 @@ function Nav() {
 
             </div>
 
-      </div>
-  );
+        </div>
+    );
 
 }
 /*<Route path="/admin" component={AdminNav}/>
@@ -98,4 +98,3 @@ function AdminNav({ match }) {
 }*/
 
 export { Nav };
-

@@ -25,10 +25,13 @@ class TimeTable extends Component{
             .then((res)=>{this.setState({sessions:res.data},()=>{this.forceUpdate();})})
 
     }
+    getSessions=(data)=>{
+        this.setState({sessions:data},()=>this.forceUpdate())
+    }
     setDate=()=>{
         let {date}=this.props
         this.setState({date})
-        this.forceUpdate(()=>this.sessionsGet())
+        this.forceUpdate()
     }
     componentDidMount() {
         this.sessionsGet()
@@ -36,13 +39,13 @@ class TimeTable extends Component{
         this.updateDate();
     }
     rerender=()=>{
-        this.sessionsGet()
+        // this.sessionsGet()
         this.forceUpdate()
     }
     updateDate = data => {
         this.setState({
             date: data
-        },()=>{this.forceUpdate(()=>this.sessionsGet())})
+        },()=>{this.forceUpdate()})
 
     }
     getModule=(startTimeDate,endTimeDate)=>{
@@ -69,9 +72,9 @@ class TimeTable extends Component{
             <div>
 
 
-                {/*<div className="row">*/}
-                {/*    <CalendarNew updateDate={this.updateDate}/>*/}
-                {/*</div>*/}
+                <div className="row">
+                    <CalendarNew updateDate={this.updateDate} sessions={this.getSessions}/>
+                </div>
                 <div className="grid-container">
                     <div className="grid-item">Time</div>
                     <div className="grid-item" hallId="1">DO1-A</div>
