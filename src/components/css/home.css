@@ -31,7 +31,7 @@
     margin-top: 20px;
     margin-bottom: 0px;
     font-weight: bolder;
-    font-family: "Times New Roman";
+    font-family: "Arial";
     font-size: medium;
 }
 
@@ -42,7 +42,7 @@
     margin-top: 20px;
     margin-bottom: 0px;
     font-weight: bolder;
-    font-family: "Times New Roman";
+    font-family: "Arial";
     font-size: medium;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .locate{
-  margin-left: 80px;
+  margin-left: 10px;
 
 
 }
@@ -84,3 +84,4 @@
     width: 100%;
     margin: 2px auto;
 }
+

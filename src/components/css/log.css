@@ -28,14 +28,25 @@
 
 /*text style*/
 .p1 {
-    font-family: "Times New Roman", Times, serif;
-    color: #5a2e94;
+    font-family: "Arial";
+    color: #9505a0;
     text-shadow: 0.5px 1px 1px black;
     font-size: 30px;
     font-weight: bold;
     text-align: center;
+    background: white;
+border-radius: 5%;
 
 
 }
+.row{
 
+    height: max-content;
+    background-color: #b89adb;
+    padding: 10px;
+}
 
+.form-group
+{
+    text-align: left;
+}

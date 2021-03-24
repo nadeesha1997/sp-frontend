@@ -33,9 +33,9 @@ class HomepageNavbar extends Component{
                     <div className="text">
                         <ul>
                             <li>
-                                <h5><b>FACULTY OF ENGINNERING</b></h5>
-                                <h5><b>UNIVERSITY OF RUHUNA</b></h5>
-                                <h5><b>LECTURE SCHEDULE MANAGEMENT SYSTEM</b></h5>
+                                <h4><b>FACULTY OF ENGINNERING</b></h4>
+                                <h4><b>UNIVERSITY OF RUHUNA</b></h4>
+                                <h4><b>LECTURE SCHEDULE MANAGEMENT SYSTEM</b></h4>
                             </li>
                         </ul>
                            {/* <ul>

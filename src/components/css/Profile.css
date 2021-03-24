@@ -78,12 +78,14 @@
     color: #818182;
     font-weight: 600;
     margin-top: 10%;
+    font-family: "Arial";
 }
 .profile-work a{
     text-decoration: none;
     color: #495057;
     font-weight: 600;
     font-size: 14px;
+    font-family: "Arial";
 }
 .profile-work ul{
     list-style: none;

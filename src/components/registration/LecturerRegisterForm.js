@@ -161,7 +161,7 @@ class LecturerRegisterForm extends Component {
                         </FormGroup>
 
                         <div className="col-sm-12">
-                            <Button className="btn-block" style={{backgroundColor: '#440151'}} >
+                            <Button className="btn-block" style={{backgroundColor: '#440151',fontFamily:'Arial'}} >
 
                                 Register
                             </Button>

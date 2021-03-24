@@ -1,3 +1,4 @@
+/*
 import React,{Component} from 'react'
 import './css/log.css'
 import icon from './../images/icon.jpg'
@@ -7,6 +8,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import {Link} from "react-router-dom";
+
 
 const required = value => {
     if (!value) {
@@ -90,7 +92,7 @@ class Login extends Component{
                     <h3><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h3>
                 </div>
 
-                    <div className="centered img">
+                <div className="centered img">
                     <Image img src={icon} alt="icon"/>
                     <Form
                         onSubmit={this.handleLogin}
@@ -132,7 +134,7 @@ class Login extends Component{
                                 {this.state.loading && (
                                     <span className="spinner-border spinner-border-sm"></span>
                                 )}
-                               Login
+                                Login
 
                             </button>
 
@@ -165,7 +167,7 @@ class Login extends Component{
                     </Form>
                 </div>
 
-                </div>
+            </div>
 
         );
     }
@@ -173,3 +175,4 @@ class Login extends Component{
 }
 
 export default Login
+*/
