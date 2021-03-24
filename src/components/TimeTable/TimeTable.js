@@ -69,9 +69,9 @@ class TimeTable extends Component{
             <div>
 
 
-                {/*<div className="row">*/}
-                {/*    <CalendarNew updateDate={this.updateDate}/>*/}
-                {/*</div>*/}
+                <div className="row">
+                    <CalendarNew updateDate={this.updateDate}/>
+                </div>
                 <div className="grid-container">
                     <div className="grid-item">Time</div>
                     <div className="grid-item" hallId="1">DO1-A</div>
