@@ -3,7 +3,8 @@ import {Nav} from '../Nav';
 import '../css/Profile.css'
 import AuthService from "../../services/auth.service";
 import axios from "axios";
-<<<<<<< HEAD
+import HomepageNavbar from "../TimeTable/HomepageNavbar";
+import {Link} from "react-router-dom";
 
 const col = {
     padding: "10px 20px",
@@ -12,9 +13,8 @@ const col = {
     height:"20px"
 }
 
-=======
-import HomepageNavbar from "../TimeTable/HomepageNavbar";
->>>>>>> 883b63dd66782eb2476f357f16ed5c6273901670
+
+
 class StudentProfile extends Component {
     constructor(props) {
         super(props);
@@ -96,12 +96,8 @@ class StudentProfile extends Component {
             <div className="container emp-profile">
 
                 <form method="post">
-<<<<<<< HEAD
-                    <Nav/>
                     <div style={col} />
-=======
 
->>>>>>> 883b63dd66782eb2476f357f16ed5c6273901670
                     <div className="row">
                         <div className="col-md-4">
                             <div className="profile-img">
@@ -135,7 +131,8 @@ class StudentProfile extends Component {
                             </div>
                         </div>
                         <div className="col-md-2">
-                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                            <button type="submit" class="profile-edit-btn" name="btnAddMore" value="Update Profile" ><Link to="./UpdateProfile">{"Update profile"}</Link>
+                            </button>
                         </div>
                     </div>
                     <div className="row">

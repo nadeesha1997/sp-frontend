@@ -34,12 +34,9 @@ class Dashboard extends React.Component {
         super(props);
         let now = new Date();
         this.state = {
-<<<<<<< HEAD
             currentUser: AuthService.getCurrentUser(),
-
-=======
             date:now,
->>>>>>> 883b63dd66782eb2476f357f16ed5c6273901670
+
             donut: {
                 tooltip: {trigger: "item", formatter: "{a} <br/>{b}: {c} ({d}%)",},
                 legend: {show: false,},
