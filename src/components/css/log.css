@@ -29,12 +29,12 @@
 /*text style*/
 .p1 {
     font-family: "Arial";
-    color: #9505a0;
+    color: #71197a;
     text-shadow: 0.5px 1px 1px black;
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-    background: white;
+    /*background: white;*/
     margin-top:30px;
 
 }

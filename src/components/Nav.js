@@ -72,21 +72,19 @@ function Nav() {
               </NavLink>
 
                         {/*<NavLink to="" className="nav-item nav-link" onClick={AuthService.logout()}>*/}
-                        <NavLink to="" className="nav-item nav-link">
+                        {/*<NavLink to="" className="nav-item nav-link">
                             Logout
-                        </NavLink>
+                        </NavLink>*/}
                     </div>
                 </nav>
 
             </div>
-          </nav>
-          <Route path="/admin" component={AdminNav}/>
-        </div>
+
       </div>
   );
+
 }
-
-
+/*<Route path="/admin" component={AdminNav}/>
 function AdminNav({ match }) {
   const { path } = match;
 
@@ -97,7 +95,7 @@ function AdminNav({ match }) {
         </div>
       </nav>
   );
-}
+}*/
 
 export { Nav };
 
