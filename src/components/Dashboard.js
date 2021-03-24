@@ -1,5 +1,5 @@
 import React from 'react';
-
+import AuthService from "../services/auth.service";
 import map from './../images/map.jpg';
 import LT1 from './../images/LT1.jpg';
 import ELR from './../images/ELR.jpg';
@@ -10,7 +10,9 @@ import {Col,Table,Badge,} from "reactstrap";
 
 import ReactEcharts from "echarts-for-react";
 import config from "./config";
+import HomepageNavbar from "./TimeTable/HomepageNavbar";
 const colors = config.chartColors;
+
 
 const Header = {
     padding: "10px 20px",
@@ -24,12 +26,17 @@ const col = {
     fontSize: "22px",
     height:"20px"
 }
+
 class Dashboard extends React.Component {
+    userDetails;
 
     constructor(props) {
         super(props);
-
+        let now = new Date();
         this.state = {
+            currentUser: AuthService.getCurrentUser(),
+            date:now,
+
             donut: {
                 tooltip: {trigger: "item", formatter: "{a} <br/>{b}: {c} ({d}%)",},
                 legend: {show: false,},
@@ -132,16 +139,32 @@ class Dashboard extends React.Component {
                 },
 
             ],
-        };
-    }
-    
 
+
+        };
+
+
+    }
+    updateDate = data => {
+        this.setState({
+            date: data
+        })
+        //this.props.updateDate(data)
+        // console.log(this.state)
+    }
     render() {
 
         return (
-            <div >
+            <div className="page">
+
+                <HomepageNavbar updateDate={this.updateDate}/>
                 <Nav/>
                 <div style={col} ></div>
+                <h3>
+                    {
+                        this.state.currentUser.userDetails.role
+                    } Dashboard
+                </h3>
                 <h1 align="center">Graphical visualization of lecture venues </h1>
                 <div style={col}></div>
                 <img src={map} align="right" id='map' class="map" useMap="#image-map" alt="map"/>
@@ -216,92 +239,91 @@ class Dashboard extends React.Component {
                     </Col>
                 </row>
                 <div style={Header}></div>
-                  <div className="table" >
+                <div className="table" >
                     <h2>Availability of Lecture Venues </h2>
-                      <Table  striped >
+                    <Table  striped >
                         <thead>
 
-                           <tr className="fs-sm">
-                             <th className="hidden-sm-down">#</th>
-                               <th>Picture</th>
-                               <th>Description</th>
-                               <th className="hidden-sm-down">Info</th>
-                               <th className="hidden-sm-down">Occupancy</th>
-                               <th className="hidden-sm-down">Status</th>
-                           </tr>
+                        <tr className="fs-sm">
+                            <th className="hidden-sm-down">#</th>
+                            <th>Picture</th>
+                            <th>Description</th>
+                            <th className="hidden-sm-down">Info</th>
+                            <th className="hidden-sm-down">Occupancy</th>
+                            <th className="hidden-sm-down">Status</th>
+                        </tr>
                         </thead>
-                          <tbody>
-                               {this.state.tableStyles.map((row) => (
-                                 <tr key={row.id}>
-                                    <td>{row.id}</td>
-                                      <td><img className="img-rounded" src={row.picture} alt="" height="100"/></td>
-                                          <td>{row.description}{row.label && (
-                                          <div><Badge color={row.label.colorClass}>{row.label.text}</Badge></div>)}
-                                     </td>
-                    <td>
-                        <p className="mb-0">
-                            <small>
-                                Usage:
-                                <span className="text-muted fw-semi-bold">
+                        <tbody>
+                        {this.state.tableStyles.map((row) => (
+                            <tr key={row.id}>
+                                <td>{row.id}</td>
+                                <td><img className="img-rounded" src={row.picture} alt="" height="100"/></td>
+                                <td>{row.description}{row.label && (
+                                    <div><Badge color={row.label.colorClass}>{row.label.text}</Badge></div>)}
+                                </td>
+                                <td>
+                                    <p className="mb-0">
+                                        <small>
+                                            Usage:
+                                            <span className="text-muted fw-semi-bold">
                               &nbsp; {row.info.Usage}
                             </span>
-                            </small>
-                        </p>
-                        <p className="mb-0">
-                            <small>
-                                Area:
-                                <span className="text-muted fw-semi-bold">
+                                        </small>
+                                    </p>
+                                    <p className="mb-0">
+                                        <small>
+                                            Area:
+                                            <span className="text-muted fw-semi-bold">
                               &nbsp; {row.info.Area}
                             </span>
-                            </small>
-                        </p>
-                        <p className="mb-0">
-                            <small>
-                                Other:
-                                <span className="text-muted fw-semi-bold">
+                                        </small>
+                                    </p>
+                                    <p className="mb-0">
+                                        <small>
+                                            Other:
+                                            <span className="text-muted fw-semi-bold">
                               &nbsp; {row.info.Other}
                             </span>
-                            </small>
+                                        </small>
+                                    </p>
+                                </td>
+
+                                <td className="text-dark-bold">{row.Occupancy}</td>
+                                <td className="width-150">
+
+                                    {row.label2 && (
+                                        <div>
+                                            <Badge color={row.label2.colorClass}>
+                                                {row.label2.text}
+                                            </Badge>
+                                        </div>
+                                    )}
+
+                                </td>
+
+                            </tr>
+
+                        ))}
+                        </tbody>
+                    </Table>
+
+
+                    <h2>Student likelihood of lecture venues</h2>
+                    <Col  >
+                        <p title={<h5>Chart <span className="fw-semi-bold">Donut Chart</span></h5>} close collapse>
+                            <ReactEcharts
+                                option={this.state.donut}
+                                style={{ height:"250px"}}>
+                            </ReactEcharts>
                         </p>
-                    </td>
-
-                    <td className="text-dark-bold">{row.Occupancy}</td>
-                    <td className="width-150">
-
-                            {row.label2 && (
-                                <div>
-                                    <Badge color={row.label2.colorClass}>
-                                        {row.label2.text}
-                                    </Badge>
-                                </div>
-                            )}
-
-                    </td>
-
-                </tr>
-
-            ))}
-            </tbody>
-        </Table>
-
-
-                      <h2>Student likelihood of lecture venues</h2>
-                         <Col  >
-                             <p title={<h5>Chart <span className="fw-semi-bold">Donut Chart</span></h5>} close collapse>
-                               <ReactEcharts
-                                   option={this.state.donut}
-                                   style={{ height:"250px"}}>
-                               </ReactEcharts>
-                             </p>
-                         </Col>
-                  </div>
+                    </Col>
+                </div>
             </div>
         );
     }
 }
 
 export default Dashboard;
-
 
 
 

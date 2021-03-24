@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Form, Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
+import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
 
 
 class LecturerRegisterForm extends Component {
@@ -18,7 +18,7 @@ class LecturerRegisterForm extends Component {
             password: "",
             confirmPassword:"",
             DepartmentID: "",
-            Role:"Teacher"
+            Role:"Lecturer"
 
         },
         errors: {},
@@ -42,7 +42,7 @@ class LecturerRegisterForm extends Component {
         if (data.RegNo === "") errors.RegNo = "Lecturer_ID can not be blank.";
         if (data.FullName === "") errors.FullName = "Full_Name can not be blank.";
         if (data.email === "") errors.email = " Email can not be blank.";
-        if (data.DeptID === "") errors.Dept_ID = "Dept_ID can not be blank.";
+        if (data.DepartmentID === "") errors.DepartmentID = "DepartmentID can not be blank.";
         if (data.password === "") errors.password = "Password must be valid.";
         if (data.confirmPassword !== data.password)
             errors.confirmPassword = "Passwords must match.";
@@ -60,7 +60,7 @@ class LecturerRegisterForm extends Component {
         if (Object.keys(errors).length === 0) {
             console.log(data);
             //Call an api here
-            axios.post('https://localhost:5001/api/accounts/register/teacher', data)
+            axios.post('https://localhost:5001/api/accounts/register/lecturer', data)
                 .then(res=>{
                     console.log(res.data);
                 });
@@ -75,10 +75,10 @@ class LecturerRegisterForm extends Component {
         const { data, errors } = this.state;
         return (
 
-            <div className="container tab-pane active mb-5" align="left">
-                <br />
 
-                <h3>Lecturer Registration</h3>
+            <div className="container tab-pane active mb-5" align="left" style={{fontWeight:"bolder"}}>
+
+                <br />
                 <div className="col-sm-8">
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup className="form-group">
@@ -122,7 +122,7 @@ class LecturerRegisterForm extends Component {
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="DeptID">Dept ID : </Label>
+                                <Label for="DepartmentID">DepartmentID : </Label>
                                 <Input
                                     value={data.DepartmentID}
                                     invalid={!!errors.DepartmentID}
@@ -163,7 +163,9 @@ class LecturerRegisterForm extends Component {
                         </FormGroup>
 
                         <div className="col-sm-12">
-                            <Button className="btn-block" color="primary">
+
+                            <Button className="btn-block" style={{backgroundColor: '#440151',fontFamily:'Arial'}} >
+
 
                                 Register
                             </Button>

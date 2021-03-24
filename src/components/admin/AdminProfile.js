@@ -10,7 +10,7 @@ import { Table } from 'react-bootstrap';
 
 
 
-class LecturerProfile extends Component {
+class AdminProfile extends Component {
     constructor(props) {
         super(props);
         let now = new Date();
@@ -239,6 +239,6 @@ class LecturerProfile extends Component {
     }
 }
 
-export default LecturerProfile
+export default AdminProfile
 
 

@@ -2,11 +2,13 @@ import React from "react";
 import {Link, NavLink} from "react-router-dom";
 import {Button} from "react-bootstrap";
 
+
 const RegistrationTabbar = () => {
     const navTabsTitleStyle = {
         fontSize: "22px",
         padding: "10px",
         fontWeight: "700",
+
     };
 
     const navItemStyle = {
@@ -51,7 +53,7 @@ const RegistrationTabbar = () => {
                     className="nav-link"
                     to="/register/faculty-staff"
                 >
-                    Faculty Staff Member
+                    Admin
                 </NavLink>
             </li>
         </ul>

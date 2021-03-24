@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter,Switch } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
+
 import Dashboard from './components/Dashboard'
 
-import StudentRegisterForm from './components/StudentRegisterForm'
+import StudentRegisterForm from './components/registration/StudentRegisterForm'
+import AdminRegisterForm from './components/registration/AdminRegisterForm'
 import LecturerRegisterForm from "./components/registration/LecturerRegisterForm";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import StudentDashboard from './components/student/StudentDashboard';
+
 import StudentProfile from './components/student/StudentProfile';
 import LecturerProfile from './components/lecturer/LecturerProfile';
-
+import AdminProfile from './components/admin/AdminProfile';
 
 import Home from './components/Home'
 import FirstPage from './components/FirstPage'
@@ -20,6 +22,10 @@ import SubjectList from "./components/TimeTable/SubjectList";
 import ModuleDrop from "./components/TimeTable/ModuleDrop";
 import ModuleEnrolement from "./components/admin/moduleEnrolement";
 
+import UpdateProfile from "./components/student/UpdateProfile";
+/*
+import ProfileNew from "./components/student/ProfileNew";
+*/
 
 
 class App extends Component {
@@ -28,20 +34,16 @@ class App extends Component {
 
             <BrowserRouter>
                 <div className="App">
+
                     <Route exact path='/' component={FirstPage}/>
-
-                    <Route path='/student' component={StudentDashboard}/>
-
-
                     <Route path='/Register' component={Register} />
                     <Route path='/Dashboard' component={Dashboard} />
-
                     <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
                     <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
-
-                    <Route path= '/Student/Profile' component={StudentProfile}/>
+                    <Route path='/AdminRegisterForm' component={AdminRegisterForm} />
+                    <Route path= '/Student/StudentProfile' component={StudentProfile}/>
                     <Route path= '/Lecturer/LecturerProfile' component={LecturerProfile}/>
-
+                    <Route path= '/Admin/AdminProfile' component={AdminProfile}/>
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Login}/>
                     <Route path= '/SubjectList' component={SubjectList}/>
@@ -49,6 +51,8 @@ class App extends Component {
                     <Route path= '/ModuleDrop' component={ModuleDrop}/>
                     <Route path='/moduleenrolement' component={ModuleEnrolement}/>
 
+                    <Route path= '/Student/UpdateProfile' component={UpdateProfile}/>
+                    {/*<Route path= '/Student/ProfileNew' component={ProfileNew}/>*/}
                 </div>
             </BrowserRouter>
         );
