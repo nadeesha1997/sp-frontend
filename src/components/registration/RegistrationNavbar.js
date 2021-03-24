@@ -120,7 +120,7 @@ class RegistrationNavbar extends React.Component {
                                 fontFamily:'Arial'
                             }} type='submit'>
 
-Log In
+                                    Log In
                                 <Modal show={this.state.show} className="row-cols-md-12 row-cols-lg-12">
 
                                     <Modal.Header closeButton>

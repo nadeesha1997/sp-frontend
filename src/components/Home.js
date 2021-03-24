@@ -5,13 +5,13 @@ import TimeTable from "./TimeTable/TimeTable";
 import HomepageNavbar from "./TimeTable/HomepageNavbar";
 import {Nav} from "./Nav"
 
-const col = {
-    padding: "10px 20px",
-    textAlign: "center",
-    fontSize: "22px",
-    height:"20px",
-    fontFamily:"Arial"
-}
+// const col = {
+//     padding: "10px 20px",
+//     textAlign: "center",
+//     fontSize: "22px",
+//     height:"20px",
+//     fontFamily:"Arial"
+// }
 
 class Home extends Component {
     constructor(props) {

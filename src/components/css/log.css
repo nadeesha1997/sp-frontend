@@ -39,12 +39,12 @@ border-radius: 5%;
 
 
 }
-.row{
+/*.row{*/
 
-    height: max-content;
-    background-color: #b89adb;
-    padding: 10px;
-}
+/*    height: max-content;*/
+/*    background-color: #b89adb;*/
+/*    padding: 10px;*/
+/*}*/
 
 .form-group
 {

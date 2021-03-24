@@ -111,7 +111,7 @@ handleModal(){
 
                             <div className="align">
                                 <Button onClick={()=>{this.handleModal()}} style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:45,marginRight:20}} type='submit' >
-                                    <b>LOG IN</b>
+                                                            <b>LOG IN</b>
 
                                                                <Modal show={this.state.show} className="row-cols-md-12 row-cols-lg-12">
 
@@ -121,7 +121,7 @@ handleModal(){
                                                                        </div>
                                                                          </Modal.Header>
                                                                          <Modal.Body>
-<div className="page">
+                                                                          <div className="page">
 
                                                                            <Image img src={icon} alt="icon" style={{width: 300,
                                                                                height: 300,
