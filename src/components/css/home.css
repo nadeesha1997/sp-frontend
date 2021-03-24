@@ -3,8 +3,7 @@
     background-color: #cc8bf3;
     color: #3f285a;
     text-align: center;
-    margin-left: 0px;
-    margin-top: 0px;
+
 }
 
 .top_corner{
@@ -39,7 +38,12 @@
 
 
 }
+.navbar-color1 {
+    background-color: #3c3345;
 
+
+
+}
 /*P {
     color: #9980ac;
     text-align: left;
@@ -54,4 +58,15 @@
     font-weight: normal;
     color: black;
     background-color: transparent;
+}
+
+.locate{
+  margin-left: 95px;
+
+
+}
+.App {
+    text-align: center;
+    width: 100%;
+    margin: 2px auto;
 }

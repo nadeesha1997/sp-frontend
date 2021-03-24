@@ -84,11 +84,14 @@ class Login extends Component{
     }
     render() {
         return (
-            <div>
+            <div className="page">
+
                 <div className="p1">
+
                     <h3><u>LECTURE SCHEDULE MANAGEMENT SYSTEM</u></h3>
                 </div>
-                <div className="centered img">
+
+                    <div className="centered img">
                     <Image img src={icon} alt="icon"/>
                     <Form
                         onSubmit={this.handleLogin}
@@ -162,7 +165,8 @@ class Login extends Component{
                         />
                     </Form>
                 </div>
-            </div>
+
+                </div>
 
         );
     }

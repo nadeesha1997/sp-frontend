@@ -52,12 +52,14 @@ export default class StudentList extends React.Component {
                 //       <td> - {mod.name}</td>
                 // </tr>
                 <ul>
+
                     <div key={mod.id}
                          onDragStart={(e) => this.onDragStart(e, mod.id)}
                          draggable
                          className="draggable">
                         {mod.code} - {mod.name}
                     </div>
+
                 </ul>
 
 
@@ -69,11 +71,11 @@ export default class StudentList extends React.Component {
         });
 
         return (
-            <div style={{margin: '50px'}}>
+            <div style={{margin: '50px'}}><table>
                 <div style={{width: '100%'}}>
 
-
-                    <div className=" bottom_right ">
+<td>
+                    <div className="bottom_right">
 
                         <div className="custom-select">
 
@@ -95,8 +97,9 @@ export default class StudentList extends React.Component {
 
                     </div>
 
-
-                    <div className=" bottom_corner ">
+</td>
+                    <td>
+                    <div className="bottom_corner">
                         <div className="custom-select">
 
                             <select
@@ -105,24 +108,27 @@ export default class StudentList extends React.Component {
                                 <option>select the Department:</option>
                                 <option value="EE">DEIE</option>
                                 <option value="CE">CEE</option>
-                                <option value="MM">MME</option>
+                                <option value="ME">MME</option>
                                 <option value="IS">IS</option>
                             </select>
 
                         </div>
-                    </div>
+                    </div></td>
+
                 </div>
-                <div>
+                <td> <div>
 
                     <div className="container">
-                        <div className="row" style={{margin: '20px'}}>
+                        <div className="row" style={{margin: '10px'}}>
                             <button onClick={() => this.OnSubmit()}
                                     style={{backgroundColor: '#9b82c3'}}>
                                 <b>SELECT</b>
                             </button>
                         </div>
                     </div>
-                </div>
+                </div></td>
+
+                </table>
                 <div className="row">
                     <div>
                         {mod}

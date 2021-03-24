@@ -10,6 +10,7 @@ import {Col,Table,Badge,} from "reactstrap";
 
 import ReactEcharts from "echarts-for-react";
 import config from "./config";
+import HomepageNavbar from "./TimeTable/HomepageNavbar";
 const colors = config.chartColors;
 
 
@@ -31,10 +32,14 @@ class Dashboard extends React.Component {
 
     constructor(props) {
         super(props);
-
+        let now = new Date();
         this.state = {
+<<<<<<< HEAD
             currentUser: AuthService.getCurrentUser(),
 
+=======
+            date:now,
+>>>>>>> 883b63dd66782eb2476f357f16ed5c6273901670
             donut: {
                 tooltip: {trigger: "item", formatter: "{a} <br/>{b}: {c} ({d}%)",},
                 legend: {show: false,},
@@ -137,14 +142,25 @@ class Dashboard extends React.Component {
                 },
 
             ],
-        };
-    }
-    
 
-    render() {
+
+        };
+
+
+    }
+    updateDate = data => {
+        this.setState({
+            date: data
+        })
+        //this.props.updateDate(data)
+        // console.log(this.state)
+    }
+        render() {
 
         return (
-            <div >
+            <div className="page">
+
+                <HomepageNavbar updateDate={this.updateDate}/>
                 <Nav/>
                 <div style={col} ></div>
                 <h3>
