@@ -73,7 +73,12 @@ class TimeTable extends Component{
 
 
                 <div className="row">
+                 <div className="col-lg-12 col-md-6">
+                    <div className="calendar">
+
                     <CalendarNew updateDate={this.updateDate} sessions={this.getSessions}/>
+                    </div>
+                </div>
                 </div>
                 <div className="grid-container">
                     <div className="grid-item">Time</div>

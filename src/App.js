@@ -21,11 +21,12 @@ import TimeTable from "./components/TimeTable/TimeTable";
 import SubjectList from "./components/TimeTable/SubjectList";
 import ModuleDrop from "./components/TimeTable/ModuleDrop";
 import ModuleEnrolement from "./components/admin/moduleEnrolement";
+import StudentUpdateProfile from "./components/student/StudentUpdateProfile";
 
-import UpdateProfile from "./components/student/UpdateProfile";
-/*
-import ProfileNew from "./components/student/ProfileNew";
-*/
+import HomepageNavbar from "./components/TimeTable/HomepageNavbar";
+// /*
+// import ProfileNew from "./components/student/ProfileNew";
+// */
 
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
                 <div className="App">
 
                     <Route exact path='/' component={FirstPage}/>
+
                     <Route path='/Register' component={Register} />
                     <Route path='/Dashboard' component={Dashboard} />
                     <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
@@ -51,7 +53,8 @@ class App extends Component {
                     <Route path= '/ModuleDrop' component={ModuleDrop}/>
                     <Route path='/moduleenrolement' component={ModuleEnrolement}/>
 
-                    <Route path= '/Student/UpdateProfile' component={UpdateProfile}/>
+                    <Route path= '/Student/UpdateProfile' component={StudentUpdateProfile}/>
+
                     {/*<Route path= '/Student/ProfileNew' component={ProfileNew}/>*/}
                 </div>
             </BrowserRouter>
