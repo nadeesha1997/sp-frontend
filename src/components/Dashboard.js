@@ -70,9 +70,9 @@ class Dashboard extends React.Component {
                             },
                         },
                         data: [
-                            { value: 16, name: "LT1/LT2" },
-                            { value: 6, name: "NLH1/NLH2" },
-                            { value: 7, name: "LR1/LR2" },
+                            { value: 24, name: "LT1/LT2" },
+                            { value: 7, name: "NLH1/NLH2" },
+                            { value: 8, name: "LR1/LR2" },
                             { value: 3, name: "DO1/DO2" },
                             { value: 3, name: "Other" },
                         ],
@@ -355,6 +355,10 @@ class Dashboard extends React.Component {
                                 option={this.state.donut}
                                 style={{ height:"250px"}}>
                             </ReactEcharts>
+                            Last modified : 2021/03/25
+                            <div>Add your preference here</div>
+                            <div></div>
+                            <button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Click me</b></a></button>
                         </p>
                     </Col>
                 </div>
