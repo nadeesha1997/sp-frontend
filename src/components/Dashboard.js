@@ -305,7 +305,7 @@ class Dashboard extends React.Component {
                                     <p className="mb-0">
                                         <small>
                                             Usage:
-                                            <span className="text-muted fw-semi-bold">
+                                            <span className="text-white fw-semi-bold">
                               &nbsp; {row.info.Usage}
                             </span>
                                         </small>
@@ -313,7 +313,7 @@ class Dashboard extends React.Component {
                                     <p className="mb-0">
                                         <small>
                                             Area:
-                                            <span className="text-muted fw-semi-bold">
+                                            <span className="text-white fw-semi-bold">
                               &nbsp; {row.info.Area}
                             </span>
                                         </small>
@@ -321,7 +321,7 @@ class Dashboard extends React.Component {
                                     <p className="mb-0">
                                         <small>
                                             Other:
-                                            <span className="text-muted fw-semi-bold">
+                                            <span className="text-white fw-semi-bold">
                               &nbsp; {row.info.Other}
                             </span>
                                         </small>
