@@ -213,7 +213,9 @@ class StudentProfile extends Component {
                                     Enrolled Modules
                                 </th>
                             </tr>
-                            {mod}
+                            <tr>
+                                {mod}   
+                            </tr>  
                         </Table>
                         <div align="center" className="col-md-4">
                             <button  type="submit" className="profile-edit-btn" name="btnAddMore" value="Update Profile">

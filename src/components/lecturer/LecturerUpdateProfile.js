@@ -70,10 +70,18 @@ class LecturerUpdateProfile extends Component {
                 console.log(res.data)
             }).then(console.log(this.state))
     }
-    Unenroll=(id,e)=>{
-        axios.delete('https://localhost:5001/api/SubjectUser/${this.state.currentUser.userDetails.id}/${id}')
-            .then((res)=>{console.log(res.data)})
-            .then(err=>console.log(err))
+    Unenroll=(modId)=>{
+        axios.delete('https://localhost:5001/api/SubjectUser/'+modId)
+            .then(response => {
+                if(response.data != null){
+                    alert("removed successfully!");
+                    this.setState({
+                        modules: this.state.modules.filter(mod => mod.id !== modId)
+                    })
+                }
+            });
+            // .then( res => {console.log(res.data)})
+            // .then(err=>console.log(err))
     }
 
     render () {
@@ -107,14 +115,14 @@ class LecturerUpdateProfile extends Component {
             )
             {
                 return(
-                    <tr>
-                        <td >
-                            <div key={mod.id}>
-                                {mod.subject.code} - {mod.subject.name}
-                            </div>
-                        </td>
-                    </tr>
-                )
+                    <li key={mod.id}>
+                    <span>
+                        {/* {mod.subject.code} - {mod.subject.name} */}
+                    </span>
+                    <span><button  class="themeBtn4" onClick = {(this.getISModules.bind(this, mod.id))}>add</button></span>
+
+                    </li>
+                );
             }
             else{
 
@@ -133,7 +141,7 @@ class LecturerUpdateProfile extends Component {
                         <span>
                             {mod.subject.code} - {mod.subject.name}
                         </span>
-                        <span><button onClick = {(e)=>this.Unenroll(mod.id,e)}></button></span>
+                        <span><button  class="themeBtn4" onClick = {(this.Unenroll.bind(this, mod.id))}>remove</button></span>
 
                     </li>
                 );
@@ -218,7 +226,7 @@ class LecturerUpdateProfile extends Component {
 
                     <hr/>
                     <div className="row">
-                        <div> Enrolled Modules
+                        <div>Enrolled Modules
                             {mod}
                         </div>
 
