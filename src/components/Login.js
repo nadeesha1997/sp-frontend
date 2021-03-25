@@ -51,7 +51,7 @@ class Login extends Component{
         e.preventDefault();
 
         this.setState({
-            message: "Successfully log in",
+            message: "",
             loading: true
         });
 
@@ -60,7 +60,7 @@ class Login extends Component{
         if (this.checkBtn.context._errors.length === 0) {
             AuthService.login(this.state.email, this.state.password).then(
                 () => {
-                    this.props.history.push("Dashboard");
+                    this.props.history.push("/Dashboard");
                     window.location.reload();
                 },
                 error => {

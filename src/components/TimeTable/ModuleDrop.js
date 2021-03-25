@@ -30,6 +30,7 @@ class ModuleDrop extends Component{
         this.setStartDateTime=this.setStartDateTime.bind(this)
         this.setEndDateTime=this.setEndDateTime.bind(this)
         this.getMod=this.getMod.bind(this);
+        //this.updateMod=this.updateMod.bind(this);
         // this.getMod();
     }
     updateDate=()=>{
@@ -69,6 +70,24 @@ class ModuleDrop extends Component{
         )
 
     }
+    // updateMod=()=>{
+    //     let stime = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime
+    //     let etime = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime
+    //     axios.get("https://localhost:5001/api/sessions/"+stime+"/"+etime+"/"+this.props.hallid)
+    //         .then(res=>{
+    //             if(res.data!=null){
+    //                 let arr=this.state.dailyModules.push(res.data);
+    //                 this.setState({
+    //                     smodule:res.data,
+    //                     reserved:true,
+    //                     dailyModules:arr
+    //                 })
+    //             }
+    //             console.log()
+    //
+    //         })
+    //         .then(()=>this.forceUpdate())
+    // }
 
     getMod=()=>{
         this.setState({
@@ -143,7 +162,7 @@ class ModuleDrop extends Component{
             EndDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime,
             Permitted:false,
             UserId:this.state.UserId,
-            reserved:false,
+            reserved:true,
         }
         axios.post("https://localhost:5001/api/sessions",data)
             .then(res=>console.log(res))
@@ -174,17 +193,20 @@ class ModuleDrop extends Component{
         console.log("id is"+id)
         this.setState({
             SubjectId:ev.dataTransfer.getData("id")
-        },()=>{this.forceUpdate(()=>{this.sendData()})})
+        },()=>{this.forceUpdate(()=>{this.sendData();
+        this.checkBooked()})})
         console.log('dragdrop:',this.state);
-        //this.checkBooked();
-        this.sendData();
+        this.checkBooked();
+        //this.sendData();
         this.getMod();
-        this.forceUpdate()
-        this.props.rerender();
+        // this.updateMod();
+        // this.forceUpdate()
+        // this.props.rerender();
         this.parentCallback(this.checkBooked);
+        this.forceUpdate()
     }
     componentDidMount() {
-        // this.checkBooked();
+        this.checkBooked();
         this.updateDate()
         this.setStartDateTime()
         this.setEndDateTime();

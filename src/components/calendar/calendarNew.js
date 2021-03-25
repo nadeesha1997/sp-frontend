@@ -28,8 +28,15 @@ class CalendarNew extends Component {
     sessionsGet=(e)=>{
         axios.get('https://localhost:5001/api/sessions/dateonly/'+moment(e).format('YYYY-MM-DD'))
             .then((res)=>{this.setState({sessions:res.data},()=>{this.forceUpdate(()=>this.props.sessions(res.data));})})
-
     }
+    getMods=()=>{
+        axios.get('https://localhost:5001/api/sessions/dateonly/'+moment(this.state.date).format('YYYY-MM-DD'))
+            .then((res)=>{this.setState({sessions:res.data},()=>{this.forceUpdate(()=>this.props.sessions(res.data));})})
+    }
+    // componentDidMount() {
+    //     this.getMods();
+    // }
+
     render() {
         return (
             <div className="calendar">
