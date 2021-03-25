@@ -32,23 +32,29 @@ function Nav() {
                         </NavLink>
 
                         {profileData==="Student" &&
-                        <NavLink to="/student/StudentTimetable" className="nav-item nav-link"> Timetable
+                        <NavLink to="/student/StudentTimetable" className="nav-item nav-link">
+                            <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
                         {profileData==="Lecturer" &&
-                        <NavLink to="/lecturer/LecturerTimetable" className="nav-item nav-link"> Timetable
+                        <NavLink to="/lecturer/LecturerTimetable" className="nav-item nav-link">
+                            <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
                         {profileData ==="Admin" &&
-                        <NavLink to="/admin/AdminTimetable" className="nav-item nav-link">  Timetable
+                        <NavLink to="/admin/AdminTimetable" className="nav-item nav-link">
+                            <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
 
                         {profileData==="Student" &&
-                        <NavLink to="/student/StudentProfile" className="nav-item nav-link"> Profile
+                        <NavLink to="/student/StudentProfile" className="nav-item nav-link">
+                            <Icon icon={user_circle} style={{ color: '#e379e7', alignSelf: 'center'}}/>Profile
                         </NavLink>}
                         {profileData==="Lecturer" &&
-                        <NavLink to="/lecturer/LecturerProfile" className="nav-item nav-link"> Profile
+                        <NavLink to="/lecturer/LecturerProfile" className="nav-item nav-link">
+                            <Icon icon={user_circle} style={{ color: '#e379e7', alignSelf: 'center'}}/>Profile
                         </NavLink>}
                         {profileData ==="Admin" &&
-                        <NavLink to="/admin/AdminProfile" className="nav-item nav-link">  Profile
+                        <NavLink to="/admin/AdminProfile" className="nav-item nav-link">
+                            <Icon icon={user_circle} style={{ color: '#e379e7', alignSelf: 'center'}}/>Profile
                         </NavLink>}
 
                         <NavLink to="" className="nav-item nav-link">
