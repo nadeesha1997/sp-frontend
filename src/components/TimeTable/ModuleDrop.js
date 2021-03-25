@@ -41,13 +41,6 @@ class ModuleDrop extends Component{
         this.props.rerender();
         func();
     }
-    componentDidMount() {
-        this.checkBooked();
-        this.updateDate()
-        this.setStartDateTime()
-        this.setEndDateTime();
-        this.getMod();
-    }
     static getDerivedStateFromProps(props, state){
         let stime = moment(props.date).format('YYYY-MM-DD') + "T" + props.startTime
         let etime = moment(props.date).format('YYYY-MM-DD') + "T" + props.endTime
@@ -64,20 +57,36 @@ class ModuleDrop extends Component{
     }
 
     getMod=()=>{
+        this.setState({
+            reserved:false,
+            smodule:null
+        })
         let stime = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime
         let etime = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime
-        axios.get("https://localhost:5001/api/sessions/"+stime+"/"+etime+"/"+this.props.hallid)
-            .then(res=>{
-                if(res.data!=null){
+        // axios.get("https://localhost:5001/api/sessions/"+stime+"/"+etime+"/"+this.props.hallid)
+        //     .then(res=>{
+        //         if(res.data!=null){
+        //             this.setState({
+        //                 smodule:res.data,
+        //                 reserved:true
+        //             })
+        //         }
+        //         console.log()
+        //
+        //     })
+        //     .then(()=>this.forceUpdate())
+        if(this.props.sessions.length!=0){
+            this.props.sessions.forEach(session=>{
+                if((moment(session.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=stime)&&((moment(session.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=etime))&&session.hallId.toString()===this.props.hallid){
                     this.setState({
-                        smodule:res.data,
-                        reserved:true
+                        reserved:true,
+                        smodule:module
                     })
+                    //console.log("smodule"+this.state.smodule.subject.code)
                 }
-                console.log()
-
+                this.forceUpdate(()=>this.parentCallback(()=>this.forceUpdate()));
             })
-            .then(()=>this.forceUpdate())
+        }
     }
     checkBooked=()=>{
         if(this.state.dailyModules.length!=0){
@@ -89,6 +98,7 @@ class ModuleDrop extends Component{
                     })
                     console.log("smodule"+this.state.smodule)
                 }
+                this.forceUpdate();
             });
         }
     }
@@ -150,12 +160,19 @@ class ModuleDrop extends Component{
             SubjectId:ev.dataTransfer.getData("id")
         },()=>{this.forceUpdate(()=>{this.sendData()})})
         console.log('dragdrop:',this.state);
-        this.checkBooked();
+        //this.checkBooked();
         this.sendData();
         this.getMod();
         this.forceUpdate()
         this.props.rerender();
         this.parentCallback(this.checkBooked);
+    }
+    componentDidMount() {
+        // this.checkBooked();
+        this.updateDate()
+        this.setStartDateTime()
+        this.setEndDateTime();
+        this.getMod();
     }
 
     render() {
@@ -167,7 +184,7 @@ class ModuleDrop extends Component{
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
                 onClick={()=>{this.parentCallback(this.checkBooked)}}>
-                {this.state.reserved&&<div style={{backgroundColor: "red"}}><p>{this.state.smodule.subject.code}</p></div>}
+                {this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red"}}><p>{this.state.smodule.subject.code}</p></div>}
             </div>
         )
     }
