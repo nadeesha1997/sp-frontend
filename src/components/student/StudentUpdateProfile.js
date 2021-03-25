@@ -22,17 +22,17 @@ class StudentUpdateProfile extends Component {
             iSModules:[]
         };
         this.getModules();
-        this.getInitialState();
+        /*this.getInitialState();*/
 
 
     }
 
-    getInitialState = () => ({
+   /* getInitialState = () => ({
         data: {
             Semester: "",
         },
 
-    });
+    });*/
 
     updateDate = data => {
         this.setState({

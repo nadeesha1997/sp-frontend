@@ -27,12 +27,35 @@ function Nav() {
                         <a className="navbar-brand" href="#">WELCOME LSMS</a>
                         <a className="navbar-brand" href="#">|</a>
 
-                <NavLink to="/Dashboard" className="nav-item nav-link">
-                    <Icon icon={home} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Dashboard
-                </NavLink>
+                        <NavLink to="/Dashboard" className="nav-item nav-link">
+                               <Icon icon={home} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Dashboard
+                        </NavLink>
 
+                        {profileData==="Student" &&
+                        <NavLink to="/student/StudentTimetable" className="nav-item nav-link"> Timetable
+                        </NavLink>}
+                        {profileData==="Lecturer" &&
+                        <NavLink to="/lecturer/LecturerTimetable" className="nav-item nav-link"> Timetable
+                        </NavLink>}
+                        {profileData ==="Admin" &&
+                        <NavLink to="/admin/AdminTimetable" className="nav-item nav-link">  Timetable
+                        </NavLink>}
 
-               <NavLink to="/Home" className="nav-item nav-link">
+                        {profileData==="Student" &&
+                        <NavLink to="/student/StudentProfile" className="nav-item nav-link"> Profile
+                        </NavLink>}
+                        {profileData==="Lecturer" &&
+                        <NavLink to="/lecturer/LecturerProfile" className="nav-item nav-link"> Profile
+                        </NavLink>}
+                        {profileData ==="Admin" &&
+                        <NavLink to="/admin/AdminProfile" className="nav-item nav-link">  Profile
+                        </NavLink>}
+
+                        <NavLink to="" className="nav-item nav-link">
+                            <Icon icon={circle_left} style={{ color: '#e379e7', alignSelf: 'center'}}/> Logout
+                        </NavLink>
+
+               {/*<NavLink to="/Home" className="nav-item nav-link">
                     <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Time Table
                 </NavLink>
 
@@ -40,7 +63,7 @@ function Nav() {
 
                         <NavLink to="/Home" className="nav-item nav-link">
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Time Table
-                        </NavLink>
+                        </NavLink>*/}
                         {/*{user.role===Role.Student &&
 
                 {/* {AuthService.getCurrentUser.userDetails.role===Role.Student &&
@@ -106,10 +129,10 @@ function Nav() {
               </NavLink>
 
                         {/*<NavLink to="" className="nav-item nav-link" onClick={AuthService.logout()}>*/}
-                        <NavLink to="" className="nav-item nav-link">
+                        {/*<NavLink to="" className="nav-item nav-link">
                             <Icon icon={circle_left} style={{ color: '#e379e7', alignSelf: 'center'}}/> Logout
                         </NavLink>
-
+*/}
                         {/*<NavLink to="" className="nav-item nav-link" onClick={AuthService.logout()}>*/}
                         {/*<NavLink to="" className="nav-item nav-link">
                             Logout

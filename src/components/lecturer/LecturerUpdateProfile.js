@@ -3,6 +3,8 @@ import '../css/StudentProfile.css'
 //import Student from './data/profile.json'
 import AuthService from "../../services/auth.service";
 import axios from "axios";
+import HomepageNavbar from "../TimeTable/HomepageNavbar";
+import {Nav} from "../Nav";
 //<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
 
 class LecturerUpdateProfile extends Component {
@@ -19,6 +21,13 @@ class LecturerUpdateProfile extends Component {
             iSModules:[]
         };
         this.getModules();
+    }
+    updateDate = data => {
+        this.setState({
+            date: data
+        })
+        //this.props.updateDate(data)
+        // console.log(this.state)
     }
     componentDidMount() {
         this.getModules();
@@ -136,6 +145,9 @@ class LecturerUpdateProfile extends Component {
             }
         });
         return (
+            <div className="page">
+                <HomepageNavbar updateDate={this.updateDate}/>
+                <Nav/>
             <div className="container emp-profile col-md-6">
                 <form method="post">
                     <div className="container">
@@ -229,7 +241,7 @@ class LecturerUpdateProfile extends Component {
 
                 </form>
             </div>
-
+            </div>
         )
     }
 }

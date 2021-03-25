@@ -15,6 +15,10 @@ import StudentProfile from './components/student/StudentProfile';
 import LecturerProfile from './components/lecturer/LecturerProfile';
 import AdminProfile from './components/admin/AdminProfile';
 
+import StudentTimetable from './components/student/StudentTimetable';
+import LecturerTimetable from './components/lecturer/LecturerTimetable';
+import AdminTimetable  from './components/admin/AdminTimetable';
+
 import Home from './components/Home'
 import FirstPage from './components/FirstPage'
 import TimeTable from "./components/TimeTable/TimeTable";
@@ -48,6 +52,10 @@ class App extends Component {
                     <Route path= '/Lecturer/LecturerProfile' component={LecturerProfile}/>
                     <Route path= '/Admin/AdminProfile' component={AdminProfile}/>
 
+
+                    <Route path= '/Student/StudentTimetable' component={StudentTimetable}/>
+                    <Route path= '/Lecturer/LecturerTimetable' component={LecturerTimetable}/>
+                    <Route path= '/Admin/AdminTimetable' component={AdminTimetable}/>
 
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Login}/>

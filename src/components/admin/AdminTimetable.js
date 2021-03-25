@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import './css/home.css'
+import './../css/home.css'
 import SubjectList from "./../../components/TimeTable/SubjectList";
 import TimeTable from "./../../components/TimeTable/TimeTable";
 import HomepageNavbar from "./../../components/TimeTable/HomepageNavbar";
@@ -12,6 +12,13 @@ import AuthService from "./../../services/auth.service";
 //     height:"20px",
 //     fontFamily:"Arial"
 // }
+
+const col = {
+    padding: "10px 20px",
+    textAlign: "center",
+    fontSize: "22px",
+    height:"20px"
+}
 
 class AdminTimetable extends Component {
     constructor(props) {
@@ -46,8 +53,9 @@ class AdminTimetable extends Component {
             <div className="page">
                 <HomepageNavbar updateDate={this.updateDate}/>
                 <Nav/>
+                <div style={col} ></div>
                 <h3>
-                    {this.state.currentUser.userDetails.role} Time Table
+                    {this.state.currentUser.userDetails.role} Timetable
                 </h3>
                 <div className="col col-lg-2 col-md-2 col-sm-2 container-fluid">
                     <div className="row">
