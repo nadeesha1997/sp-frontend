@@ -9,6 +9,7 @@ import CheckButton from "react-validation/build/button";
 import {Link} from "react-router-dom";
 
 
+
 const required = value => {
     if (!value) {
         return (
@@ -143,7 +144,7 @@ class Login extends Component{
 
                     <div className="form-group">
                         <Link className="lin"  href="#" variant="body2" >
-                            Forgot password?
+                            <Link to="./Reset/ResetPassword">   Forgot password?</Link>
                         </Link>
 
                         <p  className="lin"> Don't have an account?
