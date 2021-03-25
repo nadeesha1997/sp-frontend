@@ -32,6 +32,7 @@ function Nav() {
                         </NavLink>
 
                         {profileData==="Student" &&
+
                         <NavLink to="Home" className="nav-item nav-link">
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
@@ -41,6 +42,7 @@ function Nav() {
                         </NavLink>}
                         {profileData ==="Admin" &&
                         <NavLink to="Home" className="nav-item nav-link">
+
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
 
