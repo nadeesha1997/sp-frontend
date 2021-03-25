@@ -1,4 +1,3 @@
-
 .page{
     /*background-color: #cc8bf3;*/
     color: #3f285a;
@@ -75,13 +74,10 @@
 }
 
 .locate{
-    margin-left: 95px;
-
-
+    margin-left: 10px;
 }
 .App {
     text-align: center;
     width: 100%;
     margin: 2px auto;
 }
-

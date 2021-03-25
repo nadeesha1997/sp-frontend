@@ -13,6 +13,9 @@ import config from "./config";
 import HomepageNavbar from "./TimeTable/HomepageNavbar";
 const colors = config.chartColors;
 
+let profileData;
+// const a={text:"abc"}
+export {profileData};
 
 const Header = {
     padding: "10px 20px",
@@ -35,6 +38,7 @@ class Dashboard extends React.Component {
         let now = new Date();
         this.state = {
             currentUser: AuthService.getCurrentUser(),
+
             date:now,
 
             donut: {
@@ -151,20 +155,22 @@ class Dashboard extends React.Component {
         })
         //this.props.updateDate(data)
         // console.log(this.state)
+        profileData=this.state.currentUser.userDetails.role;
     }
         render() {
 
         return (
             <div className="page">
-
                 <HomepageNavbar updateDate={this.updateDate}/>
-                <Nav/>
+                {/*this.props.navigation.navigate("./Nav", {profileData})*/}
+                <Nav />
+
                 <div style={col} ></div>
+
                 <h3>
-                {
-                    this.state.currentUser.userDetails.role
-                } Dashboard
+                {this.state.currentUser.userDetails.role} Dashboard
                 </h3>
+
                 <h1 align="center">Graphical visualization of lecture venues </h1>
                 <div style={col}></div>
                 <img src={map} align="right" id='map' class="map" useMap="#image-map" alt="map"/>
@@ -265,7 +271,7 @@ class Dashboard extends React.Component {
                         <p className="mb-0">
                             <small>
                                 Usage:
-                                <span className="text-muted fw-semi-bold">
+                                <span className="text-white fw-semi-bold">
                               &nbsp; {row.info.Usage}
                             </span>
                             </small>
@@ -273,7 +279,7 @@ class Dashboard extends React.Component {
                         <p className="mb-0">
                             <small>
                                 Area:
-                                <span className="text-muted fw-semi-bold">
+                                <span className="text-white fw-semi-bold">
                               &nbsp; {row.info.Area}
                             </span>
                             </small>
@@ -281,7 +287,7 @@ class Dashboard extends React.Component {
                         <p className="mb-0">
                             <small>
                                 Other:
-                                <span className="text-muted fw-semi-bold">
+                                <span className="text-white fw-semi-bold">
                               &nbsp; {row.info.Other}
                             </span>
                             </small>
@@ -319,6 +325,7 @@ class Dashboard extends React.Component {
                          </Col>
                   </div>
             </div>
+
         );
     }
 }

@@ -22,10 +22,11 @@ import SubjectList from "./components/TimeTable/SubjectList";
 import ModuleDrop from "./components/TimeTable/ModuleDrop";
 import ModuleEnrolement from "./components/admin/moduleEnrolement";
 
-import UpdateProfile from "./components/student/UpdateProfile";
-/*
-import ProfileNew from "./components/student/ProfileNew";
-*/
+import StudentUpdateProfile from "./components/student/StudentUpdateProfile";
+import LecturerUpdateProfile from "./components/lecturer/LecturerUpdateProfile";
+import AdminUpdateProfile from "./components/admin/AdminUpdateProfile";
+
+/* import {Role} from "./helpers/role"*/
 
 
 class App extends Component {
@@ -38,12 +39,16 @@ class App extends Component {
                     <Route exact path='/' component={FirstPage}/>
                     <Route path='/Register' component={Register} />
                     <Route path='/Dashboard' component={Dashboard} />
-                    <Route path='/LecturerRegisterForm' component={LecturerRegisterForm} />
-                    <Route path='/StudentRegisterForm' component={StudentRegisterForm} />
-                    <Route path='/AdminRegisterForm' component={AdminRegisterForm} />
+
+                    <Route path='/LecturerRegisterForm'  component={LecturerRegisterForm} />
+                    <Route path='/StudentRegisterForm'  component={StudentRegisterForm} />
+                    <Route path='/AdminRegisterForm'  component={AdminRegisterForm} />
+
                     <Route path= '/Student/StudentProfile' component={StudentProfile}/>
                     <Route path= '/Lecturer/LecturerProfile' component={LecturerProfile}/>
                     <Route path= '/Admin/AdminProfile' component={AdminProfile}/>
+
+
                     <Route path= '/Home' component={Home}/>
                     <Route path= '/Login' component={Login}/>
                     <Route path= '/SubjectList' component={SubjectList}/>
@@ -51,8 +56,11 @@ class App extends Component {
                     <Route path= '/ModuleDrop' component={ModuleDrop}/>
                     <Route path='/moduleenrolement' component={ModuleEnrolement}/>
 
-                    <Route path= '/Student/UpdateProfile' component={UpdateProfile}/>
-                    {/*<Route path= '/Student/ProfileNew' component={ProfileNew}/>*/}
+                    <Route path= '/Student/StudentUpdateProfile' component={StudentUpdateProfile}/>
+                    <Route path= '/Lecturer/LecturerUpdateProfile' component={LecturerUpdateProfile}/>
+                    <Route path= '/Admin/AdminUpdateProfile' component={AdminUpdateProfile}/>
+
+
                 </div>
             </BrowserRouter>
         );

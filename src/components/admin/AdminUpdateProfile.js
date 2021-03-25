@@ -5,7 +5,7 @@ import AuthService from "../../services/auth.service";
 import axios from "axios";
 //<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
 
-class UpdateProfile extends Component {
+class AdminUpdateProfile extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -234,4 +234,4 @@ class UpdateProfile extends Component {
     }
 }
 
-export default UpdateProfile
+export default AdminUpdateProfile

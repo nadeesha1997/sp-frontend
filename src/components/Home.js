@@ -42,7 +42,6 @@ class Home extends Component {
 
     render() {
         return (
-
             <div className="page">
                 <HomepageNavbar updateDate={this.updateDate}/>
                 <Nav/>
