@@ -7,7 +7,7 @@ import HomepageNavbar from "../TimeTable/HomepageNavbar";
 import {Nav} from "../Nav";
 //<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
 
-class UpdateProfile extends Component {
+class AdminUpdateProfile extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -22,6 +22,7 @@ class UpdateProfile extends Component {
         };
         this.getModules();
     }
+
     updateDate = data => {
         this.setState({
             date: data
@@ -29,6 +30,7 @@ class UpdateProfile extends Component {
         //this.props.updateDate(data)
         // console.log(this.state)
     }
+
     componentDidMount() {
         this.getModules();
         this.getISModules();
@@ -70,18 +72,10 @@ class UpdateProfile extends Component {
                 console.log(res.data)
             }).then(console.log(this.state))
     }
-    Unenroll=(modId)=>{
-        axios.delete('https://localhost:5001/api/SubjectUser/'+modId)
-            .then(response => {
-                if(response.data != null){
-                    alert("removed successfully!");
-                    this.setState({
-                        modules: this.state.modules.filter(mod => mod.id !== modId)
-                    })
-                }
-            });
-            // .then( res => {console.log(res.data)})
-            // .then(err=>console.log(err))
+    Unenroll=(id,e)=>{
+        axios.delete('https://localhost:5001/api/SubjectUser/${this.state.currentUser.userDetails.id}/${id}')
+            .then((res)=>{console.log(res.data)})
+            .then(err=>console.log(err))
     }
 
     render () {
@@ -115,14 +109,14 @@ class UpdateProfile extends Component {
             )
             {
                 return(
-                    <li key={mod.id}>
-                    <span>
-                        {/* {mod.subject.code} - {mod.subject.name} */}
-                    </span>
-                    <span><button  class="themeBtn4" onClick = {(this.getISModules.bind(this, mod.id))}>add</button></span>
-
-                    </li>
-                );
+                    <tr>
+                        <td >
+                            <div key={mod.id}>
+                                {mod.subject.code} - {mod.subject.name}
+                            </div>
+                        </td>
+                    </tr>
+                )
             }
             else{
 
@@ -141,7 +135,7 @@ class UpdateProfile extends Component {
                         <span>
                             {mod.subject.code} - {mod.subject.name}
                         </span>
-                        <span><button  class="themeBtn4" onClick = {(this.Unenroll.bind(this, mod.id))}>remove</button></span>
+                        <span><button onClick = {(e)=>this.Unenroll(mod.id,e)}></button></span>
 
                     </li>
                 );
@@ -191,7 +185,7 @@ class UpdateProfile extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <label>Register Number</label>
+                                    <label>Reg No</label>
                                 </div>
                                 <div className="col-md-6">
                                     <p>{this.state.currentUser.userDetails.regNo}</p>
@@ -226,7 +220,7 @@ class UpdateProfile extends Component {
 
                     <hr/>
                     <div className="row">
-                        <div>Enrolled Modules
+                        <div> Enrolled Modules
                             {mod}
                         </div>
 
@@ -248,10 +242,10 @@ class UpdateProfile extends Component {
                     </div>
 
                 </form>
-            </div>
-            </div>
-        );
+            </div></div>
+
+        )
     }
 }
 
-export default UpdateProfile
+export default AdminUpdateProfile

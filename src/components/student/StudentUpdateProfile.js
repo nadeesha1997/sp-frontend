@@ -3,9 +3,12 @@ import '../css/StudentProfile.css'
 //import Student from './data/profile.json'
 import AuthService from "../../services/auth.service";
 import axios from "axios";
+import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
+import HomepageNavbar from "../TimeTable/HomepageNavbar";
+import {Nav} from "../Nav";
 //<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
 
-class UpdateProfile extends Component {
+class StudentUpdateProfile extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -19,6 +22,24 @@ class UpdateProfile extends Component {
             iSModules:[]
         };
         this.getModules();
+        /*this.getInitialState();*/
+
+
+    }
+
+   /* getInitialState = () => ({
+        data: {
+            Semester: "",
+        },
+
+    });*/
+
+    updateDate = data => {
+        this.setState({
+            date: data
+        })
+        //this.props.updateDate(data)
+        // console.log(this.state)
     }
     componentDidMount() {
         this.getModules();
@@ -136,6 +157,9 @@ class UpdateProfile extends Component {
             }
         });
         return (
+            <div className="page">
+                <HomepageNavbar updateDate={this.updateDate}/>
+                <Nav/>
             <div className="container emp-profile col-md-6">
                 <form method="post">
                     <div className="container">
@@ -171,7 +195,7 @@ class UpdateProfile extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <label>Reg No</label>
+                                    <label>Register Number</label>
                                 </div>
                                 <div className="col-md-6">
                                     <p>{this.state.currentUser.userDetails.regNo}</p>
@@ -229,9 +253,9 @@ class UpdateProfile extends Component {
 
                 </form>
             </div>
-
-        )
+            </div>
+        );
     }
 }
 
-export default UpdateProfile
+export default StudentUpdateProfile

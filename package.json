@@ -37,6 +37,7 @@
     "react-transition-group": "^2.9.0",
     "react-validation": "^3.0.7",
     "reactstrap": "^8.7.1",
+    "rxjs": "^6.6.6",
     "validator": "^13.5.2",
     "web-vitals": "^0.2.4"
   },
