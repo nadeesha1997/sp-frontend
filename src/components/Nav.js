@@ -32,15 +32,17 @@ function Nav() {
                         </NavLink>
 
                         {profileData==="Student" &&
-                        <NavLink to="/student/StudentTimetable" className="nav-item nav-link">
+
+                        <NavLink to="Home" className="nav-item nav-link">
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
                         {profileData==="Lecturer" &&
-                        <NavLink to="/lecturer/LecturerTimetable" className="nav-item nav-link">
+                        <NavLink to="Home" className="nav-item nav-link">
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
                         {profileData ==="Admin" &&
-                        <NavLink to="/admin/AdminTimetable" className="nav-item nav-link">
+                        <NavLink to="Home" className="nav-item nav-link">
+
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
 

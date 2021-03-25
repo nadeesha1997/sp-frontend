@@ -1,38 +1,17 @@
 import React,{Component} from "react";
 import {Button, Image} from "react-bootstrap";
-import '../css/home.css'
-import logo2 from "../../images/logo2.png";
-import CalendarNew from "../calendar/calendarNew";
-import {Navbar} from 'react-bootstrap';
-import {Link} from "react-router-dom";
-import FirstPage from "../FirstPage";
+import './css/home.css'
+import logo2 from "../images/logo2.png";
+const Navigation = () => {
+    return (
 
-class HomepageNavbar extends Component{
-    constructor(props) {
-        super(props);
-        let now = new Date();
-        this.state={
-            date:now
-        }
-    }
-    updateDate = data => {
-        this.setState({
-            date: data
-        })
-        this.props.updateDate(data)
-        // console.log(this.state)
-    }
-    render() {
-        return (
 
             <div className="App">
 
                 <div className="navbar-color">
                     <nav  className="navbar navbar-expand-lg navbar-fixed-top" >
                         <Image img src={logo2} alt="logo"  width={300} height={150}/>
-
                         <div className="text1">
-
                             <ul>
                                 <li>
                                     <h5><b>FACULTY OF ENGINEERING</b></h5>
@@ -54,18 +33,15 @@ class HomepageNavbar extends Component{
                             </li>
                         </ul>*/}
                         </div>
-                       {/* <div className="cols-lg-12 col-md-4 col-sm-12">*/}
-                            <div  className="locate">
-                                <CalendarNew updateDate={this.updateDate}/>
-                            </div>
-                       {/* </div>*/}
+                        {/* <div className="cols-lg-12 col-md-4 col-sm-12">*/}
+
+                        {/* </div>*/}
                     </nav>
                 </div>
 
             </div>
         );
-    }
 
 }
 
-export default HomepageNavbar;
+export default Navigation;
