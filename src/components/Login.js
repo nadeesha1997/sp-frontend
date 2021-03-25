@@ -131,33 +131,32 @@ class Login extends Component{
                         />
                     </div>
 
-                    <div className="form-group">
-                        <button style={{width:150,height:40,backgroundColor:'#440151',marginTop:5,marginLeft:130}}
+
+                        <button  style={{width:150,height:40,backgroundColor:'#440151',marginTop:5,marginLeft:130}}
                                 className="btn btn-primary btn-block"
                                 disabled={this.state.loading}
                         >
                             {this.state.loading && (
-                                <span className="spinner-border spinner-border-sm"></span>
+                                <span  className="spinner-border spinner-border-sm"></span>
                             )}
                             Login
-
                         </button>
 
-
+                    <div className="form-group">
                         <Link className="lin"  href="#" variant="body2" >
                             <Link to="./Reset/ResetPassword">   Forgot password?</Link>
                         </Link>
 
                         <p  className="lin"> Don't have an account?
                             <Link to="./Register">
-                                {"Register Here"}
+                                {"  Register Here"}
                             </Link></p>
 
 
                     </div>
 
                     {this.state.message && (
-                        <div className="form-group">
+                        <div  className="form-group">
                             <div className="alert alert-danger" role="alert">
                                 {this.state.message}
                             </div>

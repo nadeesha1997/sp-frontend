@@ -13,6 +13,9 @@ import config from "./config";
 import HomepageNavbar from "./TimeTable/HomepageNavbar";
 const colors = config.chartColors;
 
+let profileData;
+// const a={text:"abc"}
+export {profileData};
 
 const Header = {
     padding: "10px 20px",
@@ -35,6 +38,7 @@ class Dashboard extends React.Component {
         let now = new Date();
         this.state = {
             currentUser: AuthService.getCurrentUser(),
+
             date:now,
 
             donut: {
@@ -66,9 +70,9 @@ class Dashboard extends React.Component {
                             },
                         },
                         data: [
-                            { value: 16, name: "LT1/LT2" },
-                            { value: 6, name: "NLH1/NLH2" },
-                            { value: 7, name: "LR1/LR2" },
+                            { value: 24, name: "LT1/LT2" },
+                            { value: 7, name: "NLH1/NLH2" },
+                            { value: 8, name: "LR1/LR2" },
                             { value: 3, name: "DO1/DO2" },
                             { value: 3, name: "Other" },
                         ],
@@ -151,6 +155,7 @@ class Dashboard extends React.Component {
         })
         //this.props.updateDate(data)
         // console.log(this.state)
+        profileData=this.state.currentUser.userDetails.role;
     }
     render() {
 
@@ -158,13 +163,18 @@ class Dashboard extends React.Component {
             <div className="page">
 
                 <HomepageNavbar updateDate={this.updateDate}/>
-                <Nav/>
+                {/*this.props.navigation.navigate("./Nav", {profileData})*/}
+                <Nav />
+
                 <div style={col} ></div>
+
                 <h3>
-                    {
+                {this.state.currentUser.userDetails.role} Dashboard
+                    {/*{
                         this.state.currentUser.userDetails.role
-                    } Dashboard
+                    } Dashboard*/}
                 </h3>
+
                 <h1 align="center">Graphical visualization of lecture venues </h1>
                 <div style={col}></div>
                 <img src={map} align="right" id='map' class="map" useMap="#image-map" alt="map"/>
@@ -251,8 +261,38 @@ class Dashboard extends React.Component {
                             <th className="hidden-sm-down">Info</th>
                             <th className="hidden-sm-down">Occupancy</th>
                             <th className="hidden-sm-down">Status</th>
-                        </tr>
-                        </thead>
+                        </tr></thead>
+                        {/*</thead>
+                          <tbody>
+                               {this.state.tableStyles.map((row) => (
+                                 <tr key={row.id}>
+                                    <td>{row.id}</td>
+                                      <td><img className="img-rounded" src={row.picture} alt="" height="100"/></td>
+                                          <td>{row.description}{row.label && (
+                                          <div><Badge color={row.label.colorClass}>{row.label.text}</Badge></div>)}
+                                     </td>
+                    <td>
+                        <p className="mb-0">
+                            <small>
+                                Usage:
+                                <span className="text-white fw-semi-bold">
+                              &nbsp; {row.info.Usage}
+                            </span>
+                            </small>
+                        </p>
+                        <p className="mb-0">
+                            <small>
+                                Area:
+                                <span className="text-white fw-semi-bold">
+                              &nbsp; {row.info.Area}
+                            </span>
+                            </small>
+                        </p>
+                        <p className="mb-0">
+                            <small>
+                                Other:
+                                <span className="text-white fw-semi-bold">*/}
+
                         <tbody>
                         {this.state.tableStyles.map((row) => (
                             <tr key={row.id}>
@@ -265,7 +305,7 @@ class Dashboard extends React.Component {
                                     <p className="mb-0">
                                         <small>
                                             Usage:
-                                            <span className="text-muted fw-semi-bold">
+                                            <span className="text-white fw-semi-bold">
                               &nbsp; {row.info.Usage}
                             </span>
                                         </small>
@@ -273,7 +313,7 @@ class Dashboard extends React.Component {
                                     <p className="mb-0">
                                         <small>
                                             Area:
-                                            <span className="text-muted fw-semi-bold">
+                                            <span className="text-white fw-semi-bold">
                               &nbsp; {row.info.Area}
                             </span>
                                         </small>
@@ -281,7 +321,7 @@ class Dashboard extends React.Component {
                                     <p className="mb-0">
                                         <small>
                                             Other:
-                                            <span className="text-muted fw-semi-bold">
+                                            <span className="text-white fw-semi-bold">
                               &nbsp; {row.info.Other}
                             </span>
                                         </small>
@@ -315,10 +355,20 @@ class Dashboard extends React.Component {
                                 option={this.state.donut}
                                 style={{ height:"250px"}}>
                             </ReactEcharts>
-                        </p>
+                            Last modified : 2021/03/25
+                            <div></div>
+                            {profileData==="Student" &&
+                            <button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Add your preference here</b></a></button>
+                            }
+                            {/*<div>Add your preference here</div>
+                            <div></div>
+                            <button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Click me</b></a></button>
+                        */}</p>
                     </Col>
                 </div>
             </div>
+
+
         );
     }
 }

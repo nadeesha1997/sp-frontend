@@ -160,9 +160,8 @@ class AdminRegisterForm extends Component {
                             </div>
                         </FormGroup>
 
-                        <div className="col-sm-12">
-                            <Button className="btn-block" style={{backgroundColor: '#440151',fontFamily:'Arial'}}>
-
+                        <div className="col-sm-2">
+                            <Button className="btn-block" style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginLeft:250}}>
                                 Register
                             </Button>
                         </div>

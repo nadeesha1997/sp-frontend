@@ -40,20 +40,21 @@ class RegistrationNavbar extends React.Component {
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <a className="nav-link">
-                                <Button style={{
+                                You are not logged in.<Button style={{
                                     width: 150,
                                     backgroundColor: '#440151',
-                                    marginTop: 0,
+                                  /*  marginTop: 5,*/
                                     marginLeft: 20,
                                     marginRight: 10
                                 }} type='submit'>
+
                                     <Link to="/Login"><b>Log In</b> </Link>
                                 </Button>
                                 {/*<span className="fa fa-sign-in"/> <Link to="./Login">Login</Link>*/}
                             </a>
-                            <a className="navbar-brand   mb-.2">
+                           {/* <a className="navbar-brand   mb-.2">
                                 <h6>You are not log in.</h6>
-                            </a>
+                            </a>*/}
                         </li>
                     </ul>
 

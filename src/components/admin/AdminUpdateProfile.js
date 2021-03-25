@@ -7,7 +7,7 @@ import HomepageNavbar from "../TimeTable/HomepageNavbar";
 import {Nav} from "../Nav";
 //<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
 
-class UpdateProfile extends Component {
+class AdminUpdateProfile extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -22,6 +22,7 @@ class UpdateProfile extends Component {
         };
         this.getModules();
     }
+
     updateDate = data => {
         this.setState({
             date: data
@@ -29,6 +30,7 @@ class UpdateProfile extends Component {
         //this.props.updateDate(data)
         // console.log(this.state)
     }
+
     componentDidMount() {
         this.getModules();
         this.getISModules();
@@ -183,7 +185,7 @@ class UpdateProfile extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-md-6">
-                                    <label>Register Number</label>
+                                    <label>Reg No</label>
                                 </div>
                                 <div className="col-md-6">
                                     <p>{this.state.currentUser.userDetails.regNo}</p>
@@ -240,10 +242,10 @@ class UpdateProfile extends Component {
                     </div>
 
                 </form>
-            </div>
-            </div>
-        );
+            </div></div>
+
+        )
     }
 }
 
-export default UpdateProfile
+export default AdminUpdateProfile

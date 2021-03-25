@@ -175,6 +175,14 @@ class ModuleDrop extends Component{
         this.getMod();
     }
 
+    if(){
+        this.setState({
+            reserved:true
+
+        })
+    }
+
+
     render() {
         // console.log("value is")
         // console.log(this.props.module(this.state.StartDateTime,this.state.EndDateTime))
@@ -184,8 +192,9 @@ class ModuleDrop extends Component{
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
                 onClick={()=>{this.parentCallback(this.checkBooked)}}>
-                {this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red"}}><p>{this.state.smodule.subject.code}</p></div>}
-            </div>
+                {this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}
+
+                           </div>
         )
     }
 }

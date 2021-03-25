@@ -9,7 +9,6 @@ import { Table } from 'react-bootstrap';
 
 
 
-
 class LecturerProfile extends Component {
     constructor(props) {
         super(props);
@@ -217,7 +216,7 @@ class LecturerProfile extends Component {
                         </Table>
                         <div align="center" className="col-md-4">
                             <button  type="submit" className="profile-edit-btn" name="btnAddMore" value="Update Profile">
-                                <Link to="./UpdateProfile">{"Update profile"}</Link>
+                                <Link to="./LecturerUpdateProfile">{"Update profile"}</Link>
                             </button>
                         </div>
                     </div>
