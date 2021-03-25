@@ -44,14 +44,28 @@ class ModuleDrop extends Component{
     }
     static getDerivedStateFromProps(props, state){
         let stime = moment(props.date).format('YYYY-MM-DD') + "T" + props.startTime
-        let etime = moment(props.date).format('YYYY-MM-DD') + "T" + props.endTime
+        let etime = moment(props.date).format('YYYY-MM-DD') + "T" + props.EndTime
+        let reservedhall=false;
+        let module=null;
+        //////
+        if(props.sessions.length!=0){
+            props.sessions.forEach(session=>{
+                if((moment(session.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=stime)&&((moment(session.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=etime))&&session.hallId.toString()===props.hallid){
+                    module=session;
+                    reservedhall=true;
+                    //console.log("smodule"+this.state.smodule.subject.code)
+                }
+            })
+        }
+        //////
          return(
             {
                 dailyModules:props.sessions,
                 date:props.date,
                 StartDateTime:moment(props.date).format('YYYY-MM-DD') + "T" + props.startTime,
                 EndDateTime:moment(props.date).format('YYYY-MM-DD') + "T" + props.EndTime,
-                // smodule: getSmodule()
+                smodule: module,
+                reserved:reservedhall
             }
         )
 
@@ -104,6 +118,8 @@ class ModuleDrop extends Component{
                     //console.log("smodule"+this.state.smodule.subject.code)
                 }
                 this.forceUpdate(()=>this.parentCallback(()=>this.forceUpdate()));
+                this.parentCallback(this.checkBooked);
+                this.parentCallback(this.checkBooked);
             })
         }
     }
