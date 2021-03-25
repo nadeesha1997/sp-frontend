@@ -16,6 +16,7 @@ import LecturerProfile from './components/lecturer/LecturerProfile';
 import AdminProfile from './components/admin/AdminProfile';
 
 import Home from './components/Home'
+
 import FirstPage from './components/FirstPage'
 import TimeTable from "./components/TimeTable/TimeTable";
 import SubjectList from "./components/TimeTable/SubjectList";
@@ -26,7 +27,7 @@ import UpdateProfile from "./components/student/UpdateProfile";
 /*
 import ProfileNew from "./components/student/ProfileNew";
 */
-
+import ResetPassword from "./components/Reset/ResetPassword";
 
 class App extends Component {
     render() {
@@ -50,6 +51,7 @@ class App extends Component {
                     <Route path= '/timetable' component={TimeTable}/>
                     <Route path= '/ModuleDrop' component={ModuleDrop}/>
                     <Route path='/moduleenrolement' component={ModuleEnrolement}/>
+                    <Route path='/Reset/ResetPassword' component={ResetPassword}/>
 
                     <Route path= '/Student/UpdateProfile' component={UpdateProfile}/>
                     {/*<Route path= '/Student/ProfileNew' component={ProfileNew}/>*/}

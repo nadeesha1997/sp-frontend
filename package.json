@@ -6,15 +6,14 @@
     "@fullcalendar/daygrid": "^5.5.0",
     "@fullcalendar/react": "^5.5.0",
     "@material-ui/icons": "^4.11.2",
+    "@sentry/browser": "^6.2.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@wojtekmaj/react-timerange-picker": "^3.0.0",
     "af-virtual-scroll": "^2.5.5",
-
     "aria-query": "^4.2.2",
     "bootstrap": "^4.5.3",
-
     "echarts": "^5.0.2",
     "echarts-for-react": "^3.0.1",
     "formik": "^2.2.6",
@@ -68,6 +67,7 @@
   },
   "devDependencies": {
     "@material-ui/core": "^4.11.2",
+    "aws-amplify": "^3.3.25",
     "axios": "^0.21.1",
     "images": "^3.2.3",
     "react-animated-text": "^0.1.4"
