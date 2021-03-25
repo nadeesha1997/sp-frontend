@@ -30,9 +30,7 @@ class HomepageNavbar extends Component{
                 <div className="navbar-color">
                     <nav  className="navbar navbar-expand-lg navbar-fixed-top" >
                         <Image img src={logo2} alt="logo"  width={300} height={150}/>
-
                         <div className="text1">
-
                             <ul>
                                 <li>
                                     <h5><b>FACULTY OF ENGINEERING</b></h5>
@@ -53,12 +51,17 @@ class HomepageNavbar extends Component{
                                 </Button>
                             </li>
                         </ul>*/}
+
                         </div>
-                       {/* <div className="cols-lg-12 col-md-4 col-sm-12">*/}
-                            <div  className="locate">
+                        {/* <div className="cols-lg-12 col-md-4 col-sm-12">*/}
+
+                            {/*<div>
                                 <CalendarNew updateDate={this.updateDate}/>
-                            </div>
-                       {/* </div>*/}
+                            </div>*/}
+
+                        {/* </div>*/}
+
+
                     </nav>
                 </div>
 
