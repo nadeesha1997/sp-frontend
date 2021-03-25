@@ -356,10 +356,10 @@ class Dashboard extends React.Component {
                                 style={{ height:"250px"}}>
                             </ReactEcharts>
                             Last modified : 2021/03/25
-                            <div>Add your preference here</div>
                             <div></div>
-                            <button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Click me</b></a></button>
-                        </p>
+                            {profileData==="Student" &&
+                            <button style={{fontFamily:'Arial',width:150,backgroundColor:'#150037',marginTop:10,marginLeft:20,marginright:20}}><a href="https://forms.gle/KtdthhJRvhVcSKai9"><b>Add your preference here</b></a></button>
+                            }</p>
                     </Col>
                 </div>
             </div>
