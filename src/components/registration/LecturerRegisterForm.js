@@ -66,8 +66,10 @@ class LecturerRegisterForm extends Component {
                 });
             //Resetting the form
             this.setState(this.getInitialState());
+            alert("Registration successful! please logging in")
         } else {
             this.setState({ errors });
+            alert("Registration is not successful! Please register again")
         }
     };
 
@@ -122,13 +124,26 @@ class LecturerRegisterForm extends Component {
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="DepartmentID">DepartmentID : </Label>
-                                <Input
+                                <Label for="DepartmentID">Department ID : </Label>
+                                {"\n"}
+                                <select
+                                    style={{width: `${(8*data.DepartmentID.length) + 50}px`}}
+                                    value={data.DepartmentID}
+                                    onChange={this.handleChange}
+                                    invalid={!!errors.DepartmentID}
+                                    name="DepartmentID">
+                                    <option value=""></option>
+                                    <option value="1">EIE</option>
+                                    <option value="2">CEE</option>
+                                    <option value="3">MME</option>
+                                    <option value="4">IS</option>
+                                </select>
+                                {/*<Input
                                     value={data.DepartmentID}
                                     invalid={!!errors.DepartmentID}
                                     name="DepartmentID"
                                     onChange={this.handleChange}
-                                />
+                                />*/}
                                 <FormFeedback>{errors.DepartmentID}</FormFeedback>
                             </div>
                         </FormGroup>

@@ -1,15 +1,21 @@
-import React, { Component } from "react";
+//the code needed to use the Component class, excluding the rest of React(for less typing)
+import React, { Component } from "react";//***
+//Javascript library used to make HTTP requests from node. js
 import axios from "axios";
+// library contains React Bootstrap 4 components that favor composition and control
 import { Form,Input, Label, FormGroup, FormFeedback, Button,} from "reactstrap";
 
 
+//here less typing bcz of ***
 class StudentRegisterForm extends Component {
+   //method used to initialize an object's state in a class
     constructor(props) {
+        //super(props) would call the React that would pass props to the parent constructor
         super(props);
 
         this.state = this.getInitialState();
     }
-
+// ES6 standard Arrow function use so no need to bind 'this' inside the constructor
     getInitialState = () => ({
         data: {
             RegNo: "",
@@ -42,6 +48,9 @@ class StudentRegisterForm extends Component {
         if (data.RegNo === "") errors.RegNo = "Student_ID can not be blank.";
         if (data.FullName === "") errors.FullName = "Full_Name can not be blank.";
         if (data.email === "") errors.email = " Email can not be blank.";
+       /* if (data.email !== "/^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/")
+       errors.email = " Email is invalid";
+        */
         if (data.DepartmentID === "") errors.DepartmentID = "DepartmentID can not be blank.";
         if (data.password === "") errors.password = "Password must be valid.";
         if (data.confirmPassword !== data.password)
@@ -66,10 +75,15 @@ class StudentRegisterForm extends Component {
                 });
             //Resetting the form
             this.setState(this.getInitialState());
+            alert("Registration successful! please logging in")
         } else {
             this.setState({ errors });
+            alert("Registration is not successful! Please register again")
         }
+
     };
+
+
 
     render() {
         const { data, errors } = this.state;
@@ -120,13 +134,26 @@ class StudentRegisterForm extends Component {
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="DepartmentID">DepartmentID : </Label>
-                                <Input
+                                <Label for="DepartmentID">Department ID : </Label>
+                                {"\n"}
+                                <select
+                                    style={{width: `${(8*data.DepartmentID.length) + 50}px`}}
+                                    value={data.DepartmentID}
+                                    onChange={this.handleChange}
+                                    invalid={!!errors.DepartmentID}
+                                    name="DepartmentID">
+                                    <option value=""/>
+                                    <option value="1">EIE</option>
+                                    <option value="2">CEE</option>
+                                    <option value="3">MME</option>
+                                    <option value="4">IS</option>
+                                </select>
+                                {/*<Input
                                     value={data.DepartmentID}
                                     invalid={!!errors.DepartmentID}
                                     name="DepartmentID"
                                     onChange={this.handleChange}
-                                />
+                                />*/}
                                 <FormFeedback>{errors.DepartmentID}</FormFeedback>
                             </div>
                         </FormGroup>

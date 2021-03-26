@@ -14,7 +14,6 @@ import HomepageNavbar from "./TimeTable/HomepageNavbar";
 const colors = config.chartColors;
 
 let profileData;
-// const a={text:"abc"}
 export {profileData};
 
 const Header = {
@@ -34,13 +33,12 @@ class Dashboard extends React.Component {
     userDetails;
 
     constructor(props) {
+
         super(props);
         let now = new Date();
         this.state = {
             currentUser: AuthService.getCurrentUser(),
-
             date:now,
-
             donut: {
                 tooltip: {trigger: "item", formatter: "{a} <br/>{b}: {c} ({d}%)",},
                 legend: {show: false,},
@@ -151,10 +149,8 @@ class Dashboard extends React.Component {
     }
     updateDate = data => {
         this.setState({
-            date: data
-        })
-        //this.props.updateDate(data)
-        // console.log(this.state)
+            date: data})
+        //console.log(this.props)
         profileData=this.state.currentUser.userDetails.role;
     }
     render() {
@@ -163,16 +159,11 @@ class Dashboard extends React.Component {
             <div className="page">
 
                 <HomepageNavbar updateDate={this.updateDate}/>
-                {/*this.props.navigation.navigate("./Nav", {profileData})*/}
                 <Nav />
-
                 <div style={col} ></div>
 
                 <h3>
                 {this.state.currentUser.userDetails.role} Dashboard
-                    {/*{
-                        this.state.currentUser.userDetails.role
-                    } Dashboard*/}
                 </h3>
 
                 <h1 align="center">Graphical visualization of lecture venues </h1>
