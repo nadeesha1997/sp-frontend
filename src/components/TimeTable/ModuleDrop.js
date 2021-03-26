@@ -192,8 +192,9 @@ class ModuleDrop extends Component{
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
                 onClick={()=>{this.parentCallback(this.checkBooked)}}>
-                {this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}
-
+                {/*{this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}*/}
+                {this.state.reserved&&this.state.Permitted&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}
+                {this.state.reserved&&!this.state.Permitted&&this.state.smodule&&<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}
                            </div>
         )
     }

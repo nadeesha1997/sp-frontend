@@ -74,7 +74,7 @@ class TimeTable extends Component{
 
                 <div className="row">
                  <div className="col-lg-12 col-md-6">
-                    <div className="calendar">
+                    <div className="cale">
 
                     <CalendarNew updateDate={this.updateDate} sessions={this.getSessions}/>
                     </div>
