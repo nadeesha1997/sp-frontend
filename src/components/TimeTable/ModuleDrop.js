@@ -30,6 +30,7 @@ class ModuleDrop extends Component{
         this.setStartDateTime=this.setStartDateTime.bind(this)
         this.setEndDateTime=this.setEndDateTime.bind(this)
         this.getMod=this.getMod.bind(this);
+        //this.updateMod=this.updateMod.bind(this);
         // this.getMod();
     }
     updateDate=()=>{
@@ -43,18 +44,50 @@ class ModuleDrop extends Component{
     }
     static getDerivedStateFromProps(props, state){
         let stime = moment(props.date).format('YYYY-MM-DD') + "T" + props.startTime
-        let etime = moment(props.date).format('YYYY-MM-DD') + "T" + props.endTime
-         return(
+        let etime = moment(props.date).format('YYYY-MM-DD') + "T" + props.EndTime
+        let reservedhall=false;
+        let module=null;
+        //////
+        if(props.sessions.length!=0){
+            props.sessions.forEach(session=>{
+                if((moment(session.startDateTime).format("YYYY-MM-DD[T]HH:mm:ss")<=stime)&&((moment(session.endDateTime).format("YYYY-MM-DD[T]HH:mm:ss")>=etime))&&session.hallId.toString()===props.hallid){
+                    module=session;
+                    reservedhall=true;
+                    //console.log("smodule"+this.state.smodule.subject.code)
+                }
+            })
+        }
+        //////
+        return(
             {
                 dailyModules:props.sessions,
                 date:props.date,
                 StartDateTime:moment(props.date).format('YYYY-MM-DD') + "T" + props.startTime,
                 EndDateTime:moment(props.date).format('YYYY-MM-DD') + "T" + props.EndTime,
-                // smodule: getSmodule()
+                smodule: module,
+                reserved:reservedhall
             }
         )
 
     }
+    // updateMod=()=>{
+    //     let stime = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.startTime
+    //     let etime = moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime
+    //     axios.get("https://localhost:5001/api/sessions/"+stime+"/"+etime+"/"+this.props.hallid)
+    //         .then(res=>{
+    //             if(res.data!=null){
+    //                 let arr=this.state.dailyModules.push(res.data);
+    //                 this.setState({
+    //                     smodule:res.data,
+    //                     reserved:true,
+    //                     dailyModules:arr
+    //                 })
+    //             }
+    //             console.log()
+    //
+    //         })
+    //         .then(()=>this.forceUpdate())
+    // }
 
     getMod=()=>{
         this.setState({
@@ -85,6 +118,8 @@ class ModuleDrop extends Component{
                     //console.log("smodule"+this.state.smodule.subject.code)
                 }
                 this.forceUpdate(()=>this.parentCallback(()=>this.forceUpdate()));
+                this.parentCallback(this.checkBooked);
+                this.parentCallback(this.checkBooked);
             })
         }
     }
@@ -127,7 +162,7 @@ class ModuleDrop extends Component{
             EndDateTime:moment(this.props.date).format('YYYY-MM-DD') + "T" + this.props.EndTime,
             Permitted:false,
             UserId:this.state.UserId,
-            reserved:false,
+            reserved:true,
         }
         axios.post("https://localhost:5001/api/sessions",data)
             .then(res=>console.log(res))
@@ -158,17 +193,20 @@ class ModuleDrop extends Component{
         console.log("id is"+id)
         this.setState({
             SubjectId:ev.dataTransfer.getData("id")
-        },()=>{this.forceUpdate(()=>{this.sendData()})})
+        },()=>{this.forceUpdate(()=>{this.sendData();
+            this.checkBooked()})})
         console.log('dragdrop:',this.state);
-        //this.checkBooked();
-        this.sendData();
+        this.checkBooked();
+        //this.sendData();
         this.getMod();
+        // this.updateMod();
         this.forceUpdate()
-        this.props.rerender();
+        // this.props.rerender();
         this.parentCallback(this.checkBooked);
+        this.forceUpdate()
     }
     componentDidMount() {
-        // this.checkBooked();
+        this.checkBooked();
         this.updateDate()
         this.setStartDateTime()
         this.setEndDateTime();
@@ -184,7 +222,9 @@ class ModuleDrop extends Component{
                 onDragOver={(e)=>this.onDragOver(e)}
                 onDrop={(e)=>this.onDrop(e, "complete")}
                 onClick={()=>{this.parentCallback(this.checkBooked)}}>
-                {this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red"}}><p>{this.state.smodule.subject.code}</p></div>}
+                {/*{this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}*/}
+                {this.state.reserved&&this.state.Permitted&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}
+                {this.state.reserved&&!this.state.Permitted&&this.state.smodule&&<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}
             </div>
         )
     }

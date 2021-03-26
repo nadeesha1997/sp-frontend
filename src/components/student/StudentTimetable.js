@@ -56,14 +56,14 @@ class StudentTimetable extends Component {
                 <h3>
                     {this.state.currentUser.userDetails.role} Timetable
                 </h3>
-                <div className="col col-lg-2 col-md-2 col-sm-2 container-fluid">
-                    <div className="row">
-                        <SubjectList getModuleId={this.getSelectedModule}/>
-                    </div>
+                {/*<div className="col col-lg-2 col-md-2 col-sm-2 container-fluid">*/}
+                {/*    <div className="row">*/}
+                {/*        <SubjectList getModuleId={this.getSelectedModule}/>*/}
+                {/*    </div>*/}
 
-                </div>
+                {/*</div>*/}
                 <div className="row">
-                    <div className="col col-lg-12 col-md-12 col-sm-12">
+                    <div className="col col-lg-12 col-md-12 col-sm-12" style={{marginTop:'60px'}}>
                         <TimeTable date={this.state.date}/>
                     </div>
 

@@ -30,17 +30,24 @@ function Nav() {
                         <NavLink to="/Dashboard" className="nav-item nav-link">
                                <Icon icon={home} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Dashboard
                         </NavLink>
+                        {/*<NavLink to="/student/StudentProfile" className="nav-item nav-link">*/}
+                        {/*    Profile*/}
+                        {/*</NavLink>}*/}
+                        {/*<NavLink to="Home" className="nav-item nav-link">*/}
+                        {/*    <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable*/}
+                        {/*</NavLink>}*/}
 
                         {profileData==="Student" &&
                         <NavLink to="/student/StudentTimetable" className="nav-item nav-link">
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
                         {profileData==="Lecturer" &&
-                        <NavLink to="/lecturer/LecturerTimetable" className="nav-item nav-link">
+                        <NavLink to="Home" className="nav-item nav-link">
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
                         {profileData ==="Admin" &&
-                        <NavLink to="/admin/AdminTimetable" className="nav-item nav-link">
+                        <NavLink to="Home" className="nav-item nav-link">
+
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
 
@@ -116,9 +123,7 @@ function Nav() {
                         </NavLink>*/}
                         {/*{user.role===Role.Student &&
 
-                    <NavLink to="/student/StudentProfile" className="nav-item nav-link">
-                        Profile
-                    </NavLink>}
+
 
                 {profileData==="Lecturer" &&
                     <NavLink to="/lecturer/LecturerProfile" className="nav-item nav-link">
