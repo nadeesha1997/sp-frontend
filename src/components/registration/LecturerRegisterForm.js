@@ -42,7 +42,7 @@ class LecturerRegisterForm extends Component {
         if (data.RegNo === "") errors.RegNo = "Lecturer_ID can not be blank.";
         if (data.FullName === "") errors.FullName = "Full_Name can not be blank.";
         if (data.email === "") errors.email = " Email can not be blank.";
-        if (data.DepartmentID === "") errors.DepartmentID = "DepartmentID can not be blank.";
+        if (data.DepartmentID === "") errors.DepartmentID = "Department can not be blank.";
         if (data.password === "") errors.password = "Password must be valid.";
         if (data.confirmPassword !== data.password)
             errors.confirmPassword = "Passwords must match.";
@@ -124,7 +124,7 @@ class LecturerRegisterForm extends Component {
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="DepartmentID">Department ID : </Label>
+                                <Label for="DepartmentID">Department  : </Label>
                                 {"\n"}
                                 <select
                                     style={{width: `${(8*data.DepartmentID.length) + 50}px`}}

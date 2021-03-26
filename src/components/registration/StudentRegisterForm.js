@@ -51,7 +51,7 @@ class StudentRegisterForm extends Component {
        /* if (data.email !== "/^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/")
        errors.email = " Email is invalid";
         */
-        if (data.DepartmentID === "") errors.DepartmentID = "DepartmentID can not be blank.";
+        if (data.DepartmentID === "") errors.DepartmentID = "Department can not be blank.";
         if (data.password === "") errors.password = "Password must be valid.";
         if (data.confirmPassword !== data.password)
             errors.confirmPassword = "Passwords must match.";
@@ -134,7 +134,7 @@ class StudentRegisterForm extends Component {
 
                         <FormGroup>
                             <div className="col-sm-12">
-                                <Label for="DepartmentID">Department ID : </Label>
+                                <Label for="DepartmentID">Department  : </Label>
                                 {"\n"}
                                 <select
                                     style={{width: `${(8*data.DepartmentID.length) + 50}px`}}

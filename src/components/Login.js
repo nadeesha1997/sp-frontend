@@ -52,7 +52,8 @@ class Login extends Component{
         e.preventDefault();
 
         this.setState({
-            message: "Successfully log in",
+            /*message: "Successfully log in",*/
+            message: "",
             loading: true
         });
 
@@ -63,6 +64,7 @@ class Login extends Component{
                 () => {
                     this.props.history.push("Dashboard");
                     window.location.reload();
+                    alert("Successfully logging in")
                 },
                 error => {
                     const resMessage =
@@ -76,6 +78,7 @@ class Login extends Component{
                         loading: false,
                         message: resMessage
                     });
+                    alert("Please try again")
                 }
             );
         } else {

@@ -118,7 +118,7 @@ class LecturerProfile extends Component {
                                 <div className="profile-img">
                                     <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" alt=""/>
                                     <div className="file btn btn-lg btn-primary">
-                                        Upload Photo
+                                              Upload Photo
                                         <input type="file" name="file"/>
                                     </div>
                                 </div>
