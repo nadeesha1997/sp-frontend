@@ -24,6 +24,7 @@ import ModuleEnrolement from "./components/admin/moduleEnrolement";
 import StudentUpdateProfile from "./components/student/StudentUpdateProfile";
 
 import HomepageNavbar from "./components/TimeTable/HomepageNavbar";
+import StudentTimetable from "./components/student/StudentTimetable";
 // /*
 // import ProfileNew from "./components/student/ProfileNew";
 // */
@@ -54,8 +55,7 @@ class App extends Component {
                     <Route path='/moduleenrolement' component={ModuleEnrolement}/>
 
                     <Route path= '/Student/UpdateProfile' component={StudentUpdateProfile}/>
-
-                    {/*<Route path= '/Student/ProfileNew' component={ProfileNew}/>*/}
+                    <Route path='/student/StudentTimetable' component={StudentTimetable}/>
                 </div>
             </BrowserRouter>
         );
