@@ -4,6 +4,7 @@ import SubjectList from "./TimeTable/SubjectList";
 import TimeTable from "./TimeTable/TimeTable";
 import {Nav} from "./Nav"
 import Navigation from "./Navigation";
+import Usage from "./TimeTable/Usage";
 
 // const col = {
 //     padding: "10px 20px",
@@ -57,6 +58,7 @@ class Home extends Component {
                         <TimeTable date={this.state.date}/>
 
                 </div>
+
 
             </div>
 

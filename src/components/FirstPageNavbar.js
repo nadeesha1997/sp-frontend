@@ -14,7 +14,7 @@ const FirstPageNavbar= () => {
         <div className="navbar-color">
             <nav  className="navbar navbar-expand-lg navbar-fixed-top n" >
 
-                <Image img src={logo2} alt="logo"  width={300} height={150} margin={5}/>
+
                 <div className="text">
                     <ul>
                         <li>

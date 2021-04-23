@@ -4,6 +4,7 @@ import ModuleDrop from "./ModuleDrop";
 import axios from "axios";
 import moment from "moment";
 import CalendarNew from "../calendar/calendarNew";
+import Usage from "./Usage";
 
 class TimeTable extends Component{
     constructor(props) {
@@ -301,6 +302,9 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
+                </div>
+                <div className="Usage">
+                    <Usage/>
                 </div>
             </div>
         )

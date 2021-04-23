@@ -74,7 +74,7 @@ export default class StudentList extends React.Component {
             <div style={{margin: '50px'}}><table>
                 <div style={{width: '100%'}}>
 
-<td>
+                          <td>
                     <div className="bottom_right">
 
                         <div className="custom-select">
