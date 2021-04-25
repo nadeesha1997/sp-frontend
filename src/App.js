@@ -29,12 +29,14 @@ import AdminUpdateProfile from "./components/admin/AdminUpdateProfile";
 
 import HomepageNavbar from "./components/TimeTable/HomepageNavbar";
 
-import StudentTimetable from "./components/student/StudentTimetable"
-import AdminTimetable from "./components/admin/AdminTimetable"
-import LecturerTimetable from "./components/lecturer/LecturerTimetable"
+import StudentTimetable from "./components/student/StudentTimetable";
+import AdminTimetable from "./components/admin/AdminTimetable";
+import LecturerTimetable from "./components/lecturer/LecturerTimetable";
 // /*
 // import ProfileNew from "./components/student/ProfileNew";
 // */
+
+
 
 
 class App extends Component {
@@ -80,6 +82,8 @@ class App extends Component {
         );
     }
 }
+
+
 
 
 export default App;

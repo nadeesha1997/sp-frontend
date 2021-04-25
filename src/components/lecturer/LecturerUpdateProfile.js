@@ -2,6 +2,10 @@ import React,{Component} from 'react';
 import '../css/StudentProfile.css'
 //import Student from './data/profile.json'
 import AuthService from "../../services/auth.service";
+
+import { ListViewComponent } from '@syncfusion/ej2-react-lists';
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
+
 import axios from "axios";
 import HomepageNavbar from "../TimeTable/HomepageNavbar";
 import {Nav} from "../Nav";
@@ -10,7 +14,11 @@ import {Nav} from "../Nav";
 class LecturerUpdateProfile extends Component {
     constructor(props){
         super(props);
+
+        this.listobj = null;
+
         this.state = {
+            selectedItemsValue: [],
             currentUser: AuthService.getCurrentUser(),
             modules:[],
             // enrolablemodules:{
@@ -18,10 +26,23 @@ class LecturerUpdateProfile extends Component {
             //     iSModules:[]
             // }
             departmentModules:[],
-            iSModules:[]
+            iSModules:[],
+            iSModulesAll:[]
         };
-        this.getModules();
+        // this.getModules();
+
+        this.getISModulesAll();
     }
+
+    getSelectedItems() {
+        if (this.listobj) {
+            console.log(this.listobj)
+            // this.setState({
+            //     selectedItemsValue: this.listobj.getSelectedItems().data
+            // });
+        }
+    }
+
     updateDate = data => {
         this.setState({
             date: data
@@ -41,7 +62,6 @@ class LecturerUpdateProfile extends Component {
                 this.setState({
                     modules:res.data
                 })
-                console.log(res.data)
             }).then(console.log(this.state))
     }
     getEnrolableModules=()=>{
@@ -82,6 +102,34 @@ class LecturerUpdateProfile extends Component {
             });
             // .then( res => {console.log(res.data)})
             // .then(err=>console.log(err))
+    }
+
+    getISModulesAll=()=>{
+        axios.get("https://localhost:5001/api/subjects")
+            .then(res=>{
+                this.setState({
+                    iSModulesAll:res.data
+                })
+                console.log(res.data)
+                console.log("start ****************************************************")
+                console.log(typeof res.data)
+                console.log("****************************************************")
+                const abc = [
+                    { text: "Hennessey Venom", id: "list-01" },
+                    { text: "Bugatti Chiron", id: "list-02", isChecked: true },
+                    { text: "Bugatti Veyron Super Sport", id: "list-03" },
+                    { text: "SSC Ultimate Aero", id: "list-04", isChecked: true },
+                    { text: "Koenigsegg CCR", id: "list-05" },
+                    { text: "McLaren F1", id: "list-06" },
+                    { text: "Aston Martin One- 77", id: "list-07", isChecked: true },
+                    { text: "Jaguar XJ220", id: "list-08" }
+                ];
+                console.log(typeof abc)
+                console.log("end ****************************************************")
+            });
+    }
+    selectionChange=(item)=>{
+        console.log(item.name);
     }
 
     render () {
@@ -152,12 +200,13 @@ class LecturerUpdateProfile extends Component {
                 </div>)
             }
         });
+        /*const listobj=null;*/
         return (
             <div className="page">
                 <HomepageNavbar updateDate={this.updateDate}/>
                 <Nav/>
             <div className="container emp-profile col-md-6">
-                <form method="post">
+                <form>
                     <div className="container">
                         <div className="row">
                             <div className="col-md-4 col"></div>
@@ -213,24 +262,91 @@ class LecturerUpdateProfile extends Component {
                                     <p>{this.state.currentUser.userDetails.departmentId}</p>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <label>Semester</label>
-                                </div>
-                                <div className="col-md-6">
-                                    <p>{this.state.currentUser.userDetails.semester}</p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
-                    <hr/>
+                {/*  button tags */}
+                </form>
+
+                <hr/>
+
+                <div>
                     <div className="row">
-                        <div>Enrolled Modules
-                            {mod}
+                        <div> Available Modules
+                            {dept}
+                            {Isdept}
+                        </div>
+                    </div>
+                    <li>
+                        {this.state.iSModulesAll.map(item => {
+                            return([<ul><h5 ><input type="checkbox"
+                                                    id={item.id}
+                                                    name={item.name}
+                                                    value={item.code}
+                                                    onChange={this.selectionChange.bind(item)} />
+                            </h5>
+                                <label htmlFor={item.name}> {"  -  "}  {item.code}_ {item.name}</label></ul>]);})}
+                    </li>
+
+
+                    {/*<ListViewComponent id="list"*/}
+                    {/*                  dataSource=*/}
+                    {/*                      {this.state.iSModulesAll.map(item => {*/}
+                    {/*    return([<input type="checkbox" id={item.id} name="vehicle1" value={item.id} />,*/}
+                    {/*        <label htmlFor="vehicle1">{item.name}</label>]);*/}
+                    {/*})}*/}
+                    {/*                   />*/}
+
+                    {/*<ListViewComponent id="list"*/}
+                    {/*                   dataSource={this.state.iSModulesAll.map(i => ({*/}
+                    {/*                       text:i.name,*/}
+                    {/*                       id: i.id,*/}
+                    {/*                       isChecked: true*/}
+                    {/*                   }))}*/}
+
+                    {/*    // showCheckBox={true}*/}
+                    {/*    //checkBoxPosition="left"*/}
+
+                    {/*    //             ref={scope => {this.listobj = scope;}}*/}
+                    {/*/>*/}
+                    {/*<ButtonComponent id="btn" onClick={this.getSelectedItems.bind(this)}>*/}
+                    {/*    Get Selected Items*/}
+                    {/*</ButtonComponent>*/}
+
+                </div>
+
+                <ButtonComponent id="btn" onClick={this.getSelectedItems.bind(this)}>
+                    Get Selected Items
+                </ButtonComponent>
+
+                <hr/>
+
+                <div className="row">
+                    <div>Selected Modules
+                        {mod}
+
+                        <div>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <div className="col-md-4 col"><th>Text</th></div>
+                                    <div className="row-cols-md-12 col"><th>Id</th></div>
+                                </tr>
+
+                                {this.state.selectedItemsValue.map((item, index) => {
+                                    return (<tr key={index}>
+                                        <td>{item.text}</td>
+                                        <td>{item.id}</td>
+                                    </tr>);
+                                })}
+                                </tbody>
+                            </table>
                         </div>
 
-                        {/* <Table className="table table-borderless StudentDetails">
+                    </div>
+
+                    {/* <Table className="table table-borderless StudentDetails">
                             <tr>
                                 <th>
                                     Enrolled Modules
@@ -238,20 +354,17 @@ class LecturerUpdateProfile extends Component {
                             </tr>
                             {mod}
                         </Table> */}
-                    </div>
-                    <hr/>
-                    <div className="row">
-                        <div> Enrollable Modules
-                            {dept}
-                            {Isdept}
-                        </div>
-                    </div>
+                </div>
 
-                </form>
             </div>
             </div>
         )
+
+
+
     }
 }
 
 export default LecturerUpdateProfile
+
+

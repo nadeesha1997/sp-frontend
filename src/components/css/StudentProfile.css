@@ -1,3 +1,4 @@
+/* html tags */
 body{
     /*background: -webkit-linear-gradient(left, #3931af, #00c6ff)}*/
     background-color: #ffffff;}
@@ -127,8 +128,22 @@ body{
 	border-radius:100px;
 
 }
+
+/* html className (.) */
 .themeBtn4:hover {
     background: rgb(0, 110, 255);
     color: #ffffff;
     box-shadow: 0 10px 25px -2px rgba(0, 110, 255, 0.6);
+}
+
+/* html id (#) */
+#list {
+    display: block;
+    max-width: 400px;
+    margin: auto;
+    border: 1px solid darkred;
+    border-radius: 3px;
+}
+#btn, #val {
+    margin-top:30px;
 }

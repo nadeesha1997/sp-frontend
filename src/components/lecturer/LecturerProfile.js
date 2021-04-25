@@ -1,15 +1,22 @@
-import React,{Component} from 'react';
+import React,{Component,useState,useEffect} from 'react';
 import {Nav} from '../Nav';
 import '../css/Profile.css'
 import AuthService from "../../services/auth.service";
 import axios from "axios";
 import HomepageNavbar from "../TimeTable/HomepageNavbar";
 import {Link} from "react-router-dom";
-import { Table } from 'react-bootstrap';
+import  { Table } from 'react-bootstrap';
+
+
+import { FormGroup, Label} from 'reactstrap';
+
 
 
 
 class LecturerProfile extends Component {
+
+
+
     constructor(props) {
         super(props);
         let now = new Date();
@@ -73,6 +80,9 @@ class LecturerProfile extends Component {
             }).then(console.log(this.state))
     }
     render () {
+
+
+
         const mod = this.state.modules.map((mod) => {
             return (
                 <li>
@@ -104,6 +114,9 @@ class LecturerProfile extends Component {
         //         </tr>
         //     );
         // });
+
+
+
         return (
             <div className="page">
                 <HomepageNavbar updateDate={this.updateDate}/>
@@ -118,8 +131,12 @@ class LecturerProfile extends Component {
                                 <div className="profile-img">
                                     <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" alt=""/>
                                     <div className="file btn btn-lg btn-primary">
-                                              Upload Photo
-                                        <input type="file" name="file"/>
+                                        <FormGroup>
+                                            <Label for="exampleFile">Upload Photo</Label>
+                                        </FormGroup>
+                                        <input type="file" name="file" id="exampleFile" accept="image/*" className="form-control-file"
+                                        onChange="showPreview"/>
+
                                     </div>
                                 </div>
                             </div>
