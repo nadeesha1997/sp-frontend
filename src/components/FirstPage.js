@@ -11,7 +11,7 @@ import faculty4 from "../images/faculty4.jpg";
 import faculty5 from "../images/faculty5.jpg";
 import faculty6 from "../images/faculty6.jpg";
 import FirstPageNavbar from "./FirstPageNavbar";
-import Footer from "./footer";
+import Footer from "./sidebar-test/Footer";
 
 const FirstPage = () => {
     return (
