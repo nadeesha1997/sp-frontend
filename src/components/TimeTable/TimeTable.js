@@ -304,7 +304,7 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                 </div>
                 <div className="Usage">
-                    <Usage/>
+                    <Usage date={this.state.date}/>
                 </div>
             </div>
         )
