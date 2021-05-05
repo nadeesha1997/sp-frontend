@@ -51,32 +51,32 @@ class Dashboard extends React.Component {
                     colors.red,
                     colors.purple],
                 series: [
-                    {
-                        name: "Likelihood",
-                        type: "pie",
-                        radius: ["50%", "70%"],
-                        avoidLabelOverlap: false,
-                        label: {
-                            normal: {
-                                show: false,
-                                position: "center",
-                            },
-                            emphasis: {
-                                show: true,
-                                textStyle: {
-                                    fontSize: "20",
-                                    fontWeight: "bold",
+                            {
+                                name: "Likelihood",
+                                type: "pie",
+                                radius: ["50%", "70%"],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    normal: {
+                                        show: false,
+                                        position: "center",
+                                    },
+                                    emphasis: {
+                                        show: true,
+                                        textStyle: {
+                                            fontSize: "20",
+                                            fontWeight: "bold",
+                                        },
+                                    },
                                 },
+                                data: [
+                                    { value: 24, name: "LT1/LT2" },
+                                    { value: 7, name: "NLH1/NLH2" },
+                                    { value: 8, name: "LR1/LR2" },
+                                    { value: 3, name: "DO1/DO2" },
+                                    { value: 3, name: "Other" },
+                                ],
                             },
-                        },
-                        data: [
-                            { value: 24, name: "LT1/LT2" },
-                            { value: 7, name: "NLH1/NLH2" },
-                            { value: 8, name: "LR1/LR2" },
-                            { value: 3, name: "DO1/DO2" },
-                            { value: 3, name: "Other" },
-                        ],
-                    },
                 ],
             },
 
