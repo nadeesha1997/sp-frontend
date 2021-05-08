@@ -2,7 +2,7 @@
 .react-calendar {
     width: 300px;
     max-width: 100%;
-    background: #c894ea;
+    background: #eeecef;
     border: 1px solid #1c1c1a;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.15em;
@@ -33,6 +33,7 @@
     margin: 0;
     border: 0;
     outline: none;
+  /*  background: #27cda5;*/
 }
 .react-calendar button:enabled:hover {
     cursor: pointer;

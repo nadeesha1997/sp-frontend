@@ -224,7 +224,7 @@ class ModuleDrop extends Component{
                 onClick={()=>{this.parentCallback(this.checkBooked)}}>
                 {/*{this.state.reserved&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}*/}
                 {this.state.reserved&&this.state.Permitted&&this.state.smodule&&<div style={{backgroundColor: "red", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}
-                {this.state.reserved&&!this.state.Permitted&&this.state.smodule&&<div style={{backgroundColor: "yellow", marginTop:"1"}}><p>{this.state.smodule.subject.code}</p></div>}
+                {this.state.reserved&&!this.state.Permitted&&this.state.smodule&&<div style={{backgroundColor: "yellow", marginTop:"-10px",marginBottom:"-60px"}}><p>{this.state.smodule.subject.code}</p></div>}
             </div>
         )
     }

@@ -28,8 +28,7 @@ const FirstPageNavbar= () => {
                     <td>
 
                         <div className="align">
-                            <Button  style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:45,marginRight:20}} type='submit' >
-
+                            <Button  style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:400,marginRight:20}} type='submit' >
                                 <Link to="./Login"><b>LOG IN</b>  </Link>
                             </Button>
                             <Button style={{width:180,backgroundColor:'#440151',marginTop:10,marginLeft:40,marginRight:20}} type='submit'>

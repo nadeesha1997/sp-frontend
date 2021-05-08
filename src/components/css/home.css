@@ -1,7 +1,7 @@
 .page{
     /*background-color: #cc8bf3;*/
     color: #3f285a;
-    background: linear-gradient(to bottom, #e79bc4 0%, #9d06cd 100%);
+    background: linear-gradient(to bottom, #f5eff2 0%, #f5f2f6 100%);
     text-align: center;
 
 }
@@ -91,7 +91,8 @@
 
 .locate{
 
-    margin-left: 95px;
+    margin-left: 200px;
+    margin-right: -950px;
 
 
 }

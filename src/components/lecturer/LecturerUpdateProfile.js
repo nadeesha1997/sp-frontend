@@ -3,7 +3,7 @@ import '../css/StudentProfile.css'
 //import Student from './data/profile.json'
 import AuthService from "../../services/auth.service";
 
-import { ListViewComponent } from '@syncfusion/ej2-react-lists';
+//import { ListViewComponent } from '@syncfusion/ej2-react-lists';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 
 import axios from "axios";
