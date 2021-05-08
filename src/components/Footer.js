@@ -6,9 +6,9 @@ import {
     Column,
     FooterLink,
     Heading,
-} from "../FooterStyles";
+} from "./FooterStyles";
 import {Image} from "react-bootstrap";
-import logo2 from "../../images/logo2.png";
+import logo2 from "../images/logo2.png";
 
 const Footer = () => {
     return (

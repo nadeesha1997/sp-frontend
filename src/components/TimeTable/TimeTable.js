@@ -98,7 +98,6 @@ class TimeTable extends Component{
                     <div className="grid-item" hallid="14">CLR</div>
                     <div className="grid-item" hallid="15">MLR</div>
                     <div className="grid-item" hallid="16">IS-SEMINAR</div>
-                    <div className="grid-item" hallid="17">ONLINE-LECTURE</div>
                     <div className="grid-item">7.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="07:30:00" EndTime="08:30:00" date={this.state.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="07:30:00" EndTime="08:30:00" date={this.state.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -116,7 +115,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="07:30:00" EndTime="08:30:00" date={this.state.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="07:30:00" EndTime="08:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">8.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="08:30:00" EndTime="09:30:00" date={this.state.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="08:30:00" EndTime="09:30:00" date={this.state.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -134,7 +132,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender} /></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="08:30:00" EndTime="09:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">9.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="09:30:00" EndTime="10:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="09:30:00" EndTime="10:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -151,7 +148,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="13" startTime="09:30:00" EndTime="10:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="09:30:00" EndTime="10:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="09:30:00" EndTime="10:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="16" startTime="09:30:00" EndTime="10:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="09:30:00" EndTime="10:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">10.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="10:30:00" EndTime="11:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -170,7 +166,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="10:30:00" EndTime="11:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="10:30:00" EndTime="11:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="10:30:00" EndTime="11:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="10:30:00" EndTime="11:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">11.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="11:30:00" EndTime="12:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="11:30:00" EndTime="12:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -188,7 +183,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="11:30:00" EndTime="12:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="11:30:00" EndTime="12:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="11:30:00" EndTime="12:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="11:30:00" EndTime="12:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">12.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="12:30:00" EndTime="13:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="12:30:00" EndTime="13:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -206,7 +200,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="12:30:00" EndTime="13:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="12:30:00" EndTime="13:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="12:30:00" EndTime="13:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="12:30:00" EndTime="13:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">1.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="13:30:00" EndTime="14:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="13:30:00" EndTime="14:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -224,7 +217,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="13:30:00" EndTime="14:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="13:30:00" EndTime="14:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="13:30:00" EndTime="14:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="13:30:00" EndTime="14:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">2.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="14:30:00" EndTime="15:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="14:30:00" EndTime="15:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -242,7 +234,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="14:30:00" EndTime="15:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="14:30:00" EndTime="15:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="14:30:00" EndTime="15:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="14:30:00" EndTime="15:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">3.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="15:30:00" EndTime="16:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="15:30:00" EndTime="16:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -260,7 +251,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="15:30:00" EndTime="16:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="15:30:00" EndTime="16:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="15:30:00" EndTime="16:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="15:30:00" EndTime="16:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">4.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="16:30:00" EndTime="17:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="16:30:00" EndTime="17:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -278,7 +268,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="16:30:00" EndTime="17:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="16:30:00" EndTime="17:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="16:30:00" EndTime="17:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="16:30:00" EndTime="17:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">5.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="17:30:00" EndTime="18:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="17:30:00" EndTime="18:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -296,7 +285,6 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="17:30:00" EndTime="18:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="17:30:00" EndTime="18:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="17:30:00" EndTime="18:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="17:30:00" EndTime="18:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item">6.30</div>
                     <div className="grid-item"><ModuleDrop hallid="1" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="2" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
@@ -314,9 +302,7 @@ class TimeTable extends Component{
                     <div className="grid-item"><ModuleDrop hallid="14" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="15" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                     <div className="grid-item"><ModuleDrop hallid="16" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
-                    <div className="grid-item"><ModuleDrop hallid="17" startTime="18:30:00" EndTime="19:30:00" date={this.props.date} sessions={this.state.sessions} rerender={this.rerender}/></div>
                 </div>
-
                 <div className="Usage">
                     <Usage date={this.state.date}/>
                 </div>

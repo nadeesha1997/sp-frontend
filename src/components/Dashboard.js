@@ -10,7 +10,7 @@ import {Col,Table,Badge,} from "reactstrap";
 
 import ReactEcharts from "echarts-for-react";
 import config from "./config";
-import HomepageNavbar from "./TimeTable/HomepageNavbar";
+import Navigation from "./Navigation";
 const colors = config.chartColors;
 
 let profileData;
@@ -162,7 +162,7 @@ class Dashboard extends React.Component {
         return (
             <div className="page">
 
-                <HomepageNavbar updateDate={this.updateDate}/>
+                <Navigation updateDate={this.updateDate}/>
                 {/*this.props.navigation.navigate("./Nav", {profileData})*/}
                 <Nav />
 

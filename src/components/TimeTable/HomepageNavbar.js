@@ -56,11 +56,7 @@ class HomepageNavbar extends Component{
                             </li>
                         </ul>*/}
                     </div>
-                    <div className="cols-lg-12 col-md-4 col-sm-12">
-                        <div className="locate">
-                        <CalendarNew updateDate={this.updateDate}/>
-                        </div>
-                    </div>
+
                 </nav>
             </div>
 

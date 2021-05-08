@@ -47,10 +47,21 @@ function Nav() {
                         </NavLink>}
                         {profileData ==="Admin" &&
                         <NavLink to="Home" className="nav-item nav-link">
-
                             <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Timetable
                         </NavLink>}
+                        {profileData==="Student" &&
+                        <NavLink to="OnlineLec" className="nav-item nav-link">
+                            <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Online lectures
+                        </NavLink>}
+                        {profileData==="Lecturer" &&
+                        <NavLink to="OnlineLec" className="nav-item nav-link">
+                            <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Online lectures
+                        </NavLink>}
+                        {profileData ==="Admin" &&
+                        <NavLink to="OnlineLec" className="nav-item nav-link">
 
+                            <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>Online lectures
+                        </NavLink>}
                         {profileData==="Student" &&
                         <NavLink to="/student/StudentProfile" className="nav-item nav-link">
                             <Icon icon={user_circle} style={{ color: '#e379e7', alignSelf: 'center'}}/>Profile
@@ -92,24 +103,7 @@ function Nav() {
                     }*/}
                 {/*<NavLink to="/Dashboard" className="nav-item nav-link">*/}
                 {/*    <Icon icon={home} style={{ color: '#e379e7', alignSelf: 'center'}}/>*/}
-                {/*    /!*{Dashboard.state.currentUser.userDetails.role}   *!/*/}
-                {/*    Dashboard2*/}
-                {/*</NavLink>*/}
-
-               {/* {profileData=== "Student" &&
-                // {true &&
-                  <NavLink to="/student/StudentTimetable" className="nav-item nav-link">
-                      <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Time Table
-                  </NavLink>}
-
-                {profileData==="Lecturer"  &&
-                  <NavLink to="/lecturer/LecturerTimetable" className="nav-item nav-link">
-                      <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Time Table
-                  </NavLink>}
-                {profileData ==="Admin"  &&
-                  <NavLink to="/admin/AdminTimetable" className="nav-item nav-link">
-                      <Icon icon={notepad} style={{ color: '#e379e7', alignSelf: 'center'}}/>  Time Table
-                  </NavLink>}*/}
+                {/*    /!*{Dashboard.state.currentUser.userDetails.role}
 
 
                           {/*{profileData=== "Student" &&

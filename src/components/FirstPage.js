@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import './css/FirstPage.css'
 
@@ -11,9 +11,28 @@ import faculty4 from "../images/faculty4.jpg";
 import faculty5 from "../images/faculty5.jpg";
 import faculty6 from "../images/faculty6.jpg";
 import FirstPageNavbar from "./FirstPageNavbar";
-import Footer from "./sidebar-test/Footer";
+import Footer from "./Footer";
+import CalendarNew from "./calendar/calendarNew";
+import {Button, Card} from "@material-ui/core";
 
-const FirstPage = () => {
+
+    class FirstPage extends Component{
+    constructor(props) {
+        super(props);
+        let now = new Date();
+        this.state={
+            date:now
+        }
+    }
+    updateDate = data => {
+        this.setState({
+            date: data
+        })
+        //this.props.updateDate(data)
+        // console.log(this.state)
+    }
+
+        render() {
     return (
         <div className="page">
             <FirstPageNavbar/>
@@ -94,6 +113,29 @@ const FirstPage = () => {
 
 
 
+                  <div className="Container">
+                <div className="row">
+                    <div className="col-lg-6 col-md-6">
+                        <CalendarNew updateDate={this.updateDate}/>
+                    </div>
+                    <div className="Col">Academic Timetable</div>
+                </div>
+
+            </div>
+
+              {/*<div>*/}
+            {/*<Card style={{ width: '18rem' }}>*/}
+            {/*    <Card.Img variant="top" src="holder.js/100px180" />*/}
+            {/*    <Card.Body>*/}
+            {/*        <Card.Title>Card Title</Card.Title>*/}
+            {/*        <Card.Text>*/}
+            {/*            Some quick example text to build on the card title and make up the bulk of*/}
+            {/*            the card's content.*/}
+            {/*        </Card.Text>*/}
+            {/*        <Button variant="primary">Go somewhere</Button>*/}
+            {/*    </Card.Body>*/}
+            {/*</Card>*/}
+            {/*</div>*/}
 
            {/* <div className="contact1">
                 <dl>
@@ -111,7 +153,7 @@ const FirstPage = () => {
 
 
 
-}
+}}
 
 
 

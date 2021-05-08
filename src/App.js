@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import StudentProfile from './components/student/StudentProfile';
 import LecturerProfile from './components/lecturer/LecturerProfile';
 import AdminProfile from './components/admin/AdminProfile';
-import Footer from  './components/sidebar-test/Footer'
+import Footer from './components/Footer'
 import Home from './components/Home'
 import FirstPage from './components/FirstPage'
 import TimeTable from "./components/TimeTable/TimeTable";
@@ -26,6 +26,8 @@ import StudentUpdateProfile from "./components/student/StudentUpdateProfile";
 import HomepageNavbar from "./components/TimeTable/HomepageNavbar";
 import StudentTimetable from "./components/student/StudentTimetable";
 import HomeNew from "./components/sidebar-test/HomeNew";
+import OnlineLec from "./components/TimeTable/OnlineLec";
+
 // /*
 // import ProfileNew from "./components/student/ProfileNew";
 // */
@@ -49,7 +51,6 @@ class App extends Component {
                     <Route path= '/Lecturer/LecturerProfile' component={LecturerProfile}/>
                     <Route path= '/Admin/AdminProfile' component={AdminProfile}/>
                     <Route path= '/Home' component={Home}/>
-                    <Route path= '/Login' component={Login}/>
                     <Route path= '/SubjectList' component={SubjectList}/>
                     <Route path= '/timetable' component={TimeTable}/>
                     <Route path= '/ModuleDrop' component={ModuleDrop}/>
@@ -57,6 +58,9 @@ class App extends Component {
                     <Route path='/homenew' component={HomeNew}/>
                     <Route path= '/Student/UpdateProfile' component={StudentUpdateProfile}/>
                     <Route path='/student/StudentTimetable' component={StudentTimetable}/>
+                    <Route path='/OnlineLec' component={OnlineLec}/>
+
+                    <Route path= '/Login' component={Login}/>
                     <Footer/>
                 </div>
             </BrowserRouter>

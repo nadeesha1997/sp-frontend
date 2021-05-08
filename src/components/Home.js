@@ -3,8 +3,9 @@ import './css/home.css'
 import SubjectList from "./TimeTable/SubjectList";
 import TimeTable from "./TimeTable/TimeTable";
 import {Nav} from "./Nav"
-import Navigation from "./Navigation";
+import HomepageNavbar from "./TimeTable/HomepageNavbar";
 import Usage from "./TimeTable/Usage";
+//import HomepageNavbar from "./TimeTable/HomepageNavbar";
 
 // const col = {
 //     padding: "10px 20px",
@@ -44,7 +45,7 @@ class Home extends Component {
     render() {
         return (
             <div className="page">
-                <Navigation/>
+                <HomepageNavbar/>
                 {/*<HomepageNavbar updateDate={this.updateDate}/>*/}
                 <Nav/>
                <div className="row">

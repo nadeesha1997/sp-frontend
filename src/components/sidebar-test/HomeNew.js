@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {NavigationBar} from "./NavigationBar";
 import Sidebar from "./Sidebar";
-import Footer from "./Footer";
+import Footer from "../Footer";
 import {Home} from "./Home";
 
 function HomeNew() {

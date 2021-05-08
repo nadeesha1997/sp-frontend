@@ -34,10 +34,10 @@
     font-size: medium;
 }
 
-.text{
+.tex{
     color: #c384e7;
     text-align: left;
-    margin-left:2px;
+    margin-right:-120px;
     margin-top: 20px;
     margin-bottom: 0px;
     font-weight: bolder;
@@ -89,14 +89,13 @@
     margin-left: 700px;
 }
 
-.locate{
-
-    margin-left: 200px;
-    margin-right: -950px;
+.calendar-location{
+    margin-top: -130px;
+    margin-left: 920px;
+    margin-right: -1500px;
 
 
 }
-
 
 
 .App {
