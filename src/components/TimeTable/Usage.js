@@ -57,7 +57,6 @@ export default class Usage extends React.Component {
                             },
                         },
                         data: [
-                            //{value:sessiondata.value},
 
 
                         //    {value:(this.sessiondata)[0].value},
